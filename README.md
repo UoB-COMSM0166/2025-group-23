@@ -40,8 +40,8 @@ Add a group photo here!
 |    2   | Yu-Hsin Chang      | mh24718@bristol.ac.uk | Frontend Developer |
 |    3   | Gioven Posa        | kw24347@bristol.ac.uk | Backend Developer |
 |    4   | Tzu-Wei Lee        | jj24506@bristol.ac.uk | Backend Developer |
-|    5   | Kotzamanidis Nikos | yy24148@bristol.ac.uk | Scrum Master |
-|    6   | Shabarish Menon    | xh24681@bristol.ac.uk | Dev Ops Lead |
+|    5   | Kotzamanidis Nikos | yy24148@bristol.ac.uk | Dev Ops Lead |
+|    6   | Shabarish Menon    | xh24681@bristol.ac.uk | Scrum Master |
 
 
 ## Project Report
