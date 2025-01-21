@@ -10,15 +10,15 @@ Your game lives in the [/docs](/docs) folder, and is published using Github page
 Include a demo video of your game here (you don't have to wait until the end, you can insert a work in progress video)
 
 # Table of Contents
-* [1. Development Team](#development-team)
-* [2. Introduction](#introduction)
-* [3. Requirements](#requirements)
-* [4. Design](#design)
-* [5. Implementation](#implementation)
-* [6. Evaluation](#evaluation)
-* [7. Process](#process)
-* [8. Conclusion](#conclusion)
-* [9. References](#references)
+* [1. Development Team](#1-development-team)
+* [2. Introduction](#2-introduction)
+* [3. Requirements](#3-requirements)
+* [4. Design](#4-design)
+* [5. Implementation](#5-implementation)
+* [6. Evaluation](#6-evaluation)
+* [7. Process](#7-process)
+* [8. Conclusion](#8-conclusion)
+* [9. References](#9-references)
 
 # 1. Development Team
 
