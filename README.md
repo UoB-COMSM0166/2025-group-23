@@ -9,7 +9,18 @@ Your game lives in the [/docs](/docs) folder, and is published using Github page
 
 Include a demo video of your game here (you don't have to wait until the end, you can insert a work in progress video)
 
-**MEET THE TEAM:**
+# Table of Contents
+* [1. Development Team](#development-team)
+* [2. Introduction](#introduction)
+* [3. Requirements](#requirements)
+* [4. Design](#design)
+* [5. Implementation](#implementation)
+* [6. Evaluation](#evaluation)
+* [7. Process](#process)
+* [8. Conclusion](#conclusion)
+* [9. References](#references)
+
+# 1. Development Team
 
 Add a group photo here!
 
@@ -26,28 +37,28 @@ Add a group photo here!
 
 ## Project Report
 
-### Introduction
+# 2. Introduction
 
 - 5% ~250 words 
 - Describe your game, what is based on, what makes it novel? 
 
-### Requirements 
+# 3. Requirements 
 
 - 15% ~750 words
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop? 
 
-### Design
+# 4. Design
 
 - 15% ~750 words 
 - System architecture. Class diagrams, behavioural diagrams. 
 
-### Implementation
+# 5. Implementation
 
 - 15% ~750 words
 
 - Describe implementation of your game, in particular highlighting the three areas of challenge in developing your game. 
 
-### Evaluation
+# 6. Evaluation
 
 - 15% ~750 words
 
@@ -57,17 +68,19 @@ Add a group photo here!
 
 - Description of how code was tested. 
 
-### Process 
+# 7. Process 
 
 - 15% ~750 words
 
 - Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together. 
 
-### Conclusion
+# 8. Conclusion
 
 - 10% ~500 words
 
-- Reflect on project as a whole. Lessons learned. Reflect on challenges. Future work. 
+- Reflect on project as a whole. Lessons learned. Reflect on challenges. Future work.
+
+# 9. References  
 
 ### Contribution Statement
 
