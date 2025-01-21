@@ -35,13 +35,13 @@ Add a group photo here!
 
 
 | MEMBER | NAME | EMAIL | ROLE | 
-|--------|----------------|------------------------|------|
-|    1   | Gioven Posa        | kw24347@bristol.ac.uk | - | 
-|    2   | Ching-Yueh Lin     | xs24198@bristol.ac.uk | - |
-|    3   | Yu-Hsin Chang      | mh24718@bristol.ac.uk | - |
-|    4   | Tzu-Wei Lee        | jj24506@bristol.ac.uk | - |
-|    5   | Kotzamanidis Nikos | yy24148@bristol.ac.uk | - |
-|    6   | Shabarish Menon    | xh24681@bristol.ac.uk | - |
+|--------|----------------|------------------------|------| 
+|    1   | Ching-Yueh Lin     | xs24198@bristol.ac.uk | Frontend Developer |
+|    2   | Yu-Hsin Chang      | mh24718@bristol.ac.uk | Frontend Developer |
+|    3   | Gioven Posa        | kw24347@bristol.ac.uk | Backend Developer |
+|    4   | Tzu-Wei Lee        | jj24506@bristol.ac.uk | Backend Developer |
+|    5   | Kotzamanidis Nikos | yy24148@bristol.ac.uk | Scrum Master |
+|    6   | Shabarish Menon    | xh24681@bristol.ac.uk | Dev Ops Lead |
 
 
 ## Project Report
