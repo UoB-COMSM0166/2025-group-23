@@ -1,6 +1,15 @@
 # 2025-group-23
 2025 COMSM0166 group 23
 
+# Week 1: Game Selection Phase 1
+
+| Game | Description |
+|------|-------------|
+| Doodle Jump | ----|
+| Flappy Bird | --- |
+
+# Week 2: Paint Prototype
+
 ## Your Game
 
 Link to your game [PLAY HERE](https://peteinfo.github.io/COMSM0166-project-template/)
