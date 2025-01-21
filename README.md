@@ -3,10 +3,22 @@
 
 # Week 1: Game Selection Phase 1
 
+During this week, our game selection process began. Our goal is to create a game that calls back to classic games in the past but brings another level of fun, fresh and challenging. Therefore, it was important for each members in the group to bring together 2 already existing games each, with their added twist to them. In our meeting, it was our responsbility to discuss some development challenges we, as developers, could face during production. A summary of some of our game ideas are listed below with their brief description. 
+
 | Game | Description |
 |------|-------------|
-| Doodle Jump | ----|
-| Flappy Bird | --- |
+| Tetris | -- |
+| Bounce | -- |
+| Fallpy Bird | -- |
+| Snake Game | -- |
+| Doodle Jump | -- |
+| Cat vs Dog | -- |
+| Temple Run | -- |
+| Breakeout | -- |
+| Crossy Road | -- |
+| Escape Prison | -- |
+| Tower Defence | -- | 
+
 
 # Week 2: Paint Prototype
 
