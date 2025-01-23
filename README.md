@@ -42,14 +42,17 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 
 # 1. Development Team!
 
-<div style="text-align: center;"> 
+
 **Figure 1** <br>
-*Team Photo Week 1 and Team Roles* <br>
-![group-photo](https://github.com/user-attachments/assets/952104b9-0f84-49b4-865f-34dcd6f87cc4) <br>
+*Team 
+Photo Week 1 and Team Roles* <br>
+
+![group-photo](https://github.com/user-attachments/assets/79a87075-6bd9-479d-9a72-46a2aba1fafd)<br>
 <br>
+
 **Table 1** <br>
-*Team member roles, from Left to Right in Figure 1*
-</div>
+*Team member roles, from Left to Right in Figure 1* 
+
 
 | MEMBER | NAME | EMAIL | ROLE | 
 |--------|----------------|------------------------|------| 
