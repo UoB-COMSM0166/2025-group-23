@@ -3,10 +3,21 @@
 
 # Week 1: Game Selection Phase 1
 
+During this week, our game selection process began. Our goal is to create a game that calls back to classic games in the past but brings another level of fun, freshness and challenges. Therefore, it was important for each members in the group to bring together 2 already existing games each, with their added twist to them. In our meeting, it was our responsbility to discuss potential development challenges we, as developers, could face during production. A summary of some of our game ideas are listed below with their brief description. 
+
 | Game | Description |
 |------|-------------|
-| Doodle Jump | ----|
-| Flappy Bird | --- |
+| Tetris | Tetris begins with an empty screen, and requires the player to fit falling blocks together. <br> **- Twist:** there will be two players competing against each other, player 1 will have the ability to change the shape of the blocks falling in player 2's screen, vice versa. <br> **- Development Challenges:** server creation; check matching and deletion of blocks. |
+| Bounce | The original bounce game is a platform game revolving around the player controlling a red ball and navigating through levels and obstacles.. <br> **- Twist:** Imagine a new bounce game where the maps includes different terrain such as water, wind, and ice. <br> **- Development Challenge:** hard coding multiple maps of the game with different game objects and their properties. |
+| Flappy Bird | The premise of Flappy Bird's endless runner game is simple: tap the screen to navigate a bird character object through the gaps between pipes without hitting them. <br> **- Twist:** the addition of different weather and terrain can add combinations of wind, rain, obstacles and power ups, affecting the birds movement. <br> **- Development Challenges:** developing different movement mechanics according to different weather types. |
+| Snake Game | In the game of Snake, the player usually use the arrow keys to move a "snake" around the board. As the snake finds food, it eats the food, and thereby grows larger. The game ends when the snake either moves off the screen or moves into itself. <br> **- Twist:** Imagine a board where every 30 seconds, sections of the floor fall and the snake has to traverse the map without falling. <br> **- Development Challenges:** random map generator for map generation; adding new parts of the snake at the tail. |
+| Doodle Jump | In the classic Doodle Jump game, player must guide a creature up an endless series of platforms without falling out of the screen. <br> **- Twist:** Imagine a doodle jump game where there is a color instruction that you must follow for the platform you must land next. <br> **- Development Challenge:** generating new platforms at random location at specific distance from each other at the top of the screen, at the same time being in-synced with the color instruction.  |
+| Cat vs Dog | This game is an entertaining game in whcih these two characters, a cat and a dog, they will face each other in a battle throwing things at each other. <br> **- Twist:** characters randomly shrink every set amount of time, making it harder to target accurately. <br> **- Development Challenge:** programming the character being paused when it is hit; character shrinking mechanics. |
+| Temple Run | In Temple Run, the player steers the explorer across a maze, avoiding obstacles while also collecting coins, the longer the explorer survives the higher the score. <br> **- Twist:** during gameplay the direction of the run go reverse mode. <br> **- Development Challenges:** 3D modelling of the map; storing data for game objects to allow reverse mode. |
+| Breakeout | The classic Breakout Video Game uses a single ball where the player must knock own as many bricks as possible by using the walls and/or the paddle below to hit the ball against the bricks and elimate them. <br> **- Twist:** add tresures within the blocks that once knock down, they can be used for power ups. <br> **- Development Challenge:** ball mechanics and collision handling for multiple balls. |
+| Crossy Road | Crossy Road has been one of the more recent fan favourite arcade hopper. The chicken collect custom characters to be used and navigate freeways, railroads, rivers while avoiding cars. <br> **- Twist:** Imagine, a crossy road game where you not only cross the road from one to the next but also move along into the direction of where the car is moving towards, pushing you to new envrionments. <br> **- Development Challenges:** frontend constraits for designing objects; programming a large amount of game object mechanics, generating adaptive environments for different obstacles.|
+| Tower Defence | The goal of tower defence is to defend a player's territories or possessions by obstructing the enemy attackers or by stopping enemies from reaching the exit by placing defensive structures along their path of attack. <br> **- Twist:** Imagine each tower has no weapons of its own, but it granted unique abilities by adding gems to the tower, allowing to give it a different power depending upon which combination you use. <br> **- Development Challenge:** generating wave function for enemies and how they interact with different tower abilities. | 
+
 
 # Week 2: Paint Prototype
 
@@ -29,9 +40,18 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 * [8. Conclusion](#8-conclusion)
 * [9. References](#9-references)
 
-# 1. Development Team
+# 1. Development Team!
 
-Add a group photo here!
+
+**Figure 1** <br>
+*Team 
+Photo Week 1 and Team Roles* <br>
+
+![group-photo](https://github.com/user-attachments/assets/79a87075-6bd9-479d-9a72-46a2aba1fafd)<br>
+<br>
+
+**Table 1** <br>
+*Team member roles, from Left to Right in Figure 1* 
 
 
 | MEMBER | NAME | EMAIL | ROLE | 
