@@ -29,6 +29,10 @@ Your game lives in the [/docs](/docs) folder, and is published using Github page
 
 Include a demo video of your game here (you don't have to wait until the end, you can insert a work in progress video)
 
+## Two Prototype Ideas
+* Take Aim:
+Take Aim is a dynamic 1-2 player action game that emphasizes precise movement and strategic combat. Players compete to be the first to reduce their opponent’s Health to 0%, requiring quick reflexes and tactical decision-making. The game features character and map selection, allowing for varied playstyles and environments. At the start of each match, weapons drop from above within the first three seconds, setting the stage for intense battles. Players navigate the map using fluid movement—running, jumping (Up), and shooting (Space)—while avoiding hazards like moving walls. More mechanics and features were under discussion.
+
 # Table of Contents
 * [1. Development Team](#1-development-team)
 * [2. Introduction](#2-introduction)
