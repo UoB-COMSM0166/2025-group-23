@@ -21,15 +21,9 @@ During this week, our game selection process began. Our goal is to create a game
 
 # Week 2: Paint Prototype
 
-## Your Game
+Link to the app: [TRY IT HERE](https://peteinfo.github.io/COMSM0166-project-template/)
 
-Link to your game [PLAY HERE](https://peteinfo.github.io/COMSM0166-project-template/)
-
-Your game lives in the [/docs](/docs) folder, and is published using Github pages to the link above.
-
-Include a demo video of your game here (you don't have to wait until the end, you can insert a work in progress video)
-
-## Two Prototype Ideas
+# Week 3: Game Selection Phase 2: Two Prototype Ideas
 ### **Take Aim** <br>
 * Take Aim is a dynamic 1-2 player action game that emphasizes precise movement and strategic combat. Players compete to be the first to reduce their opponent’s Health to 0%, requiring quick reflexes and tactical decision-making. The game features character and map selection, allowing for varied playstyles and environments. At the start of each match, weapons drop from above within the first three seconds, setting the stage for intense battles. Players navigate the map using fluid movement—running, jumping (Up), and shooting (Space)—while avoiding hazards like moving walls. More mechanics and features were under discussion.
 
@@ -37,7 +31,20 @@ Include a demo video of your game here (you don't have to wait until the end, yo
   [🎥 Watch the Video] https://github.com/user-attachments/assets/014afc4b-126e-4a76-b2ce-4081d37fe338
 </div>
 
+### **Tank Duel** <br>
+* *insert description*
 
+<div align="center">
+  [🎥 Watch the Video] https://github.com/user-attachments/assets/fa8dd57c-4caf-4e66-9624-32d6d75544d8
+</div>
+
+## Your Game
+
+Link to your game [PLAY HERE](https://peteinfo.github.io/COMSM0166-project-template/)
+
+Your game lives in the [/docs](/docs) folder, and is published using Github pages to the link above.
+
+Include a demo video of your game here (you don't have to wait until the end, you can insert a work in progress video)
 
 # Table of Contents
 * [1. Development Team](#1-development-team)
