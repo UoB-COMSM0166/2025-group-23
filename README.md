@@ -57,15 +57,16 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 * [8. Conclusion](#8-conclusion)
 * [9. References](#9-references)
 
-# 1. Development Team!
+# 1. Development Team
 
-
-**Figure 1** <br>
-*Team 
-Photo Week 1 and Team Roles* <br>
+.<div align="center">
+  **Figure 1** <br>
+  *Team Photo Week 1 and Team Roles* <br>
+</div>
 
 ![group-photo](https://github.com/user-attachments/assets/79a87075-6bd9-479d-9a72-46a2aba1fafd)<br>
-<br>
+
+.<div align="center">
 **Table 1** <br>
 *Team member roles, from Left to Right in Figure 1* 
 
@@ -77,6 +78,7 @@ Photo Week 1 and Team Roles* <br>
 |    4   | Tzu-Wei Lee        | jj24506@bristol.ac.uk | Backend Developer |
 |    5   | Kotzamanidis Nikos | yy24148@bristol.ac.uk | Dev Ops Lead |
 |    6   | Shabarish Menon    | xh24681@bristol.ac.uk | Scrum Master |
+</div>
 
 
 ## Project Report
