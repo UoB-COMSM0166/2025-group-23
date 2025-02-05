@@ -32,10 +32,10 @@ Link to the app: [TRY IT HERE](https://peteinfo.github.io/COMSM0166-project-temp
 </div>
 
 ### **Tank Duel** <br>
-* *Tank Duel is a combat game where two players (or a player vs AI) take turns firing projectiles at each other. Each turn, the player controls a rotating aim that moves between a defined angle range (-X° to Y°) and a power bar that determines the shot’s strength. The objective is to reduce the opponent’s HP to zero by accurately hitting their tank with missiles.
+* Tank Duel is a combat game where two players (or a player vs AI) take turns firing projectiles at each other. Each turn, the player controls a rotating aim that moves between a defined angle range (-X° to Y°) and a power bar that determines the shot’s strength. The objective is to reduce the opponent’s HP to zero by accurately hitting their tank with missiles.
 Shots deal different amounts of damage based on where they land: 1)A critical Hit: A direct hit on the tank's head deals extra damage. 2)A normal Hit: A hit anywhere else does standard damage.
 Players must carefully time their shot to optimize both angle and power for maximum effectiveness. The game can be played  against an AI opponent with varying difficulty levels and the first player to deplete the opponent's HP wins the match
-*
+
 
 <div align="center">
   [🎥 Watch the Video] https://github.com/user-attachments/assets/fa8dd57c-4caf-4e66-9624-32d6d75544d8
