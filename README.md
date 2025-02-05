@@ -18,10 +18,31 @@ During this week, our game selection process began. Our goal is to create a game
 | Crossy Road   | Crossy Road has been one of the more recent fan favourite arcade hopper. The chicken collect custom characters to be used and navigate freeways, railroads, rivers while avoiding cars. <br> **- Twist:** Imagine, a crossy road game where you not only cross the road from one to the next but also move along into the direction of where the car is moving towards, pushing you to new environments. <br> **- Development Challenges:** frontend constraints for designing objects; programming a large amount of game object mechanics, generating adaptive environments for different obstacles. |
 | Tower Defence | The goal of tower defence is to defend a player's territories or possessions by obstructing the enemy attackers or by stopping enemies from reaching the exit by placing defensive structures along their path of attack. <br> **- Twist:** Imagine each tower has no weapons of its own, but it granted unique abilities by adding gems to the tower, allowing to give it a different power depending upon which combination you use. <br> **- Development Challenge:** generating wave function for enemies and how they interact with different tower abilities.                                    | 
 
+<br>
 
-# Week 2: Paint Prototype
 
-Link to the app: [TRY IT HERE](https://peteinfo.github.io/COMSM0166-project-template/)
+# Week 2: Paint Prototype and Setting Up Jira
+
+### Paint Prototype
+This week, we conducted a team excercise where we practiced the foundations of P5.js, a JavaScript library. This was both fun and vital as we will be using P5.js as our main language to create our game. Our goals was to create drawing app similar to Window's Paint. <br>
+<br>
+<img width="600" alt="paintprototypeScreenshot" src="https://github.com/user-attachments/assets/2d0679b9-541f-4bcf-a8fb-beca103b0d19" align="center"/> <br>
+*Screenshot of Paint Prototype* <div align="center">
+[Link to the Paint App](https://peteinfo.github.io/COMSM0166-project-template/)
+</div>
+
+### Setting Up Jira 
+As we are closing onto our game finalisation, we have set up a new project in Jira to be the center backlog of our sprint meeting. Here, all members of our team can easily share critical insights of our agile processes and highlight areas to improve on for our upcoming sprints. 
+
+<img width="500" alt="backLogScreenshotWeek3" src="https://github.com/user-attachments/assets/316c67bd-7921-415c-8730-f65f56421521" />
+
+<img width="500" alt="sprintScreenshotWeek3" src="https://github.com/user-attachments/assets/c30b79b7-72ec-4abc-bfa4-e6e2fa831805" />
+
+*Screenshots of Jira backlog and sprint 2* <div align="center">
+[Link to our Project Backlog](https://shabarish.atlassian.net/jira/software/projects/GD/boards/2?atlOrigin=eyJpIjoiYzI4ZmJlOTM5Nzg0NGQ3ZmEwZWUzZTU2MGM3YjcxNjUiLCJwIjoiaiJ9)
+</div>
+
+<br>
 
 # Week 3: Game Selection Phase 2: Two Prototype Ideas
 ### **Take Aim** <br>
