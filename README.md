@@ -26,9 +26,9 @@ During this week, our game selection process began. Our goal is to create a game
 ### Paint Prototype
 This week, we conducted a team excercise where we practiced the foundations of P5.js, a JavaScript library. This was both fun and vital as we will be using P5.js as our main language to create our game. Our goals was to create drawing app similar to Window's Paint. <br>
 <br>
-<img width="600" alt="paintprototypeScreenshot" src="https://github.com/user-attachments/assets/2d0679b9-541f-4bcf-a8fb-beca103b0d19" align="center"/> <br>
+<img width="600" alt="paintprototypeScreenshot" src="https://github.com/user-attachments/assets/aacc777a-b0b7-4bf3-85cd-48fd9e847503" align="center"/> <br>
 *Screenshot of Paint Prototype* <div align="center">
-[Link to the Paint App](https://peteinfo.github.io/COMSM0166-project-template/)
+[Link to the Paint App](https://uob-comsm0166.github.io/2025-group-23/index.html)
 </div>
 
 ### Setting Up Jira 
