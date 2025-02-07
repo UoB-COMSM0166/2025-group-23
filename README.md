@@ -117,6 +117,23 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 - 15% ~750 words
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop?
 
+### Ideation Process 
+### Early Stage Design 
+### Feasability Study
+### Importance of Our Key Stakeholders 
+* **Users:** "Retro Game/Arcade Game Lovers", Casual Gamers, Competitive Gamers, Interactive Gamers, Gamers with Disability
+* **Development Team:** Frontend, Backend, Quality Assurance, Dev Ops Lead, Scrum Master
+* **Game Testers**
+<br>
+As we finalised our chosen game, it was clear to us that identifying and understanding key stakeholders is essential to ensuring a well-rounded, engaing, and accesible gaming experience. Our stakeholders include end-users, such as retro game entusiast, both casual and competitive gamers, interactive players, and gamers with disabilities. Each group bring unique expectations and preferences, guiding us with developing the mechanics that cater to various playstyles and accesibility needs. <br> <br>
+The development team, consisting of frontend and backend developers, quality assurance testers, a DevOps lead, and a Scrum Master, is responsible for turning our ideas into a functional and immersive game. The team will also determine the technical feasibility, ensure performance optimisation, and maintain smooth development workflows. Additionally, game testers play a crucial role in validating our concepts, ensuring gameplay balance, and identifying potential issues before launch. <br> <br>
+By actively involving these stakeholders in our ideation process, we can create a game that not only meets industry standards but also resonates with our taget audience. This approcah allows us to refine our vision early on, reducing development risks and fostering a more innovative and player-centric experience. Committing to this stakeholder-driven approach ensures that Take Aim will be both technically sound and highly engaing for its intended audience. <br>
+<br>
+
+### Classifying Top-Level Needs with User Stories 
+
+In order to have a better scope of what features we should prioritise, we gathered user-stories from our key stakeholders. These user stories were categorised by their Epics, a wider scope, high level requirement so that we can break our development process into independent, testable and valuable peices to implement. <br>
+
 | Stakeholder | Epic | User Story | Acceptance Criteria | 
 |-------------|-------------|----------|----------------|
 | User: Retro/Arcade Lovers | Fullfill Player Enjoyment | "As a retro/arcade game lover, I want to play a classic game where I can customise the look of the players and display so that I can relive my favorite gaming experiences in a way that suits my preferences and enhances my enjoyment." | Given I am on the main menu, when I start game, then I should be able to change the player’s look to something like Pacman. |
@@ -130,6 +147,29 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 | Developers: Dev Ops Lead | Ensure Game is Operating Smoothly | "As a Dev Ops Lead, I want to implement scalable and automated monitoring and logging solutions, so that I can ensure the system is consistently accessible and performing well for all users, including those with disabilities." | Given I am monitoring the system, when I observe the logs and alerts, then I should be able to quickly identify and resolve any accessibility or performance issues, ensuring the best experience for all users, including those with disabilities. |
 | Developers: Scrum Master | Initiating Game Development Planning and Finalisation | "As a Scrum Master, I must decide the roles of each Team Member so that I can assign tasks accordingly." | **Role Clarification:** <br> Each team member understands their role and responsibilities. <br> <br> **Task Assignment:** <br> Tasks are assigned to team members based on their roles and expertise. Each task has a clear description, due date, and expected outcome. <br> <br> **Task Tracking:** <br> The progress of each task is regularly updated by the assigned team member. <br> <br> **Communication:** <br> Regular communication is maintained among team members to discuss task progress and resolve any issues. <br> <br> **Sprint Planning:** <br> Sprint planning meetings are conducted to review and assign tasks for each sprint. <br> The Scrum Master ensures that the team's workload is balanced and achievable within the sprint. <br> <br> **Review and Feedback:** <br> Regular review meetings are conducted to assess task completion and gather feedback. <br> The team is encouraged to provide constructive feedback to improve future task assignments. <br> <br> **Documentation:** <br> All assigned tasks, roles, and responsibilities are documented and accessible to the team. <br> Updates to roles and tasks are documented and communicated promptly. | 
 | Game Testers | Ensure Feedback is More Categorized to Improve Game Design | "As a game trial player, I want to know what's the difference between this game and others, make it simple to understand and play with, so I can provide feedback on its enjoyment and playability." | Before the game, I need a prototype video to understand the whole game. <br> Also, after the game, provide me with a form of feedback categorized with usability, enjoyment and difficulty so you can clearly know how I feel about the game. | 
+
+### Use Cases Analysis
+As our user stories includes a wider range of users such as both casual gamers and competitive players, it was vital for us to convert our user-stories into use case diagrams. This way, we can better conceptualise our development processes and mitigate the difficulties when making a game for a large group of costumers. By transforming our user stories into use case diagrams, we are able to visualise the interactions between the end-user, our development team and the game system itself, ensuring a well-organised and efficient development proccess. <br> <br> 
+Each user story represent a real-world scenario that our end-user might experience when playing Take Aim. For example, a competitive gamer suggested that: "As a competitive gamer, I want to play against my friends so that I have bragging rights when I win." <br> <br> 
+From this story, we extract key interactions and translate them into a use case diagram (shown below), where the competitive gamer (actor) interacts with the game system through use cases like "Start Game". <br> <br> 
+By mapping these interactions, we have identitifed primary actors, clarify dependencies between different game functions, and ensure that all user needs are accounted for. This process also assisted our development team by providing a clear structure for implementing features in a user-focused manner. <br> <br> 
+*Use Case Diagram 1: Main Menu Navigation*
+<img width="1104" alt="UseCaseMainMenu" src="https://github.com/user-attachments/assets/ef2263cd-28af-4dc4-9b5a-78170f83cab5" /> <br> <br>
+*Use Case Diagram 2: Gameplay System*
+<img width="1091" alt="UseCaseGameplay" src="https://github.com/user-attachments/assets/f938e2c4-3c7b-4b80-bb93-c554542851a8" />
+
+
+### Use Case Specification and Documentation
+*Screenshot of Use Case Documentation Introduction* 
+<img width="725" alt="Screenshot 2025-02-07 at 01 02 05" src="https://github.com/user-attachments/assets/29dea81c-0348-4abf-988d-9c8ba0dcecc9" /> <br> <br>
+*Screenshot of Use Case 2: Start Game (used as an example above)*
+<img width="720" alt="Screenshot 2025-02-07 at 01 02 38" src="https://github.com/user-attachments/assets/0ad9196f-b3aa-4a03-8ca5-9473fb9de6ef" /> <br> <br>
+*Screenshot of Use Case Documentation Conclusion*
+<img width="725" alt="Screenshot 2025-02-07 at 01 03 45" src="https://github.com/user-attachments/assets/a8f57781-7fca-477c-ac33-7fccdb2d2396" /> <br> <br> 
+
+<div align="center"> 
+[📑 Link to the full Take Aim Use Case Documentiation] https://app.eraser.io/workspace/2WadpJ57Y5SRLlBTODcR?origin=share
+</div> 
 
 # 4. Design
 
