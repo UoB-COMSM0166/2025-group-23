@@ -100,7 +100,7 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 |    2   | Yu-Hsin Chang      | mh24718@bristol.ac.uk | Frontend Developer |
 |    3   | Gioven Posa        | kw24347@bristol.ac.uk | Backend Developer |
 |    4   | Tzu-Wei Lee        | jj24506@bristol.ac.uk | Backend Developer |
-|    5   | Kotzamanidis Nikos | yy24148@bristol.ac.uk | Dev Ops Lead |
+|    5   | Kotzamanidis Nikos | yy24148@bristol.ac.uk | Product Owner |
 |    6   | Shabarish Menon    | xh24681@bristol.ac.uk | Scrum Master |
 </div>
 
@@ -122,11 +122,11 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 ### Feasability Study
 ### Importance of Our Key Stakeholders 
 * **Users:** "Retro Game/Arcade Game Lovers", Casual Gamers, Competitive Gamers, Interactive Gamers, Gamers with Disability
-* **Development Team:** Frontend, Backend, Quality Assurance, Dev Ops Lead, Scrum Master
+* **Development Team:** Frontend, Backend, Quality Assurance, Product Owner, Scrum Master
 * **Game Testers**
 <br>
 As we finalised our chosen game, it was clear to us that identifying and understanding key stakeholders is essential to ensuring a well-rounded, engaing, and accesible gaming experience. Our stakeholders include end-users, such as retro game entusiast, both casual and competitive gamers, interactive players, and gamers with disabilities. Each group bring unique expectations and preferences, guiding us with developing the mechanics that cater to various playstyles and accesibility needs. <br> <br>
-The development team, consisting of frontend and backend developers, quality assurance testers, a DevOps lead, and a Scrum Master, is responsible for turning our ideas into a functional and immersive game. The team will also determine the technical feasibility, ensure performance optimisation, and maintain smooth development workflows. Additionally, game testers play a crucial role in validating our concepts, ensuring gameplay balance, and identifying potential issues before launch. <br> <br>
+The development team, consisting of frontend and backend developers, quality assurance testers, a Product Owner, and a Scrum Master, is responsible for turning our ideas into a functional and immersive game. The team will also determine the technical feasibility, ensure performance optimisation, and maintain smooth development workflows. Additionally, game testers play a crucial role in validating our concepts, ensuring gameplay balance, and identifying potential issues before launch. <br> <br>
 By actively involving these stakeholders in our ideation process, we can create a game that not only meets industry standards but also resonates with our taget audience. This approcah allows us to refine our vision early on, reducing development risks and fostering a more innovative and player-centric experience. Committing to this stakeholder-driven approach ensures that Take Aim will be both technically sound and highly engaing for its intended audience. <br>
 <br>
 
