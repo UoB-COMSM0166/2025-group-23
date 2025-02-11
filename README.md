@@ -36,7 +36,7 @@ As we are closing onto our game finalisation, we have set up a new project in Ji
 
 <img width="500" alt="backLogScreenshotWeek3" src="https://github.com/user-attachments/assets/316c67bd-7921-415c-8730-f65f56421521" />
 
-<img width="500" alt="sprintScreenshotWeek3" src="https://github.com/user-attachments/assets/c30b79b7-72ec-4abc-bfa4-e6e2fa831805" />
+<img width="473" alt="sprintScreenshotWeek3" src="https://github.com/user-attachments/assets/c30b79b7-72ec-4abc-bfa4-e6e2fa831805" />
 
 *Screenshots of Jira backlog and sprint 2* <div align="center">
 [Link to our Project Backlog](https://shabarish.atlassian.net/jira/software/projects/GD/boards/2?atlOrigin=eyJpIjoiYzI4ZmJlOTM5Nzg0NGQ3ZmEwZWUzZTU2MGM3YjcxNjUiLCJwIjoiaiJ9)
