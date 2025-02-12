@@ -89,7 +89,15 @@ function draw() {
     map = maps[roundNum - 1];
     map.display();
 
-    // draw score board for player 1 and player 2
+    // check if round is over, start next round after 5 seconds
+    let winner = checkRoundOver();
+    if (winner !== null && !roundOver) {
+        setWinner(winner);
+        roundOver = true;
+        if (player1Score < finalScore && player2Score < finalScore) {
+            setTimeout(resetRound, 5000);
+        }
+    }
 
     for (let wall of movingWalls) {
         wall.update();
@@ -134,7 +142,9 @@ function draw() {
 
         for (let player of players) {
             if (bullet.shoots(player) && player !== bullet.shooter) {  // Only damage opponents
-                player.takeDamage(10);
+                if(!roundOver) {
+                    player.takeDamage(10);
+                }
                 bullets.splice(bullets.indexOf(bullet), 1);
             }
         }
@@ -145,16 +155,7 @@ function draw() {
         player.display();
     }
     
-    // check if round is over, start next round after 5 seconds
-    let winner = checkRoundOver();
-    if (winner !== null && !roundOver) {
-        setWinner(winner);
-        roundOver = true;
-        if (player1Score < finalScore && player2Score < finalScore) {
-            setTimeout(resetRound, 5000);
-        }
-    }
-
+    // draw score board for player 1 and player 2
     push();
     drawScore(player1Score, LEFT, map.tileSize, map.tileSize);
     drawScore(player2Score, RIGHT, width - map.tileSize, map.tileSize);
