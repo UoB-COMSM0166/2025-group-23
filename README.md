@@ -1,4 +1,4 @@
-# 2025-group-23
+# TAKE AIM 
 2025 COMSM0166 group 23
 
 # Week 1: Game Selection Phase 1
