@@ -1,25 +1,95 @@
 let map;
+let maps = [];
 let players = [];
 let weapons = [];
 let bullets = [];
 let movingWalls = [];
 let gameStarted = false;
+let player1Score = 0, player2Score = 0;
+let roundNum = 1;
+let roundOver = false;
+let finalScore = 3;
+let gameOver = false;
 
 function setup() {
     createCanvas(1215, 760);
-    map = new Map();
+    
+    
+    // initialise maps 1, 2, 3
+    maps[0] = new Map([
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    ]);
 
+    maps[1] = new Map([
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    ]);
+
+    maps[2] = new Map([
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
+    ]);
+
+    //initialise player 1 and player 2
     players[0] = new Player(150, 200, 'red', 65, 68, 87, 32);  // Player 1 (WASD + Space)
     players[1] = new Player(1075, 200, 'blue', LEFT_ARROW, RIGHT_ARROW, UP_ARROW, ENTER);  // Player 2 (Arrow Keys + Enter)
 
-    movingWalls.push(new MovingWall(100, 150, 50, 10, 2, 1, 30)); // Moves within a range of 30 pixels
-    movingWalls.push(new MovingWall(300, 220, 80, 10, 1.5, -1, 40)); // Moves within a range of 40 pixels
-
+    /* movingWalls.push(new MovingWall(100, 150, 50, 10, 2, 1, 30)); // Moves within a range of 30 pixels
+    movingWalls.push(new MovingWall(300, 220, 80, 10, 1.5, -1, 40)); // Moves within a range of 40 pixels */
 }
 
 function draw() {
     background(100);
+    map = maps[roundNum - 1];
     map.display();
+
+    // draw score board for player 1 and player 2
 
     for (let wall of movingWalls) {
         wall.update();
@@ -32,19 +102,20 @@ function draw() {
         }
     }
 
+    let paddingWeapon = 100;
     if (!gameStarted && frameCount > 60 * 3) {
         let weaponNum = random();
-        dropWeaponLeft(weaponNum);
-        dropWeaponRight(weaponNum);
+        dropWeapon(weaponNum, paddingWeapon, width / 2 - paddingWeapon);
+        dropWeapon(weaponNum, paddingWeapon + width / 2, width - paddingWeapon);
         gameStarted = true;
 
+        //drop weapons left and right side
         setInterval(() => {
             let newWeaponNum = random();
-            dropWeaponLeft(newWeaponNum);
-            dropWeaponRight(newWeaponNum);
-        }, 10000);
+            dropWeapon(newWeaponNum, paddingWeapon, width / 2 - paddingWeapon);
+            dropWeapon(newWeaponNum, paddingWeapon + width / 2, width - paddingWeapon);
+        }, 9000);
     }
-
 
     for (let weapon of weapons) {
         weapon.display();
@@ -74,7 +145,30 @@ function draw() {
         player.display();
     }
     
+    // check if round is over, start next round after 5 seconds
+    let winner = checkRoundOver();
+    if (winner !== null && !roundOver) {
+        setWinner(winner);
+        roundOver = true;
+        if (player1Score < finalScore && player2Score < finalScore) {
+            setTimeout(resetRound, 5000);
+        }
+    }
+
+    push();
+    drawScore(player1Score, LEFT, map.tileSize, map.tileSize);
+    drawScore(player2Score, RIGHT, width - map.tileSize, map.tileSize);
+    pop();
+
     checkGameOver();
+    
+}
+
+function drawScore(playerScore, alignment, x , y) {
+    textSize(32);
+    fill(255);
+    textAlign(alignment);
+    text(playerScore, x, y);
 }
 
 function keyPressed() {
@@ -88,47 +182,100 @@ function keyPressed() {
     }
 }
 
-function dropWeaponLeft(weaponNum) {
-    let x = random(100, width / 2 - 100);
-    let y = random(50, height - 50);
-    let weapon1 = new Weapon(x, y, "red");
-    let weapon2 = new Weapon(x, y, "green");
+function dropWeapon(weaponNum, min, max) {
+    //create no more than 4 weapons at all times. 
+    if (weapons.length < 4) {
+        let x = random(min, max);
+        let y = 0;
+        let weapon1 = new Weapon(x, y, "red");
+        let weapon2 = new Weapon(x, y, "green");
 
-    weapon1.weaponType = "pistol";
-    weapon2.weaponType = "shotgun";
+        weapon1.weaponType = "pistol";
+        weapon2.weaponType = "shotgun";
 
-    if (weaponNum < 0.5) {
-        weapons.push(weapon1);
-    } else {
-        weapons.push(weapon2);
+        if (weaponNum < 0.5) {
+            weapons.push(weapon1);
+        } else {
+            weapons.push(weapon2);
+        }
     }
 }
 
-function dropWeaponRight(weaponNum) {
-    let x = random(100 + width / 2, width - 100);
-    let y = random(50, height - 50);
-    let weapon1 = new Weapon(x, y, "red");
-    let weapon2 = new Weapon(x, y, "green");
-
-    weapon1.weaponType = "pistol";
-    weapon2.weaponType = "shotgun";
-
-    if (weaponNum < 0.5) {
-        weapons.push(weapon1);
-    } else {
-        weapons.push(weapon2);
+// retur the winner when reach final score
+function getWinner() {
+    if (player1Score >= finalScore) {
+        return players[0];
+    } 
+    else if (player2Score >= finalScore) {
+        return players[1];
     }
-    
 }
 
-function checkGameOver() {
+function setWinner(winner) {
+    if (players[0] === winner) {
+        player1Score++;
+    } else if (players[1] === winner) {
+        player2Score++;
+    }
+}
+
+function resetRound() {
+    //reset all players to max health and original position, increment score. start loop again. 
+    for (let player of players) {
+        player.health = 100;
+        player.weapon = null;
+    }
+    players[0].x = 150;
+    players[0].y = 200;
+    players[1].x = 1075;
+    players[1].y = 200;
+    bullets = [];
+    weapons = [];
+    roundOver = false;
+    roundNum++;
+    loop();
+}
+
+function checkRoundOver() {
+    //check if health is 0 then set round as over. 
     let alivePlayers = players.filter(p => p.health > 0);
     if (alivePlayers.length === 1) {
-        noLoop();
+        //noLoop();
+        let winner = alivePlayers[0];
+        push();
         textSize(32);
         fill(255);
         textAlign(CENTER);
-        text('Player Wins!', width / 2, height / 2);
+        text(winner.color + ' player wins round ' + roundNum, width / 2, height / 2);
+        pop();
+        return winner;
+    }
+    return null;
+}
+
+function checkGameOver() {
+    // when player reach final score, show end game screen. 
+    let winner = getWinner();
+    let rectW = 700;
+    let rectH = 400;
+    let rectX = width/2 - (rectW/2);
+    let rectY = height/2 - (rectH/2);
+    
+    if (player1Score >= finalScore || player2Score >= finalScore) {
+        gameOver = true;
+        push()
+        translate(rectX, rectY);
+        stroke('white');
+        strokeWeight(1);
+        fill('black');
+        rect(0, 0, rectW, rectH);
+        textSize(32);
+        fill('white');
+        textAlign(CENTER, CENTER);
+        let winningPlayer = (player1Score === finalScore) ? "PLAYER 1" : "PLAYER 2";
+        text(winningPlayer + " WINS!", rectW / 2, rectH / 2);
+        pop();
+        noLoop();
     }
 }
 
@@ -184,7 +331,6 @@ class Weapon {
 
     update() {
         this.y += this.speed;
-
         let tileSize = map.tileSize;
 
         for (let row = 0; row < map.grid.length; row++) {
@@ -200,8 +346,6 @@ class Weapon {
                 }
             }
         }
-
-
     }
 
     display() {
@@ -228,7 +372,6 @@ class Bullet {
     update() {
         this.x += this.vx;
         this.y += this.vy;
-
         let tileSize = map.tileSize;
 
         for (let row = 0; row < map.grid.length; row++) {
@@ -260,30 +403,9 @@ class Bullet {
     }
 }
 
-
-
-
 class Map {
-    constructor() {
-        this.grid = [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-        ];
+    constructor(grid) {
+        this.grid = grid;
         this.rows = this.grid.length;
         this.cols = this.grid[0].length;
         this.tileSize = 45;
