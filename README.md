@@ -28,7 +28,7 @@ This week, we conducted a team excercise where we practiced the foundations of P
 <br>
 <img width="600" alt="paintprototypeScreenshot" src="https://github.com/user-attachments/assets/aacc777a-b0b7-4bf3-85cd-48fd9e847503" align="center"/> <br>
 *Screenshot of Paint Prototype* <div align="center">
-[Link to the Paint App](https://uob-comsm0166.github.io/2025-group-23/index.html)
+[Link to the Paint App](https://peteinfo.github.io/COMSM0166-project-template/)
 </div>
 
 ### Setting Up Jira 
@@ -64,11 +64,7 @@ Players must carefully time their shot to optimize both angle and power for maxi
 
 ## Your Game
 
-Link to your game [PLAY HERE](https://peteinfo.github.io/COMSM0166-project-template/)
-
-Your game lives in the [/docs](/docs) folder, and is published using Github pages to the link above.
-
-Include a demo video of your game here (you don't have to wait until the end, you can insert a work in progress video)
+[PLAY TAKE AIM HERE](https://uob-comsm0166.github.io/2025-group-23/index.html)
 
 # Table of Contents
 * [1. Development Team](#1-development-team)
