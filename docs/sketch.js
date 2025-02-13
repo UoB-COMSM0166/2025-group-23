@@ -10,11 +10,12 @@ let roundNum = 1;
 let roundOver = false;
 let finalScore = 3;
 let gameOver = false;
+let playerSprites = [];
 
 function setup() {
     createCanvas(1215, 760);
     
-    
+
     // initialise maps 1, 2, 3
     maps[0] = new Map([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -64,12 +65,12 @@ function setup() {
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -77,15 +78,37 @@ function setup() {
     ]);
 
     //initialise player 1 and player 2
-    players[0] = new Player(150, 200, 'red', 65, 68, 87, 32);  // Player 1 (WASD + Space)
-    players[1] = new AIPlayer(1075, 200, 'blue', LEFT_ARROW, RIGHT_ARROW, UP_ARROW, ENTER);  // Player 2 (Arrow Keys + Enter)
+   let totalSprites = 3;
+   let availableSprites = Array.from({ length: totalSprites }, (_, i) => i);
+
+   shuffleArray(availableSprites);
+
+   let firstPlayerSprite = availableSprites.pop();
+   let secondPlayerSprite = availableSprites.pop();
+
+    playerSprites = [firstPlayerSprite, secondPlayerSprite];
+    players[0] = new Player(0, 150, 200, 65, 68, 87, 32, playerSprites[0]);  // Player 1 (WASD + Space)
+    //players[1] = new AIPlayer(1, 1075, 200, playerSprites[1]);  // Player 2 (Arrow Keys + Enter)
+
+     
+    players[1] = new Player(1, 1075, 200, LEFT_ARROW, RIGHT_ARROW, UP_ARROW, ENTER, playerSprites[1]);  // Player 2 (Arrow Keys + Enter)
+    
 
     /* movingWalls.push(new MovingWall(100, 150, 50, 10, 2, 1, 30)); // Moves within a range of 30 pixels
     movingWalls.push(new MovingWall(300, 220, 80, 10, 1.5, -1, 40)); // Moves within a range of 40 pixels */
 }
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
 function draw() {
     background(100);
+
+    //load new map for each round 
     map = maps[roundNum - 1];
     map.display();
 
@@ -125,13 +148,20 @@ function draw() {
         }, 9000);
     }
 
-    for (let weapon of weapons) {
+    for (let i = weapons.length - 1; i >= 0; i--) {
+        let weapon = weapons[i];
+        //if a weapon falls below the map, discount this one from the array. 
+        if (weapon.y > height) {
+            weapons.splice(i, 1);
+            continue;
+        }
         weapon.display();
         weapon.update();
         for (let player of players) {
             if (player.collidesWith(weapon)) {
                 player.pickupWeapon(weapon);
-                weapons.splice(weapons.indexOf(weapon), 1);
+                weapons.splice(i, 1);
+                break;
             }
         }
     }
@@ -162,7 +192,6 @@ function draw() {
     pop();
 
     checkGameOver();
-    
 }
 
 function drawScore(playerScore, alignment, x , y) {

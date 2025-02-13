@@ -1,6 +1,6 @@
 class AIPlayer extends Player {
-    constructor(x, y, color, leftKey, rightKey, jumpKey, shootKey) {
-        super(x, y, color, leftKey, rightKey, jumpKey, shootKey);
+    constructor(index, x, y, spriteIndex) {
+        super(index, x, y, null, null, null, null, spriteIndex);
         this.shootCooldown = 60; // Frames between shots
         this.framesSinceLastShot = 0;
         this.safeDistance = 300; // Safe distance from the player
@@ -64,6 +64,24 @@ class AIPlayer extends Player {
 
             // Attempt horizontal movement
             this.x += dx;
+
+            //AI update animation for sprite
+            if (dx < 0) {
+                this.direction = 'left';
+                if (frameCount % 5 === 0) {
+                    this.frameIndex++;
+                }
+            } else if (dx > 0) {
+                this.direction = 'right';
+                if (frameCount % 5 === 0) {
+                    this.frameIndex++;
+                }
+            } else {
+                this.direction = 'front';
+                this.frameIndex = 0; // Reset animation when idle
+            }
+
+            this.frameIndex = this.frameIndex % 3;
 
             // Check horizontal collisions with each solid tile
             for (let row = 0; row < map.grid.length; row++) {
@@ -161,5 +179,21 @@ class AIPlayer extends Player {
     pickupWeapon(weapon) {
         super.pickupWeapon(weapon);
         this.framesSinceLastShot = 0; // Reset the cooldown when picking up a new weapon
+    }
+
+    display() {
+        //new feature
+        let sprite = spriteManager.getSprite(this.spriteIndex, this.direction, this.frameIndex);
+        if (sprite) {
+            image(sprite, this.x, this.y, this.width, this.height);
+            fill(255);
+            textAlign(CENTER, CENTER);
+            textSize(12);
+            text(this.health + "%", this.x + this.width/2, this.y - 10);
+        }
+        else {
+            fill(this.index === 0 ? 'red' : 'blue');
+            rect(this.x, this.y, this.width, this.health);
+        }
     }
 }

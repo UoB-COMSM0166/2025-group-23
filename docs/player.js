@@ -1,20 +1,31 @@
 class Player {
-    constructor(x, y, color, leftKey, rightKey, jumpKey, shootKey) {
+    constructor(index, x, y, leftKey, rightKey, jumpKey, shootKey, spriteIndex) {
+        this.index = index; //new feature 
         this.x = x;
         this.y = y;
-        this.width = 30;
-        this.height = 50;
         this.speed = 5;
         this.health = 100;
         this.vy = 0;
         this.gravity = 0.8;
         this.isJumping = true;
         this.weapon = null;
-        this.color = color;
         this.leftKey = leftKey;
         this.rightKey = rightKey;
         this.jumpKey = jumpKey;
         this.shootKey = shootKey;
+        this.direction = 'front'; //new feature
+        this.spriteIndex = spriteIndex; //new feature
+        this.frameIndex = 0;
+
+        //new feature
+        let sprite = spriteManager.getSprite(this.spriteIndex, this.direction, this.frameIndex);
+        if (sprite) {
+            this.width = sprite.width;
+            this.height = sprite.height;
+        } else {
+            this.width = 50;
+            this.height = 80;
+        }
     
     }
 
@@ -23,13 +34,27 @@ class Player {
         let dx = 0;
         if (keyIsDown(this.leftKey)) {
             dx = -this.speed;
-        }
-        if (keyIsDown(this.rightKey)) {
+            this.direction = 'left';
+        } 
+        else if (keyIsDown(this.rightKey)) {
             dx = this.speed;
+            this.direction = 'right';
+        }
+        else {
+            this.direction = 'front';
         }
         
         // Attempt horizontal movement
         this.x += dx;
+
+        if (dx !== 0) {
+            if (frameCount % 5 === 0) { // Slow down animation (change frame every 5 frames)
+                this.frameIndex++;
+            }
+        } else {
+            this.frameIndex = 0; // Reset to first frame when idle
+        }
+
         
         // Check horizontal collisions with each solid tile
         for (let row = 0; row < map.grid.length; row++) {
@@ -200,10 +225,21 @@ class Player {
     }
 
     display() {
-        fill(this.color);
-        rect(this.x, this.y, this.width, this.height);
-        fill(255);
-        textSize(12);
-        text(this.health + "%", this.x + 5, this.y - 5);
+        /* fill(this.color);
+        rect(this.x, this.y, this.width, this.height); */
+
+        //new feature
+        let sprite = spriteManager.getSprite(this.spriteIndex, this.direction, this.frameIndex);
+        if (sprite) {
+            image(sprite, this.x, this.y, this.width, this.height);
+            fill(255);
+            textAlign(CENTER, CENTER);
+            textSize(12);
+            text(this.health + "%", this.x + this.width/2, this.y - 10);
+        }
+        else {
+            fill(this.index === 0 ? 'red' : 'blue');
+            rect(this.x, this.y, this.width, this.health);
+        }
     }
 }
