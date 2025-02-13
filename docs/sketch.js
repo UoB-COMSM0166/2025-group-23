@@ -78,7 +78,7 @@ function setup() {
 
     //initialise player 1 and player 2
     players[0] = new Player(150, 200, 'red', 65, 68, 87, 32);  // Player 1 (WASD + Space)
-    players[1] = new Player(1075, 200, 'blue', LEFT_ARROW, RIGHT_ARROW, UP_ARROW, ENTER);  // Player 2 (Arrow Keys + Enter)
+    players[1] = new AIPlayer(1075, 200, 'blue', LEFT_ARROW, RIGHT_ARROW, UP_ARROW, ENTER);  // Player 2 (Arrow Keys + Enter)
 
     /* movingWalls.push(new MovingWall(100, 150, 50, 10, 2, 1, 30)); // Moves within a range of 30 pixels
     movingWalls.push(new MovingWall(300, 220, 80, 10, 1.5, -1, 40)); // Moves within a range of 40 pixels */
