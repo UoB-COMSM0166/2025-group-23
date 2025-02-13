@@ -1,5 +1,6 @@
 # TAKE AIM 
-2025 COMSM0166 group 23
+2025 COMSM0166 group 23 <br>
+[PLAY TAKE AIM HERE](https://uob-comsm0166.github.io/2025-group-23/index.html)
 
 # Week 1: Game Selection Phase 1
 
