@@ -356,22 +356,32 @@ class Weapon {
         this.weaponType = "pistol";
         this.bulletLimit = 20;
         this.bulletsFired = 0;
+        this.hasLanded = false;  // new flag
     }
 
-
     update() {
-        this.y += this.speed;
-        let tileSize = map.tileSize;
+        // Only update if the weapon has not yet landed
+        if (!this.hasLanded) {
+            this.y += this.speed;
+            let tileSize = map.tileSize;
 
-        for (let row = 0; row < map.grid.length; row++) {
-            for (let col = 0; col < map.grid[row].length; col++) {
-                if (map.grid[row][col] === 1) {
-                    let tile = {x: col * tileSize, y: row * tileSize, width: tileSize, height: tileSize};
+            for (let row = 0; row < map.grid.length; row++) {
+                for (let col = 0; col < map.grid[row].length; col++) {
+                    if (map.grid[row][col] === 1) {
+                        let tile = {
+                            x: col * tileSize,
+                            y: row * tileSize,
+                            width: tileSize,
+                            height: tileSize
+                        };
 
-                    if (checkCollision(this, tile)) {
-                        //handle floor collsion (landing on top)
-                        this.speed = 0;
-                        this.y = tile.y - this.height;
+                        if (checkCollision(this, tile)) {
+                            // Handle floor collision (landing on top)
+                            this.speed = 0;
+                            this.y = tile.y - this.height;
+                            this.hasLanded = true; // mark as landed
+                            return;
+                        }
                     }
                 }
             }

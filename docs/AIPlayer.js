@@ -6,33 +6,34 @@ class AIPlayer extends Player {
         this.safeDistance = 400; // Safe distance from the player
         this.targetWeapon = null;
         this.previousY = this.y;
+        this.speed = 5; // Ensure speed is defined
     }
 
     update() {
         // Call the original update method
         super.update();
 
-        // AI logic for movement
-        this.aiMove();
+        // Calculate the target once per update cycle
+        const target = this.findTarget();
 
-        // AI logic for jumping
-        this.aiJump();
-
-        // AI logic for shooting
-        this.aiShoot();
+        // Use the same target for movement, jumping and shooting
+        if (target) {
+            this.aiMove(target);
+            this.aiJump(target);
+            if (target instanceof Player) {
+                this.aiShoot(target);
+            }
+        }
 
         // Increment the frame counter for shooting
         this.framesSinceLastShot++;
     }
 
-    aiMove() {
-        let target = this.findTarget();
-        if (target) {
-            if (target instanceof Player) {
-                this.moveToPlayer(target);
-            } else {
-                this.moveToWeapon(target);
-            }
+    aiMove(target) {
+        if (target instanceof Player) {
+            this.moveToPlayer(target);
+        } else {
+            this.moveToWeapon(target);
         }
     }
 
@@ -42,50 +43,72 @@ class AIPlayer extends Player {
 
         // Maintain a safe distance from the player
         if (distance < this.safeDistance) {
-            if (target.x < this.x) {
-                dx = this.speed;
-            } else if (target.x > this.x) {
-                dx = -this.speed;
-            }
+            dx = (target.x < this.x) ? this.speed : -this.speed;
         } else {
-            if (target.x < this.x) {
-                dx = -this.speed;
-            } else if (target.x > this.x) {
-                dx = this.speed;
-            }
+            dx = (target.x < this.x) ? -this.speed : this.speed;
         }
 
-        // Ensure a clear line of sight to the player
+        // Adjust if obstacles block clear shot
         if (!this.hasClearShot(target)) {
-            if (target.x < this.x) {
-                dx = -this.speed;
-            } else if (target.x > this.x) {
-                dx = this.speed;
-            }
+            dx = (target.x < this.x) ? -this.speed : this.speed;
         }
 
-        // Attempt horizontal movement
         this.x += dx;
+        this.updateSprite(dx);
 
-        // AI update animation for sprite
+        // Horizontal collisions with solid tiles
+        this.collideHorizontally(dx);
+    }
+
+    moveToWeapon(target) {
+        // Calculate differences on each axis
+        let diffX = target.x - this.x;
+        let diffY = target.y - this.y;
+
+        // Compute dx, dy proportionally (avoid overshooting)
+        let dx = Math.abs(diffX) > this.speed ? this.speed * Math.sign(diffX) : diffX;
+        let dy = Math.abs(diffY) > this.speed ? this.speed * Math.sign(diffY) : diffY;
+
+        // Apply horizontal movement and collisions
+        this.x += dx;
+        this.updateSprite(dx);
+        this.collideHorizontally(dx);
+
+        // Apply vertical movement and collisions
+        this.y += dy;
+        this.collideVertically(dy);
+
+        // If the target is above and AI is not jumping, try to jump
+        if (target.y < this.y && !this.isJumping) {
+            this.jump();
+        }
+
+        // Platform fallback: if vertical progress is minimal (using a small threshold)
+        const deltaY = Math.abs(this.y - this.previousY);
+        if (deltaY < 1) {
+            let platform = this.findNearbyPlatform();
+            if (platform) {
+                this.moveToPlatform(platform);
+            }
+        }
+        this.previousY = this.y;
+    }
+
+    updateSprite(dx) {
         if (dx < 0) {
             this.direction = 'left';
-            if (frameCount % 5 === 0) {
-                this.frameIndex++;
-            }
+            if (frameCount % 5 === 0) this.frameIndex++;
         } else if (dx > 0) {
             this.direction = 'right';
-            if (frameCount % 5 === 0) {
-                this.frameIndex++;
-            }
+            if (frameCount % 5 === 0) this.frameIndex++;
         } else {
             this.direction = 'front';
             this.frameIndex = 0; // Reset animation when idle
         }
-
         this.frameIndex = this.frameIndex % 3;
+    }
 
-        // Check horizontal collisions with each solid tile
+    collideHorizontally(dx) {
         for (let row = 0; row < map.grid.length; row++) {
             for (let col = 0; col < map.grid[row].length; col++) {
                 if (map.grid[row][col] > 0) { // solid tile
@@ -96,87 +119,15 @@ class AIPlayer extends Player {
                         height: map.tileSize
                     };
                     if (checkCollision(this, tile)) {
-                        // If moving right, align the player's right edge with the tile's left edge
-                        if (dx > 0) {
-                            this.x = tile.x - this.width;
-                        }
-                        // If moving left, align the player's left edge with the tile's right edge
-                        else if (dx < 0) {
-                            this.x = tile.x + tile.width;
-                        }
+                        if (dx > 0) this.x = tile.x - this.width;
+                        else if (dx < 0) this.x = tile.x + tile.width;
                     }
                 }
             }
         }
     }
 
-    moveToWeapon(target) {
-        let dx = 0;
-        let dy = 0;
-
-        // Move horizontally towards the weapon
-        if (target.x < this.x) {
-            dx = -this.speed;
-        } else if (target.x > this.x) {
-            dx = this.speed;
-        }
-
-        // Move vertically towards the weapon
-        if (target.y < this.y) {
-            dy = -this.speed;
-        } else if (target.y > this.y) {
-            dy = this.speed;
-        }
-
-        // Attempt horizontal movement
-        this.x += dx;
-
-        // AI update animation for sprite
-        if (dx < 0) {
-            this.direction = 'left';
-            if (frameCount % 5 === 0) {
-                this.frameIndex++;
-            }
-        } else if (dx > 0) {
-            this.direction = 'right';
-            if (frameCount % 5 === 0) {
-                this.frameIndex++;
-            }
-        } else {
-            this.direction = 'front';
-            this.frameIndex = 0; // Reset animation when idle
-        }
-
-        this.frameIndex = this.frameIndex % 3;
-
-        // Check horizontal collisions with each solid tile
-        for (let row = 0; row < map.grid.length; row++) {
-            for (let col = 0; col < map.grid[row].length; col++) {
-                if (map.grid[row][col] === 1) { // solid tile
-                    let tile = {
-                        x: col * map.tileSize,
-                        y: row * map.tileSize,
-                        width: map.tileSize,
-                        height: map.tileSize
-                    };
-                    if (checkCollision(this, tile)) {
-                        // If moving right, align the player's right edge with the tile's left edge
-                        if (dx > 0) {
-                            this.x = tile.x - this.width;
-                        }
-                        // If moving left, align the player's left edge with the tile's right edge
-                        else if (dx < 0) {
-                            this.x = tile.x + tile.width;
-                        }
-                    }
-                }
-            }
-        }
-
-        // Attempt vertical movement
-        this.y += dy;
-
-        // Check vertical collisions with each solid tile
+    collideVertically(dy) {
         for (let row = 0; row < map.grid.length; row++) {
             for (let col = 0; col < map.grid[row].length; col++) {
                 if (map.grid[row][col] > 0) { // solid tile
@@ -187,33 +138,12 @@ class AIPlayer extends Player {
                         height: map.tileSize
                     };
                     if (checkCollision(this, tile)) {
-                        // If moving down, align the player's bottom edge with the tile's top edge
-                        if (dy > 0) {
-                            this.y = tile.y - this.height;
-                        }
-                        // If moving up, align the player's top edge with the tile's bottom edge
-                        else if (dy < 0) {
-                            this.y = tile.y + tile.height;
-                        }
+                        if (dy > 0) this.y = tile.y - this.height;
+                        else if (dy < 0) this.y = tile.y + tile.height;
                     }
                 }
             }
         }
-
-        // Check if the AI needs to jump to reach the weapon
-        if (target.y < this.y && !this.isJumping) {
-            this.jump();
-        }
-
-        // If the AI can't reach the weapon directly, find a nearby platform to jump to
-        if (this.y === this.previousY) {
-            let platform = this.findNearbyPlatform();
-            if (platform) {
-                this.moveToPlatform(platform);
-            }
-        }
-
-        this.previousY = this.y;
     }
 
     findNearbyPlatform() {
@@ -236,130 +166,50 @@ class AIPlayer extends Player {
     }
 
     moveToPlatform(platform) {
-        let dx = 0;
-        let dy = 0;
+        let diffX = platform.x - this.x;
+        let diffY = platform.y - this.y;
+        let dx = Math.abs(diffX) > this.speed ? this.speed * Math.sign(diffX) : diffX;
+        let dy = Math.abs(diffY) > this.speed ? this.speed * Math.sign(diffY) : diffY;
 
-        // Move horizontally towards the platform
-        if (platform.x < this.x) {
-            dx = -this.speed;
-        } else if (platform.x > this.x) {
-            dx = this.speed;
-        }
-
-        // Move vertically towards the platform
-        if (platform.y < this.y) {
-            dy = -this.speed;
-        } else if (platform.y > this.y) {
-            dy = this.speed;
-        }
-
-        // Attempt horizontal movement
         this.x += dx;
-
-        // AI update animation for sprite
-        if (dx < 0) {
-            this.direction = 'left';
-            if (frameCount % 5 === 0) {
-                this.frameIndex++;
-            }
-        } else if (dx > 0) {
-            this.direction = 'right';
-            if (frameCount % 5 === 0) {
-                this.frameIndex++;
-            }
-        } else {
-            this.direction = 'front';
-            this.frameIndex = 0; // Reset animation when idle
-        }
-
-        this.frameIndex = this.frameIndex % 3;
-
-        // Check horizontal collisions with each solid tile
-        for (let row = 0; row < map.grid.length; row++) {
-            for (let col = 0; col < map.grid[row].length; col++) {
-                if (map.grid[row][col] === 1) { // solid tile
-                    let tile = {
-                        x: col * map.tileSize,
-                        y: row * map.tileSize,
-                        width: map.tileSize,
-                        height: map.tileSize
-                    };
-                    if (checkCollision(this, tile)) {
-                        // If moving right, align the player's right edge with the tile's left edge
-                        if (dx > 0) {
-                            this.x = tile.x - this.width;
-                        }
-                        // If moving left, align the player's left edge with the tile's right edge
-                        else if (dx < 0) {
-                            this.x = tile.x + tile.width;
-                        }
-                    }
-                }
-            }
-        }
-
-        // Attempt vertical movement
+        this.updateSprite(dx);
+        this.collideHorizontally(dx);
         this.y += dy;
+        this.collideVertically(dy);
 
-        // Check vertical collisions with each solid tile
-        for (let row = 0; row < map.grid.length; row++) {
-            for (let col = 0; col < map.grid[row].length; col++) {
-                if (map.grid[row][col] === 1) { // solid tile
-                    let tile = {
-                        x: col * map.tileSize,
-                        y: row * map.tileSize,
-                        width: map.tileSize,
-                        height: map.tileSize
-                    };
-                    if (checkCollision(this, tile)) {
-                        // If moving down, align the player's bottom edge with the tile's top edge
-                        if (dy > 0) {
-                            this.y = tile.y - this.height;
-                        }
-                        // If moving up, align the player's top edge with the tile's bottom edge
-                        else if (dy < 0) {
-                            this.y = tile.y + tile.height;
-                        }
-                    }
-                }
-            }
-        }
-
-        // Check if the AI needs to jump to reach the platform
         if (platform.y < this.y && !this.isJumping) {
             this.jump();
         }
     }
 
-    aiJump() {
-        let target = this.findTarget();
+    aiJump(target) {
+        // If the target is above and AI is not already jumping, then jump.
         if (target && target.y < this.y && !this.isJumping) {
             this.jump();
         }
     }
 
-    aiShoot() {
+    aiShoot(target) {
         if (this.framesSinceLastShot >= this.shootCooldown) {
-            let target = players[0];
             let distance = dist(this.x, this.y, target.x, target.y);
             if (distance < 500 && this.hasClearShot(target)) {
                 this.shoot();
-                this.framesSinceLastShot = 0; // Reset the cooldown
+                this.framesSinceLastShot = 0;
             }
         }
     }
 
     findTarget() {
+        // If armed and with ammo, target the player; otherwise target the nearest weapon.
         if (this.weapon && this.weapon.bulletsFired < this.weapon.bulletLimit) {
-            return players[0]; // Target the player if AI has a weapon with ammo
+            return players[0];
         } else {
-            // Find the nearest weapon
             let nearestWeapon = null;
             let minDistance = Infinity;
             for (let weapon of weapons) {
-                let distance = dist(this.x, this.y, weapon.x, weapon.y);
-                if (distance < minDistance) {
-                    minDistance = distance;
+                let d = dist(this.x, this.y, weapon.x, weapon.y);
+                if (d < minDistance) {
+                    minDistance = d;
                     nearestWeapon = weapon;
                 }
             }
@@ -368,9 +218,7 @@ class AIPlayer extends Player {
     }
 
     hasClearShot(target) {
-        // Check for obstacles between the AI player and the target player
-        let clearShot = true;
-        let steps = 10; // Number of steps to check along the line
+        let steps = 10;
         let dx = (target.x - this.x) / steps;
         let dy = (target.y - this.y) / steps;
         for (let i = 1; i <= steps; i++) {
@@ -378,7 +226,7 @@ class AIPlayer extends Player {
             let checkY = this.y + dy * i;
             for (let row = 0; row < map.grid.length; row++) {
                 for (let col = 0; col < map.grid[row].length; col++) {
-                    if (map.grid[row][col] === 1) { // solid tile
+                    if (map.grid[row][col] === 1) {
                         let tile = {
                             x: col * map.tileSize,
                             y: row * map.tileSize,
@@ -386,25 +234,21 @@ class AIPlayer extends Player {
                             height: map.tileSize
                         };
                         if (checkCollision({ x: checkX, y: checkY, width: 1, height: 1 }, tile)) {
-                            clearShot = false;
-                            break;
+                            return false;
                         }
                     }
                 }
-                if (!clearShot) break;
             }
-            if (!clearShot) break;
         }
-        return clearShot;
+        return true;
     }
 
     pickupWeapon(weapon) {
         super.pickupWeapon(weapon);
-        this.framesSinceLastShot = 0; // Reset the cooldown when picking up a new weapon
+        this.framesSinceLastShot = 0;
     }
 
     display() {
-        // new feature
         let sprite = spriteManager.getSprite(this.spriteIndex, this.direction, this.frameIndex);
         if (sprite) {
             image(sprite, this.x, this.y, this.width, this.height);
