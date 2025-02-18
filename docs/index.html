@@ -13,10 +13,59 @@
   </head>
 
   <body>
-    <script src="spriteManager.js"></script>
-    <script src="player.js"></script>
-    <script src="AIPlayer.js"></script>
+    <!-- main-page -->
+    <div style="background-color:#60cefa;height:100%;width:20%;float:left;">
+      <img src="/Assets/chicken_right2.png" alt="Chicken">
+      <img src="/Assets/chicken_right2.png" alt="Chicken">
+      <img src="/Assets/chicken_right2.png" alt="Chicken">
+    </div>
+
+    <div style="background-color:#60cefa;height:100%;width:60%;float:left;">
+      <img src="/Assets/take_aim.png" alt="Take Aim" width="419" height="462">
+      <br>
+      <br>
+      <br>
+      <button type="button">1 Player</button>
+      <br>
+      <button type="button">2 Players</button>
+    </div>
+
+    <div style="background-color:#60cefa;height:100%;width:20%;float:left;">
+      <img src="/Assets/dog_left2.png" alt="Dog">
+      <img src="/Assets/dog_left2.png" alt="Dog">
+      <img src="/Assets/dog_left2.png" alt="Dog">
+      <div class="mydiv">
+        <button type="button" class="btn">
+          <img src="Assets/setting_icon.png" alt="Setting" width="20px" height="20px"></button>
+      </div>
+    </div>
+
+    <!-- character-select -->
+    <div id="character-select" class="screen hidden">
+      <h2>Select Your Character</h2>
+      <div class="characters">
+          <button onclick="selectCharacter('warrior')">Animal 1</button>
+          <button onclick="selectCharacter('archer')">Animal 2</button>
+          <button onclick="selectCharacter('mage')">Animal 3</button>
+      </div>
+    </div>
+  
+    <!-- map-select -->
+    <div id="map-select" class="screen hidden">
+      <h2>Select the Map</h2>
+      <div class="maps">
+          <button onclick="selectMap('forest')">Sky</button>
+          <button onclick="selectMap('desert')">Ground</button>
+          <button onclick="selectMap('castle')">Ocean</button>
+      </div>
+    </div>
+
+    <!-- battle-screen -->
+    <div id="battle-screen" class="screen hidden">
+      <h2><span id="player1"></span> VS <span id="player2"></span></h2>
+      <button onclick="startBattle()">START</button>
+    </div>
+
     <script src="sketch.js"></script>
-   
   </body>
 </html>
