@@ -88,10 +88,10 @@ function setup() {
 
     playerSprites = [firstPlayerSprite, secondPlayerSprite];
     players[0] = new Player(0, 150, 200, 65, 68, 87, 32, playerSprites[0]);  // Player 1 (WASD + Space)
-    //players[1] = new AIPlayer(1, 1075, 200, playerSprites[1]);  // Player 2 (Arrow Keys + Enter)
+    players[1] = new AIPlayer(1, 1075, 200, playerSprites[1]);  // Player 2 (Arrow Keys + Enter)
 
      
-    players[1] = new Player(1, 1075, 200, LEFT_ARROW, RIGHT_ARROW, UP_ARROW, ENTER, playerSprites[1]);  // Player 2 (Arrow Keys + Enter)
+    //players[1] = new Player(1, 1075, 200, LEFT_ARROW, RIGHT_ARROW, UP_ARROW, ENTER, playerSprites[1]);  // Player 2 (Arrow Keys + Enter)
     
 
     /* movingWalls.push(new MovingWall(100, 150, 50, 10, 2, 1, 30)); // Moves within a range of 30 pixels
