@@ -16,7 +16,7 @@ class InstructionsPanel {
      this.panel.style('background-color', 'white');
      this.panel.style('border', '1px solid black');
      this.panel.style('padding', '120px');
-     this.panel.style('z-index', '10');
+     this.panel.style('z-index', '30');
      this.panel.style('position', 'absolute');
  
      this.setupButtons();

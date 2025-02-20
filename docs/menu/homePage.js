@@ -34,7 +34,13 @@ class HomePage {
    }  
  
    showSettings() {
-     settingsPanel.show();
+    if (gameStarted) {
+      gameSettingsPanel.show();
+      homeSettingsPanel.hide();
+    } else {
+      homeSettingsPanel.show();
+      gameSettingsPanel.hide();
+    }
    }
  
    startGame(playerCount) {

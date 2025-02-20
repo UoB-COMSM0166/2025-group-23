@@ -1,10 +1,10 @@
 class SettingsPanel {
-   constructor() {
+   constructor(isGamePage = false, instructionsPanel) {
      this.panel = createDiv(`
        <p>Settings</p>
        <button id="closeSet-btn" type="button" style="cursor: pointer;">X</button>
        <button id="instruction-btn" type="button" style="cursor: pointer;">Instruction</button>
-       <button id="replay-btn" type="button" style="cursor: pointer;">Replay</button>
+       ${isGamePage ? '<button id="replay-btn" type="button" style="cursor: pointer;">Replay</button>' : ''}
        <button id="muteMusic-btn" type="button" style="cursor: pointer;">Mute Music</button>
        <button id="muteSound-btn" type="button" style="cursor: pointer;">Mute Sound</button>
      `);
@@ -14,16 +14,19 @@ class SettingsPanel {
      this.panel.style('background-color', 'white');
      this.panel.style('border', '1px solid black');
      this.panel.style('padding', '120px');
-     this.panel.style('z-index', '40');
+     this.panel.style('z-index', '20');
      this.panel.style('position', 'absolute');
  
-     this.setupButtons();
+     this.instructionsPanel = instructionsPanel;
+     this.setupButtons(isGamePage);
    }
  
-   setupButtons() {
+   setupButtons(isGamePage) {
      select('#closeSet-btn').mousePressed(() => this.hide());
      select('#instruction-btn').mousePressed(() => this.instructionsPanel.show());
-     select('#replay-btn').mousePressed(() => this.replay());
+     if (isGamePage) {
+      select('#replay-btn').mousePressed(() => this.replay());
+     }
      select('#muteMusic-btn').mousePressed(() => this.muteMusic());
      select('#muteSound-btn').mousePressed(() => this.muteSound());
    }

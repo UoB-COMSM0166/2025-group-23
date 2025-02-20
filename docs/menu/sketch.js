@@ -1,5 +1,6 @@
 let mapButton, player1Button, player2Button;
-let homePage, settingsPanel, instructionsPanel, mapPage, characterPage, music;
+let homePage, settingsPanel, instructionsPanel, mapPage, characterPage;
+let music, logo, chicken_right2, dog_left2;
 let musicMuted = false; 
 let gameStarted = false;
 let selectedMap = ''; 
@@ -12,13 +13,16 @@ function preload() {
   skyMap = loadImage('assets/sky-map.png'); 
   //groundMap = loadImage('assets/ground-map.png'); 
   //oceanMap = loadImage('assets/ocean-map.png'); 
+  logo = loadImage('assets/take_aim.png');
+  chicken_right2 = loadImage('assets/chicken_right2.png');
+  dog_left2 = loadImage('assets/dog_left2.png');
 }
 
 function setup() {
   createCanvas(1215, 760);
-
-  settingsPanel = new SettingsPanel();
   instructionsPanel = new InstructionsPanel();
+  homeSettingsPanel = new SettingsPanel(false, instructionsPanel);
+  gameSettingsPanel = new SettingsPanel(true, instructionsPanel);
   mapPage = new MapPage();
   characterPage = new CharacterPage();
   homePage = new HomePage();
@@ -41,6 +45,8 @@ function draw() {
 
   if (gameStarted) {
     text('Game is running...', 200, 300);
+    gameSettingsPanel.show();
+    homeSettingsPanel.hide();
 
     if (selectedMap === 'Sky') {
       image(skyMap, 0, 0, width, height);
