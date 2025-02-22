@@ -7,7 +7,7 @@ class HomePage {
     this.page.position(0, 0);
     this.page.style('width', windowWidth + 'px');
     this.page.style('height', windowHeight + 'px');
-    this.page.style('background-image', 'url(assets/mainMenu/main-background.jpg');
+    this.page.style('background-image', 'url(assets/mainMenu/main-background2.png');
     this.page.style('background-size', 'cover');
     this.page.style('background-position', 'center');
     this.page.style('z-index', '10');

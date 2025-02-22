@@ -33,7 +33,7 @@ function preload() {
   Map.preLoadBackgroundObjects();
   Weapon.preloadWeapons();
 
-  mainBackground = loadImage('assets/mainMenu/main-background.jpg');
+  mainBackground = loadImage('assets/mainMenu/main-background2.png');
   pixelFont = loadFont('assets/fonts/pixel.ttf');
 
   soundManager = new SoundManager();

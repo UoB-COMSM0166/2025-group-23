@@ -17,13 +17,13 @@ function startGame() {
   let player1Sprite = parseInt(localStorage.getItem("selectedCharacterIndex0"));
   let player2Sprite = parseInt(localStorage.getItem("selectedCharacterIndex1"));
 
-  players[0] = new Player(0, 150, 200, 65, 68, 87, 32, player1Sprite);  
+  players[0] = new Player(0, 200, 200, 65, 68, 87, 32, player1Sprite);  
 
   if (characterPage.playerCount === 1) {
-      players[1] = new AIPlayer(1, 1075, 200, player2Sprite);
+      players[1] = new AIPlayer(1, width - 210, 200, player2Sprite);
   } 
   else if (characterPage.playerCount === 2) {
-      players[1] = new Player(1, 1075, 200, LEFT_ARROW, RIGHT_ARROW, UP_ARROW, ENTER, player2Sprite);  // Player 2 (Arrow Keys + Enter)
+      players[1] = new Player(1, width - 210, 200, LEFT_ARROW, RIGHT_ARROW, UP_ARROW, ENTER, player2Sprite);  // Player 2 (Arrow Keys + Enter)
   }
   
   soundManager.playSound('gamestart');
