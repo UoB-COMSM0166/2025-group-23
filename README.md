@@ -115,6 +115,9 @@ Players must carefully time their shot to optimize both angle and power for maxi
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop?
 
 ### Ideation Process 
+
+In our ideation phase, we initially began with 12 different games. Our goal was to create a game that called back to classic games in the past but brings another level of fun, freshness and challenges. Therefore, it was important for each member in the group to bring together 2 already existing games each, with their added twist to them. In our meeting, we discussed potential development challenges we, as developers, could face during production. Some of our game ideas include Doodle Jump, Cat vs Dog, Bounce, and Flappy Bird. A summary of our game ideas with their brief description are document in *insert docs*. 
+
 ### Early Stage Design 
 ### Feasability Study
 ### Importance of Our Key Stakeholders 
