@@ -111,20 +111,41 @@ Players must carefully time their shot to optimize both angle and power for maxi
 
 # 3. Requirements 
 
-- 15% ~750 words
-- Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop?
-
 ### Ideation Process 
 
-In our ideation phase, we initially began with 12 different games. Our goal was to create a game that called back to classic games in the past but brings another level of fun, freshness and challenges. Therefore, it was important for each member in the group to bring together 2 already existing games each, with their added twist to them. In our meeting, we discussed potential development challenges we, as developers, could face during production. Some of our game ideas include Doodle Jump, Cat vs Dog, Bounce, and Flappy Bird. A summary of our game ideas with their brief description are document in *insert docs*. 
+At the start of our ideation phase, we initially began with 12 different games. Our goal was to create a game that called back to classic games in the past but bringing another level of fun, freshness and challenges. Therefore, before finalising a game to develop, it was important for each member in the group to bring together 2 already existing games each, with their added twist to them. In our meeting, we discussed potential development challenges we, as developers, could face during production for each games that we liked. Some of the games we considered include Doodle Jump, Cat vs Dog, Bounce, and Flappy Bird. A summary of our game ideas with their brief description from Week1 are documented using *insert docs*. 
+
+Moving into Week2, we have chosen two games to further expand on: Cat vs Dog, and Bounce. Communication between the team became more transparent as we decided to have three members working on each game, to go deeper on the specific in-game dynamics, mechanics, rules, and challenges. This was especially helpful to understand the scope of the entire development process. 
+
+Week3 allowed us to showcase these ideas by creating Paper Prototypes of our initial game ideas. Unfortunately, from the feedback we have recieved from the testers, it was clear to us that both our ideas did not fully satisfy us in-terms of our shared goal of creating a game that is 'classic-throwback', fun, fresh and challenging. We decided to combine the features we loved from Cat vs Dog, and Bounce to create an entire new game concept. We took the face-to-face battle throwing concept of Cat vs Dog, combined with the manuevering of the classic platform game in Bounce, and we have a game that combines tactical game-play and strategic combat (insert Paper Prototype figure). 
 
 ### Early Stage Design 
-### Feasability Study
+
+As some members in our team have had previous game development experience before, we decided to create a playable prototype where we were able to perform initial user testing for collision checking, map tile initialisation and player key handling. This was extremely useful as it boosted the backend team's confidence in overcoming the initial developmental challenges we highlighted at the start (collision behaviours and map creation).
+
+.<div align="center">
+  **Figure #** <br>
+  *Screenshot of Game Prototype During Early Development* <br>
+  <img width="700" alt="Week2-gamePrototype" src="https://github.com/user-attachments/assets/3efac460-0b85-4783-9029-8a2509931435" />
+</div>
+
+For frontend design, our group shared a common interest in the style of "Crossy Road" for the character look and in-game theme. We love the idea of players being able to choose their characters, as well as varying maps and environments where the game is set similar to "Crossy Road", while manipulating the platform style genre similar to "Mario".
+
+It was important to us that we are develop a game that incorporates varying playing styles and tactical game-play, so we experimented with the game mechanics such as developing different types of weapons, the interval between weapon drop, auto-aiming, black hole mechanics, and AI algorithm (for One Player Mode). 
+
 ### Importance of Our Key Stakeholders 
-* **Users:** "Retro Game/Arcade Game Lovers", Casual Gamers, Competitive Gamers, Interactive Gamers, Gamers with Disability
-* **Development Team:** Frontend, Backend, Quality Assurance, Product Owner, Scrum Master
-* **Game Testers**
-<br>
+
+.<div align="center">
+  **Figure #** <br>
+  *Onion Model of Take Aim Game* <br>
+  <img width="600" alt="OnionModelProposal" src="https://github.com/user-attachments/assets/b7c13991-3ac6-4f11-b79d-5ce0e990b8d3" /> 
+</div>
+
+1. **The Product or Service:** Take Aim Game
+2. **Development Team:** Frontend, Backend, Quality Assurance, Product Owner, Scrum Master
+3. **Game Testers:** Testers, Professors, Experts (assessors)
+4. **Users:** "Retro Game/Arcade Game Lovers", Casual Gamers, Competitive Gamers, Interactive Gamers, Gamers with Disability
+
 As we finalised our chosen game, it was clear to us that identifying and understanding key stakeholders is essential to ensuring a well-rounded, engaing, and accesible gaming experience. Our stakeholders include end-users, such as retro game entusiast, both casual and competitive gamers, interactive players, and gamers with disabilities. Each group bring unique expectations and preferences, guiding us with developing the mechanics that cater to various playstyles and accesibility needs. <br> <br>
 The development team, consisting of frontend and backend developers, quality assurance testers, a Product Owner, and a Scrum Master, is responsible for turning our ideas into a functional and immersive game. The team will also determine the technical feasibility, ensure performance optimisation, and maintain smooth development workflows. Additionally, game testers play a crucial role in validating our concepts, ensuring gameplay balance, and identifying potential issues before launch. <br> <br>
 By actively involving these stakeholders in our ideation process, we can create a game that not only meets industry standards but also resonates with our taget audience. This approcah allows us to refine our vision early on, reducing development risks and fostering a more innovative and player-centric experience. Committing to this stakeholder-driven approach ensures that Take Aim will be both technically sound and highly engaing for its intended audience. <br>
