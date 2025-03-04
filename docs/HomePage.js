@@ -5,8 +5,8 @@ class HomePage {
     this.page = createDiv('');
     this.page.id('homepage-container');
     this.page.position(0, 0);
-    this.page.style('width', windowWidth + 'px');
-    this.page.style('height', windowHeight + 'px');
+    this.page.style('width', width + 'px');
+    this.page.style('height', height + 'px');
     this.page.style('background-image', 'url(assets/mainMenu/main-background2.png');
     this.page.style('background-size', 'cover');
     this.page.style('background-position', 'center');
@@ -25,7 +25,7 @@ class HomePage {
     const css = 
       `@font-face {
         font-family: pixel;
-        src: url("https://dl.dropboxusercontent.com/s/hsdwvz761xqphhb/pixel.ttf");
+        src: url("assets/fonts/pixel.ttf");
         }
       button {
         border: none;
@@ -57,7 +57,7 @@ class HomePage {
     this.settingsButton.id("setting-button");
     this.settingsButton.style('cursor', 'pointer');
     this.settingsButton.style('position', 'absolute');
-    this.settingsButton.position(windowWidth - 120, 20);
+    this.settingsButton.position(width / 2, height / 2 + 310);
     this.settingsButton.style('transform', 'translateX(-50%)');
     this.settingsButton.mouseReleased(() => {
       soundManager.playSound('buttonClick');
@@ -68,7 +68,7 @@ class HomePage {
     this.player1button.id("player1-button");
     this.player1button.style('cursor', 'pointer');
     this.player1button.style('position', 'absolute');
-    this.player1button.position(windowWidth / 2, windowHeight / 2 + 130);
+    this.player1button.position(width / 2, height / 2 + 130);
     this.player1button.style('transform', 'translateX(-50%)');
     this.player1button.mouseReleased(() => {
       this.startGame(1);
@@ -79,7 +79,7 @@ class HomePage {
     this.player2button.id("player2-button");
     this.player2button.style('cursor', 'pointer');
     this.player2button.style('position', 'absolute');
-    this.player2button.position(windowWidth / 2, windowHeight / 2 + 220);
+    this.player2button.position(width / 2, height / 2 + 220);
     this.player2button.style('transform', 'translateX(-50%)');
     this.player2button.mouseReleased(() => {
       this.startGame(2);

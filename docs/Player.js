@@ -4,7 +4,7 @@ class Player {
       this.x = x;
       this.y = y;
       this.speed = 5;
-      this.health = 100;
+      this.health = 300;
       this.vy = 0;
       this.gravity = 0.8;
       this.isJumping = true;
@@ -62,17 +62,25 @@ class Player {
           // HORIZONTAL MOVEMENT & COLLISION
       let dx = 0;
 
-      if (keyIsDown(this.leftKey)) {
-          dx = -this.speed;
-          this.direction = 'left';
-      } 
-      else if (keyIsDown(this.rightKey)) {
-          dx = this.speed;
-          this.direction = 'right';
+      if (this.aiDx !== undefined) {
+        dx = this.aiDx;
+        this.aiDx = undefined;
+        this.direction = (dx < 0) ? 'left' : (dx > 0 ? 'right' : 'front');
+      } else {
+        if (keyIsDown(this.leftKey)) {
+            dx = -this.speed;
+            this.direction = 'left';
+        } 
+        else if (keyIsDown(this.rightKey)) {
+            dx = this.speed;
+            this.direction = 'right';
+        }
+        else {
+            this.direction = 'front';
+        }
       }
-      else {
-          this.direction = 'front';
-      }
+
+      
 
       // Attempt horizontal movement
       this.x += dx;
@@ -164,7 +172,7 @@ class Player {
        this.wasMoving = isWalking;
       
       // Prevent falling below the bottom of the canvas
-      if (this.y > height) {
+      if (this.y > height - Items.gameBar.height) {
           soundManager.playSound('blackhole');
           this.x = random(0, width);
           this.y = 0;
@@ -182,7 +190,13 @@ class Player {
   }
 
   shoot() {
-      if (!this.weapon) {
+      const centerX = this.x + this.width / 2;
+      const centerY = this.y + this.height / 2;
+      if (centerX < 0 || centerX > width || centerY < 0 || centerY > height) {
+        return;
+      }
+
+      if (!this.weapon || (roundOver && this !== roundWinner)) {
           return;
       }
 
@@ -246,11 +260,9 @@ class Player {
 
       //if bullets reach limit, discard weapon, stop firing. 
       if (this.weapon.bulletsFired >= this.weapon.bulletLimit) {
-          soundManager.playSound('emptyMag');
-          this.weapon = null;
-      }
-
-
+        soundManager.playSound('emptyMag');
+        this.weapon = null;
+    }
   }
 
   pickupWeapon(weapon) {

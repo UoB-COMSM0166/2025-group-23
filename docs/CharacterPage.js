@@ -54,8 +54,8 @@ class CharacterPage {
    this.page.id('characters');
    this.page.position(0, 0);
    this.page.style('display', 'none');
-   this.page.style('width', windowWidth + 'px');
-   this.page.style('height', windowHeight + 'px');
+   this.page.style('width', width + 'px');
+   this.page.style('height', height + 'px');
    this.page.style('background-color', 'white');
 
    this.setupButtons();
@@ -79,7 +79,7 @@ class CharacterPage {
    this.exitButton.id("exit-button");
    this.exitButton.style('cursor', 'pointer');
    this.exitButton.style('position', 'absolute');
-   this.exitButton.position(windowWidth - 120, 20);
+   this.exitButton.position(width - 120, 20);
    this.exitButton.style('transform', 'translateX(-50%)');
    this.exitButton.mouseReleased(() => {
      soundManager.playSound('buttonClick');

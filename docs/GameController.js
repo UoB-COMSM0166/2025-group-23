@@ -2,6 +2,7 @@ function checkStartGame() {
   if (!gameInitalised && localStorage.getItem("selectedCharacterIndex0") !== null && localStorage.getItem("selectedCharacterIndex1") !== null) {
     console.log("Both players selected! Starting game...");
     gameInitalised = true;
+    soundManager.stopMusic('gameMusic');
     hideAllButtons();
     startGame();
   }
@@ -36,6 +37,7 @@ function startGame() {
 }
 
 function initMaps() {
+
   maps = [
       new Map([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -84,10 +86,10 @@ function initMaps() {
           { key: "cloud1", speed: 0.9, direction: -1, startX: width, startY: 100},
           { key: "cloud2", speed: 0.05, direction: -1, startX: 0, startY: 410},
           { key: "cloud3", speed: 0.8, direction: -1, startX: 0, startY: 150},
-          { key: "desert_mountain_peak", speed: 0.2, direction: -1, startX: 0, startY: height - 400},
+          { key: "desert_mountain_peak", speed: 0.2, direction: -1, startX: 0, startY: height - 500},
           { key: "desert_sand_layer", speed: 0.7, direction: -1, startX: 0, startY: 130},
-          { key: "desert_sand_layer1", speed: 0.9, direction: -1, startX: 0, startY: 150},
-          { key: "desert_sand_layer2", speed: 1.1, direction: -1, startX: 0, startY: 170},
+          { key: "desert_sand_layer1", speed: 1.1, direction: -1, startX: 0, startY: 150},
+          { key: "desert_sand_layer2", speed: 1.4, direction: -1, startX: 0, startY: 170},
       ]
       ),
       new Map([
@@ -96,18 +98,18 @@ function initMaps() {
           [2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2],
           [2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2],
           [2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2],
+          [2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2],
           [1, 2, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 1],
-          [3, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 3],
           [3, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 3],
-          [3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3],
-          [3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 0, 0, 0, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3],
-          [3, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 3, 0, 0, 0, 3, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3],
-          [3, 2, 2, 2, 2, 2, 2, 2, 1, 3, 3, 3, 0, 0, 0, 3, 3, 3, 1, 2, 2, 2, 2, 2, 2, 2, 3],
+          [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+          [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 0, 0, 0, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+          [2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 3, 0, 0, 0, 3, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+          [1, 1, 2, 2, 2, 2, 2, 2, 1, 3, 3, 3, 0, 0, 0, 3, 3, 3, 1, 2, 2, 2, 2, 2, 2, 1, 1],
           [3, 2, 2, 2, 2, 2, 2, 1, 3, 2, 3, 3, 0, 0, 0, 3, 3, 2, 3, 1, 2, 2, 2, 2, 2, 2, 3],
-          [3, 2, 2, 2, 2, 2, 1, 3, 2, 2, 3, 3, 0, 0, 0, 3, 3, 2, 2, 3, 1, 2, 2, 2, 2, 2, 3],
-          [3, 2, 2, 2, 2, 1, 3, 2, 2, 2, 3, 3, 0, 0, 0, 3, 3, 2, 2, 2, 3, 1, 2, 2, 2, 2, 3],
-          [3, 2, 2, 2, 1, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 1, 2, 2, 2, 3],
-          [3, 1, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 3],
+          [2, 2, 2, 2, 2, 2, 1, 3, 2, 2, 3, 3, 0, 0, 0, 3, 3, 2, 2, 3, 1, 2, 2, 2, 2, 2, 2],
+          [2, 2, 2, 2, 2, 1, 3, 2, 2, 2, 3, 3, 0, 0, 0, 3, 3, 2, 2, 2, 3, 1, 2, 2, 2, 2, 2],
+          [2, 2, 2, 2, 1, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 1, 2, 2, 2, 2],
+          [2, 1, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 2],
       ],
       { 0: null, 1: "underground_platform1", 2: "underground_wall1", 3: "underground_platform2"}, 
       "underground",
@@ -175,11 +177,86 @@ function initMaps() {
   console.log("Maps Successfully loaded");
 }
 
+function drawHealthBar1(player, x, y, barWidth, barHeight) {
+    push();
+    fill(50);
+    rect(x, y, barWidth, barHeight);
+
+    let healthRed = 0;
+    let healthGreen = 200;
+    let healthWidth = (player.health / 300) * barWidth;
+
+    if (healthWidth < 90) {
+        healthRed = 255;
+        healthGreen = 0;
+    }
+
+    fill(healthRed, healthGreen, 0);
+    rect(x, y, healthWidth, barHeight);
+
+    noFill();
+    stroke(255);
+    rect(x, y, barWidth, barHeight);
+    pop();
+
+    textSize(30);
+    fill(255);
+    text("PLAYER 1", x + 50, y - 30)
+    textSize(20);
+    text(players[0].health, x + 40, y + 9);
+
+}
+
+function drawHealthBar2(player, x, y, barWidth, barHeight) {
+    push();
+    fill(50);
+    rect(x, y, barWidth, barHeight);
+
+    let healthRed = 0;
+    let healthGreen = 200;
+    let healthWidth = (player.health / 300) * barWidth;
+
+    if (healthWidth < 90) {
+        healthRed = 255;
+        healthGreen = 0;
+    }
+
+    fill(healthRed, healthGreen, 0);
+    rect(x + (barWidth - healthWidth), y, healthWidth, barHeight);
+
+    noFill();
+    stroke(255);
+    rect(x, y, barWidth, barHeight);
+    pop();
+
+    textSize(30);
+    fill(255);
+    text("PLAYER 2", x + 250, y - 30)
+    textSize(20);
+    text(players[1].health, x + 260, y + 9);
+}
+
 function drawScore(playerScore, alignment, x , y) {
   textSize(32);
   fill(255);
   textAlign(alignment);
   text(playerScore, x, y);
+}
+
+function drawScore1(playerScore, x, y) {
+    for (let i = 0; i < playerScore; i++) {
+        fill('green')
+        rect((map.tileSize * 5.5) + x * i, y, 20, 20);
+    }
+
+}
+
+function drawScore2(playerScore, x, y) {
+    for (let i = 0; i < playerScore; i++) {
+        fill('green')
+        rect(x/i + width, y, 20, 20);
+    }
+
 }
 
 function keyPressed() {
@@ -262,7 +339,7 @@ function setWinner(winner) {
 function resetRound() {
   //reset all players to max health and original position, increment score. start loop again. 
   for (let player of players) {
-      player.health = 100;
+      player.health = 300;
       player.weapon = null;
       player.exitStage = 0;
   }
@@ -282,31 +359,17 @@ function checkRoundOver() {
   //check if health is 0 then set round as over. 
   let alivePlayers = players.filter(p => p.health > 0);
   if (alivePlayers.length === 1) {
-      //noLoop();
       let winner = alivePlayers[0];
       if (winner.index === undefined) {
           console.error("Error: playerIndex is undefined for winner:", winner);
           return null;
       }
-
-     /*  // Retrieve the sprite name from localStorage
-      let storedIndex = localStorage.getItem(`selectedCharacterIndex${winner.index}`);
-      let winnerName = characterNames[storedIndex];
-
-      // If the sprite is not found, use a fallback name
-      if (!winnerName) {
-          winnerName = `Player ${winner.playerIndex + 1}`;
-      }*/
-
       let playerNum = winner.index + 1;
       push();
-      textSize(32);
-      fill(255);
-      textAlign(CENTER);
-
-      // Display winner's sprite name
-      text(`Player ${playerNum} Wins Round ${roundNum}!`, width / 2, height / 2);
-      
+        textSize(32);
+        fill(255);
+        textAlign(CENTER);
+        text(`Player ${playerNum} Wins Round ${roundNum}!`, width / 2, height / 2); // Display winner's sprite name
       pop();
       return winner;
   }
@@ -322,17 +385,17 @@ function checkGameOver() {
   
   if (player1Score >= finalScore || player2Score >= finalScore) {
       gameOver = true;
-      push()
-      translate(rectX, rectY);
-      stroke('white');
-      strokeWeight(1);
-      fill('black');
-      rect(0, 0, rectW, rectH);
-      textSize(32);
-      fill('white');
-      textAlign(CENTER, CENTER);
-      let winningPlayer = (player1Score === finalScore) ? "PLAYER 1" : "PLAYER 2";
-      text(winningPlayer + " WINS!", rectW / 2, rectH / 2);
+      push();
+        translate(rectX, rectY);
+        stroke('white');
+        strokeWeight(1);
+        fill('black');
+        rect(0, 0, rectW, rectH);
+        textSize(32);
+        fill('white');
+        textAlign(CENTER, CENTER);
+        let winningPlayer = (player1Score === finalScore) ? "PLAYER 1" : "PLAYER 2";
+        text(winningPlayer + " WINS!", rectW / 2, rectH / 2);
       pop();
       noLoop();
   }
@@ -345,6 +408,15 @@ function checkCollision(player, tile) {
       player.y < tile.y + tile.height &&
       player.y + player.height > tile.y
   );
+}
+
+function pointInRect(px, py, rect) {
+    return (
+        px >= rect.x && 
+        px <= rect.x + rect.width &&
+        py >= rect.y &&
+        py <= rect.y + rect.height
+    );
 }
 
 class MovingWall {
@@ -402,12 +474,11 @@ class Weapon {
   }
 
   static preloadWeapons() {
-      Weapon.loadWeaponFrames("shotgun", "right", loadImage('assets/weapons/pistol_right1.png'));
-      Weapon.loadWeaponFrames("shotgun", "left", loadImage('assets/weapons/pistol_left1.png'));
+    Weapon.loadWeaponFrames("shotgun", "right", loadImage('assets/weapons/pistol_right1.png'));
+    Weapon.loadWeaponFrames("shotgun", "left", loadImage('assets/weapons/pistol_left1.png'));
 
-      Weapon.loadWeaponFrames("pistol", "right", loadImage('assets/weapons/rifle_right1.png'));
-      Weapon.loadWeaponFrames("pistol", "left", loadImage('assets/weapons/rifle_left1.png'));
-
+    Weapon.loadWeaponFrames("pistol", "right", loadImage('assets/weapons/rifle_right1.png'));
+    Weapon.loadWeaponFrames("pistol", "left", loadImage('assets/weapons/rifle_left1.png'));
   }
 
 
@@ -455,202 +526,157 @@ class Bullet {
       }
       this.x = x;
       this.y = y;
-      this.width = 5;
-      this.height = 5;
+      this.width = 60;
+      this.height = 10;
       this.vx = vx;
       this.vy = vy;
       this.shooter = shooter;
-  }
+      this.bulletType = shooter.weapon ? shooter.weapon.weaponType : "pistol;"
+
+      this.exploding = false;
+      this.explosionFrame = 0;
+      this.explosionFrameDuration = 20;
+      this.explosionLastFrameTime = 0;
+      this.explosionFinished = false;
+      this.hitPlayer = false;
+      this.damageApplied = false;
+    }
+
+    static collisionWallFX = [];
+    static collisionPlayerFX = [];
+
+    static preloadWallCollisionFX() {
+        for (let i = 1; i <= 7; i++) {
+            this.collisionWallFX.push(loadImage(`assets/collisionFX/collisionFX_wall/${i}.png`));
+        }
+    }
+
+    static preloadPlayerCollisionFX() {
+        for (let i = 1; i <= 7; i++) {
+            this.collisionPlayerFX.push(loadImage(`assets/collisionFX/collisionFX_player/${i}.png`));
+        }
+    }
+
+    static preloadCollisionFX() {
+        this.preloadPlayerCollisionFX();
+        this.preloadWallCollisionFX();
+    }
+
+    static bulletShotgun;
+    static bulletRifle;
+
+    static preloadBulletImages() {
+        this.bulletShotgun = loadImage('assets/weapons/bullets/shotgun-bullet.png');
+        this.bulletRifle = loadImage('assets/weapons/bullets/rifle-bullet.png');
+    }
 
   update() {
+    if (!this.exploding) {
       this.x += this.vx;
       this.y += this.vy;
-      let tileSize = map.tileSize;
 
-      for (let row = 0; row < map.grid.length; row++) {
-          for (let col = 0; col < map.grid[row].length; col++) {
-              let tileNum = map.grid[row][col];
-              if (tileNum > 0 && map.tileMapping[tileNum] !== "underground_wall1") {
-                  let tile = {x: col * tileSize, y: row * tileSize, width: tileSize, height: tileSize};
+      for (let player of players) {
+        if (player !== this.shooter) {
+            if (PowerUps.isShieldActiveFor(player)) {
+                if (PowerUps.shieldCollisionCheck(this, player)) {
+                    this.exploding = true;
+                    this.explosionFrame = 0;
+                    this.explosionLastFrameTime = millis();
+                    break;
+                }
+            } else if (pointInRect(this.x, this.y, {
+                x: player.x,
+                y: player.y,
+                width: player.width,
+                height: player.height
+            })) {
+                if (!this.damageApplied) {
+                    if (!roundOver) {
+                        soundManager.playSound('hit');
+                        player.takeDamage(10);
+                    }
+                    this.damageApplied = true;
+                }
+                this.hitPlayer = true;
+                this.explosionFrame = 0;
+                this.explosionLastFrameTime = millis();
+                break;
+            }
+        }
+    }
 
-                  if (checkCollision(this, tile)) {
-                      //handle floor collsion (landing on top)
-                      bullets.splice(bullets.indexOf(this), 1);
-                      return;
-                  }
-              }
-          }
-      }
+    if (!this.hitPlayer) {
+        for (let row = 0; row < map.grid.length; row++) {
+            for (let col = 0; col < map.grid[row].length; col++) {
+                let tileNum = map.grid[row][col];
+                if (tileNum > 0 && map.tileMapping[tileNum] !== "underground_wall1") {
+                    let tile = {x: col * map.tileSize, y: row * map.tileSize, width: map.tileSize, height: map.tileSize};
+
+                    if (pointInRect(this.x, this.y, tile)) {
+                        this.exploding = true;
+                        this.explosionFrame = 0;
+                        this.explosionLastFrameTime = millis();
+                        break;
+                    }
+                }
+            }
+            if (this.exploding) {
+                break;
+                }
+            }
+        }
+    }  
+    if (this.hitPlayer) {
+        if (millis() - this.explosionLastFrameTime > this.explosionFrameDuration) {
+            this.explosionFrame++;
+            this.explosionLastFrameTime = millis();
+            if (this.explosionFrame >= Bullet.collisionPlayerFX.length) {
+                this.explosionFinished = true;
+            }
+        }
+    }
+
+    if (this.exploding) {
+        if (millis() - this.explosionLastFrameTime > this.explosionFrameDuration) {
+            this.explosionFrame++;
+            this.explosionLastFrameTime = millis();
+            if (this.explosionFrame >= Bullet.collisionWallFX.length) {
+                this.explosionFinished = true;
+            }
+        }
+    }
+    
   }
 
   shoots(player) {
-      return player.collidesWith(this);
+      return checkCollision(this, player);
   }
 
   display() {
-      if (isNaN(this.x) || isNaN(this.y)) {
-          console.error("Bullet position is NaN", this);
-          return;
-      }
-      fill(255, 255, 0);
-      rect(this.x, this.y, this.width, this.height);
-  }
-}
-
-class Map {
-  static tileBlockImages = {};
-  static backgroundImages = {};
-  static backgroundObjects = {};
-
-  constructor(grid, tileMapping, backgroundImageKey, backgroundObjects = [], scrollDirection = "horizontal") {
-      this.grid = grid;
-      this.tileMapping = tileMapping;
-      this.rows = this.grid.length;
-      this.cols = this.grid[0].length;
-      this.tileSize = 45;
-      this.backgroundImageKey = backgroundImageKey;
-      this.scrollDirection = scrollDirection;
-
-      this.backgroundObjects = backgroundObjects.map(obj => ({
-          key: obj.key,
-          speed: obj.speed || 0, // Default 0 if no speed is set
-          direction: obj.direction || 0, // Default moves left (-1)
-          x: obj.startX || 0, // Starting X position
-          y: obj.startY || 0, // Starting Y position
-          ySpeed: obj.ySpeed || 0, // Vertical speed
-          yDirection: obj.yDirection || 0, // Up (-1) or Down (1)
-          yRange: obj.yRange || 0, // Max movement range in Y
-          yStart: obj.startY || 0, // Keep track of original Y for oscillation
-      }));
-
-      this.animationFrame = 0;
-      this.frameDelay = 10;
-  }
-
-  static preLoadTiles() {
-      this.tileBlockImages["desert_tile_float1"] = loadImage('assets/maps/desert_map/desert_platforms/desert_tile_float1.png');
-      this.tileBlockImages["desert_tile_1"] = loadImage('assets/maps/desert_map/desert_platforms/desert_tile.png');
-
-      this.tileBlockImages["desert_tile_water"] = [
-          loadImage('assets/maps/desert_map/desert_platforms/water_tile1.png'),
-          loadImage('assets/maps/desert_map/desert_platforms/water_tile2.png'),
-          loadImage('assets/maps/desert_map/desert_platforms/water_tile3.png'),
-      ];
-
-      this.tileBlockImages["underground_platform1"] = loadImage('assets/maps/underground_map/underground_platforms/underground_platform1.png');
-      this.tileBlockImages["underground_platform2"] = loadImage('assets/maps/underground_map/underground_platforms/underground_platform2.png');
-      this.tileBlockImages["underground_wall1"] = loadImage('assets/maps/underground_map/underground_platforms/underground_wall1.png');
-
-      this.tileBlockImages["sky_platform1"] = loadImage('assets/maps/sky_map/sky_platforms/cloud_platform1.png');
-      this.tileBlockImages["sky_platform2"] = loadImage('assets/maps/sky_map/sky_platforms/cloud_platform2.png');
-
-      this.tileBlockImages["ocean_platform1"] = loadImage('assets/maps/ocean_map/ocean_platforms/ocean_platform1.png');
-  }
-
-  static preLoadBackgroundImages() {
-      this.backgroundImages["desert"] = loadImage('assets/maps/desert_map/desert_background.png');
-      this.backgroundImages["underground"] = loadImage('assets/maps/underground_map/underground_background.png');
-      this.backgroundImages["sky"] = loadImage('assets/maps/sky_map/sky_background.png');
-      this.backgroundImages["ocean"] = loadImage('assets/maps/ocean_map/ocean_background.png');
-      
-  }
-
-  static preLoadBackgroundObjects() {
-      this.backgroundObjects["cloud1"] = loadImage('assets/maps/desert_map/cloud_1.png');
-      this.backgroundObjects["cloud2"] = loadImage('assets/maps/desert_map/cloud_2.png');
-      this.backgroundObjects["cloud3"] = loadImage('assets/maps/desert_map/cloud_3.png');
-      this.backgroundObjects["desert_mountain_peak"] = loadImage('assets/maps/desert_map/desert_mountain_peak.png');
-      this.backgroundObjects["desert_sand_layer"] = loadImage('assets/maps/desert_map/desert_sand_layer.png');
-      this.backgroundObjects["desert_sand_layer1"] = loadImage('assets/maps/desert_map/desert_sand_layer1.png');
-      this.backgroundObjects["desert_sand_layer2"] = loadImage('assets/maps/desert_map/desert_sand_layer2.png');
-
-      this.backgroundObjects["underground_layer1"] = loadImage('assets/maps/underground_map/underground_layer1.png');
-      this.backgroundObjects["underground_layer2"] = loadImage('assets/maps/underground_map/underground_layer2.png');
-      this.backgroundObjects["underground_layer3"] = loadImage('assets/maps/underground_map/underground_layer3.png');
-
-      this.backgroundObjects["sky_layer1"] = loadImage('assets/maps/sky_map/sky_layer1.png');
-      this.backgroundObjects["sky_layer2"] = loadImage('assets/maps/sky_map/sky_layer2.png');
-      this.backgroundObjects["sky_layer3"] = loadImage('assets/maps/sky_map/sky_layer3.png');
-      this.backgroundObjects["sky_layer4"] = loadImage('assets/maps/sky_map/sky_layer4.png');
-
-      this.backgroundObjects["ocean_layer1"] = loadImage('assets/maps/ocean_map/ocean_layer1.png');
-      this.backgroundObjects["ocean_layer2"] = loadImage('assets/maps/ocean_map/ocean_layer2.png');
-      this.backgroundObjects["ocean_layer3"] = loadImage('assets/maps/ocean_map/ocean_layer3.png');
-      this.backgroundObjects["ocean_layer4"] = loadImage('assets/maps/ocean_map/ocean_layer4.png');
-  }
-
-  updateAnimation() {
-      if (frameCount % this.frameDelay === 0) {
-          this.animationFrame = (this.animationFrame + 1) % 3; // Cycle through 0, 1, 2
-      }
-  }
-
-  updateBackgroundObjects() {
-      for (let obj of this.backgroundObjects) {
-          let img = Map.backgroundObjects[obj.key]; 
-          if (!img) continue; 
-  
-          // For horizontal scrolling maps:
-          if (this.scrollDirection === "horizontal") {
-              if (obj.speed !== 0) {
-                  obj.x += obj.speed * obj.direction;
-                  // When the object completely moves off the left or right, loop it:
-                  if (obj.direction === -1 && obj.x <= -img.width) {
-                      obj.x += img.width * 2;
-                  } else if (obj.direction === 1 && obj.x >= width) {
-                      obj.x = -img.width;
-                  }
-              }
-          }
-          // For vertical scrolling maps:
-          else if (this.scrollDirection === "vertical") {
-              if (obj.ySpeed !== 0) {
-                  obj.y += obj.ySpeed * obj.yDirection;
-                  // Instead of using canvas height, use the image's natural height for looping.
-                  if (obj.yDirection === -1 && obj.y <= -img.height) {
-                      obj.y += img.height;
-                  } else if (obj.yDirection === 1 && obj.y >= img.height) {
-                      obj.y = -img.height;
-                  }
-              }
-          }
-      }
-  }
-
-  display() {
-      if (Map.backgroundImages[this.backgroundImageKey]) {
-          image(Map.backgroundImages[this.backgroundImageKey], 0, 0, width, height);
-      } else {
-          background(100); // Default fallback
-      }
-
-      for (let obj of this.backgroundObjects) {
-          let img = Map.backgroundObjects[obj.key];
-          if (img && img.width > 0) {
-            image(img, obj.x, obj.y, img.width, img.height);
-            if (this.scrollDirection === "horizontal") {
-              image(img, obj.x + img.width, obj.y, img.width, img.height);
-              image(img, obj.x - img.width, obj.y, img.width, img.height);
-            } else if (this.scrollDirection === "vertical") {
-              image(img, obj.x, obj.y - img.height, img.width, img.height);
-              image(img, obj.x, obj.y + img.height, img.width, img.height);
-            }
-          }
+    if (!this.exploding && !this.hitPlayer) {
+        let bulletImg;
+        if (this.bulletType === "shotgun") {
+            bulletImg = Bullet.bulletShotgun;
         }
-
-      for (let i = 0; i < this.rows; i++) {
-          for (let j = 0; j < this.cols; j++) {
-              let tileType = this.grid[i][j];
-              let tileName = this.tileMapping[tileType]; // Convert number to tile name
-              
-              if (tileName === "desert_tile_water" && Map.tileBlockImages["desert_tile_water"]) {
-                  let frame = Map.tileBlockImages["desert_tile_water"][this.animationFrame]; // Get current frame
-                  image(frame, j * this.tileSize, i * this.tileSize, this.tileSize, this.tileSize);
-              } else if (Map.tileBlockImages[tileName]) {
-                  image(Map.tileBlockImages[tileName], j * this.tileSize, i * this.tileSize, this.tileSize, this.tileSize);
-              }
-          }
-      }
+        else {
+            bulletImg = Bullet.bulletRifle;
+        }
+        if (bulletImg) {
+            push(); 
+            translate(this.x, this.y);
+            rotate(atan2(this.vy, this.vx));
+            image(bulletImg, - bulletImg.width /2, - bulletImg.height/2);
+            pop();
+        } else {
+            fill(255, 255, 0);
+            rect(this.x, this.y, this.width, this.height);
+        }
+    } else {
+        let fxArray = this.hitPlayer ? Bullet.collisionPlayerFX : Bullet.collisionWallFX;
+        if (this.explosionFrame < fxArray.length) {
+            let img = fxArray[this.explosionFrame];
+            image(img, this.x - img.width / 2, this.y - img.height / 2);
+        }
+    }
   }
-
 }

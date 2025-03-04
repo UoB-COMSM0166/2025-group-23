@@ -1,12 +1,7 @@
-let spriteManager = new SpriteManager();
-let characterNames = ["Chicken", "Crab", "Dog"];
-
 let homePage, settingsPanel, instructionsPanel, characterPage;
-let pixelFont;
-let soundManager;
-let selectedMap = ''; 
-let mainBackground;
-
+let pixelFont, mainBackground;;
+let soundManager, spriteManager;
+let selectedMap = '';
 let map = null;
 let maps = [];
 let players = [];
@@ -27,28 +22,43 @@ let countdownStartTime = 0;
 let startGameTimeout;
 
 function preload() {
+  spriteManager = new SpriteManager();
   spriteManager.preloadSprites();
-  Map.preLoadTiles();
-  Map.preLoadBackgroundImages();
-  Map.preLoadBackgroundObjects();
-  Weapon.preloadWeapons();
-
-  mainBackground = loadImage('assets/mainMenu/main-background2.png');
-  pixelFont = loadFont('assets/fonts/pixel.ttf');
 
   soundManager = new SoundManager();
   soundManager.preloadSounds();
+  soundManager.preloadMusic();
+
+  Map.preLoadTiles();
+  Map.preLoadBackgroundImages();
+  Map.preLoadBackgroundObjects();
+
+  Weapon.preloadWeapons();
+  Bullet.preloadCollisionFX();
+  Bullet.preloadBulletImages();
+  Items.preloadHealthIcon();
+  Items.preloadGameBarImages();
+  Items.preloadWeaponIcon();
+  Items.preloadAmmoImage();
+  Items.preloadAmmoIcon();
+  PowerUps.preloadHealthRegenPU();
+  PowerUps.preloadShieldPU();
+
+  mainBackground = loadImage('assets/mainMenu/main-background2.png');
+  pixelFont = loadFont('assets/fonts/pixel.ttf');
 }
 
 function setup() {
-  createCanvas(1215, 760);
+  createCanvas(1215, 860);
   background(150);
   initMaps();
 
   homePage = new HomePage();
+  if (!soundManager.muteMusic) {
+    soundManager.playMusic('gameMusic');
+  }
   characterPage = new CharacterPage();
   settingsPanel = new SettingsPanel();
- 
 }
 
 function draw() {
@@ -58,6 +68,7 @@ function draw() {
   map.updateBackgroundObjects();
   map.updateAnimation();
   map.display();
+  Items.displayGameBarImages();
 
   if(countdownActive) {
     let elapsed = millis() - countdownStartTime;
@@ -74,9 +85,9 @@ function draw() {
     } else {
       countdownActive = false; 
       gameStarted = true;
+      soundManager.playMusic('gameMusic');
       loop();
     }
-
     textFont(pixelFont);
     textSize(100);
     fill(255);
@@ -85,6 +96,8 @@ function draw() {
     return;
   }
 
+  Items.update(); 
+
   // check if round is over, start next round after 5 seconds
   let winner = checkRoundOver();
   if (winner !== null && !roundOver) {
@@ -92,6 +105,7 @@ function draw() {
       roundOver = true;
       roundWinner = winner;
       soundManager.playSound('roundWin');
+      //soundManager.playSound('playerDeath');
       if (player1Score < finalScore && player2Score < finalScore) {
           setTimeout(resetRound, 5000);
       }
@@ -108,12 +122,15 @@ function draw() {
       }
   }
 
+  PowerUps.update();
+  PowerUps.displayPowerUps();
+  
   let paddingWeapon = 100;
   if (gameStarted && !roundOver && frameCount % 400 === 0) {
-      console.log("dropping weapons");
-      let weaponNum = random();
-      dropWeapon(weaponNum, paddingWeapon, width / 2 - paddingWeapon);
-      dropWeapon(weaponNum, paddingWeapon + width / 2, width - paddingWeapon);
+    console.log("dropping weapons");
+    let weaponNum = random();
+    dropWeapon(weaponNum, paddingWeapon, width / 2 - paddingWeapon);
+    dropWeapon(weaponNum, paddingWeapon + width / 2, width - paddingWeapon);
   }
 
   for (let i = weapons.length - 1; i >= 0; i--) {
@@ -134,31 +151,52 @@ function draw() {
     }
   }
 
-  for (let bullet of bullets) {
-    bullet.update();
-    bullet.display();
-
-    for (let player of players) {
-      if (bullet.shoots(player) && player !== bullet.shooter) {  // Only damage opponents
-        if(!roundOver) {
-          soundManager.playSound('hit');
-          player.takeDamage(10);
-        }
-        bullets.splice(bullets.indexOf(bullet), 1);
-      }
+  for (let i = bullets.length - 1; i >= 0; i--) {
+    let b = bullets[i];
+    b.update();
+    b.display();
+    if ((b.exploding || b.hitplayer) && b.explodingFinished) {
+      bullets.splice(i, 1);
     }
   }
 
   for (let player of players) {
     player.update();
     player.display();
+    PowerUps.healthRegenConsume(player);
+    PowerUps.shieldConsume(player);
   }
-  
-  // draw score board for player 1 and player 2
+
+ /*  // draw score board for player 1 and player 2
   push();
-  drawScore(player1Score, LEFT, map.tileSize, map.tileSize);
-  drawScore(player2Score, RIGHT, width - map.tileSize, map.tileSize);
-  pop();
+  drawScore(player1Score, LEFT, map.tileSize, map.tileSize * 2);
+  drawScore(player2Score, RIGHT, width - map.tileSize, map.tileSize * 2);
+  pop(); */
+
+  Items.displayGameBarImages();
+
+  let healthBarPaddingY = Items.gameBar.height - 55;
+  let healthBarPaddingX = 70;
+
+  if (players[0]) {
+    drawHealthBar1(players[0], healthBarPaddingX, height - healthBarPaddingY, 300, 20);
+    Items.displayHealthIcon(healthBarPaddingX, height - healthBarPaddingY +8);
+    if (players[0].weapon) {
+      Items.displayWeaponIcon(players[0].weapon.weaponType, map.tileSize / 2, map.tileSize / 2);
+      Items.displayAmmoImage(players[0], healthBarPaddingX + 170, height - healthBarPaddingY - 40);
+    }
+    Items.displayAmmoIcon(healthBarPaddingX + 152, height - healthBarPaddingY - 28);
+  }
+
+  if (players[1]) {
+    drawHealthBar2(players[1], width - healthBarPaddingX - 300, height - healthBarPaddingY, 300, 20);
+    Items.displayHealthIcon(width - healthBarPaddingX, height - healthBarPaddingY +8);
+    if (players[1].weapon) {
+      Items.displayWeaponIcon(players[1].weapon.weaponType, (width - map.tileSize) - (50/ 2), map.tileSize / 2);
+      Items.displayAmmoImage(players[1], width - healthBarPaddingX - 300, height - healthBarPaddingY - 40);
+    }
+    Items.displayAmmoIcon(width - healthBarPaddingX - 155, height - healthBarPaddingY - 28);
+  }
 
   checkGameOver();
 }

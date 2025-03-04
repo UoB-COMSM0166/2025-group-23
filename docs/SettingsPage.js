@@ -52,12 +52,13 @@ class SettingsPanel {
       this.instructionsPanel.show()
     });
     select('#muteMusic-btn').mouseReleased(() => {
+      soundManager.initMuteMusic();
       soundManager.playSound('buttonClick');
-      this.muteMusic()
     });
     select('#muteSound-btn').mouseReleased(() => {
+      soundManager.initMuteSound();
       soundManager.playSound('buttonClick');
-      this.muteSound()
+      
     });
   }
  
@@ -78,17 +79,5 @@ class SettingsPanel {
 
   replay() {}
   
-  muteMusic() {
-    if (music) {
-      if (musicMuted) {
-        music.setVolume(1);
-      } 
-      else {
-        music.setVolume(0);
-      }
-      musicMuted = !musicMuted;
-    }
-  }
-  muteSound() {}
 }
  
