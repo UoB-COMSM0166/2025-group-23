@@ -384,20 +384,12 @@ function checkGameOver() {
   let rectY = height/2 - (rectH/2);
   
   if (player1Score >= finalScore || player2Score >= finalScore) {
-      gameOver = true;
-      push();
-        translate(rectX, rectY);
-        stroke('white');
-        strokeWeight(1);
-        fill('black');
-        rect(0, 0, rectW, rectH);
-        textSize(32);
-        fill('white');
-        textAlign(CENTER, CENTER);
-        let winningPlayer = (player1Score === finalScore) ? "PLAYER 1" : "PLAYER 2";
-        text(winningPlayer + " WINS!", rectW / 2, rectH / 2);
-      pop();
-      noLoop();
+      if(!gameOver){
+        gamveOver=true;
+        winScreen = new WinScreen();
+        loop();
+      }
+      winScreen.display();
   }
 }
 
