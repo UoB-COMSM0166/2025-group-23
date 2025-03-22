@@ -357,6 +357,21 @@ function resetRound() {
   loop();
 }
 
+function resetGameState() {
+   console.log("Resetting entire game...");
+   gamePaused = false;
+   gameInitalised = false;
+   gameStarted = false;
+   countdownActive = false;
+
+   roundNum = 0;
+   bullets = []; 
+   weapons = [];
+   roundOver = false;
+
+   resetRound(); 
+}
+
 function checkRoundOver() {
   //check if health is 0 then set round as over. 
   let alivePlayers = players.filter(p => p.health > 0);
