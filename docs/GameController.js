@@ -14,6 +14,7 @@ function startGame() {
   player1Score = 0;
   player2Score = 0;
   weapons = [];
+  inGame = true; 
 
   let player1Sprite = parseInt(localStorage.getItem("selectedCharacterIndex0"));
   let player2Sprite = parseInt(localStorage.getItem("selectedCharacterIndex1"));
@@ -31,6 +32,7 @@ function startGame() {
   soundManager.playSound('countdown');
   countdownActive = true;
   countdownStartTime = millis();
+  settingsPanel.returnHomeButton();
 
   hideAllButtons();
   console.log("Starting Game. Player Count: " + characterPage.playerCount);
@@ -385,6 +387,7 @@ function checkGameOver() {
   
   if (player1Score >= finalScore || player2Score >= finalScore) {
       gameOver = true;
+      inGame = false;
       push();
         translate(rectX, rectY);
         stroke('white');
@@ -398,6 +401,7 @@ function checkGameOver() {
         text(winningPlayer + " WINS!", rectW / 2, rectH / 2);
       pop();
       noLoop();
+      settingsPanel.returnHomeButton();
   }
 }
 

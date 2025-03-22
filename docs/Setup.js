@@ -9,6 +9,7 @@ let weapons = [];
 let bullets = [];
 let movingWalls = [];
 let gameStarted = false;
+let inGame = false;
 let gameInitalised = false;
 let player1Score = 0, player2Score = 0;
 let roundNum = 0;
@@ -59,6 +60,10 @@ function setup() {
   }
   characterPage = new CharacterPage();
   settingsPanel = new SettingsPanel();
+  instructionsPanel = new InstructionsPanel();
+
+  hideAllButtons();
+  homePage.show();
 }
 
 function draw() {
@@ -207,7 +212,7 @@ function hideAllButtons() {
   //player1Button.hide();
   //player2Button.hide();
   settingsPanel.hide();
-  //instructionsPanel.hide();
+  instructionsPanel.hide();
   //mapPage.hide();
   characterPage.hide();
   homePage.hide();
