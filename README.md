@@ -194,8 +194,36 @@ By mapping these interactions, we have identitifed primary actors, clarify depen
 
 # 4. Design
 
-- 15% ~750 words 
-- System architecture. Class diagrams, behavioural diagrams. 
+After reviewing our potential stakeholders and analysing a diverse range of User Stories, we now have a clear understanding of our objectives and requirements which means we identified the key features to integrate into our game design. The use of our Use-Case Documentation/Specification has made our development process much easier to structure, notably providing clear guides for developing the accessibility features and accommodated our fast-paced agile approach.  
+
+We considered the following factors during the design process: 
+- **Teck Stack:** As our game is a web-based game, we decided to use a JavaScript library called P5.js to build our Take Aim game. P5.js is a well known library for building creative animations therefore it is a perfect tool to develop a dynamic and fluid shooting game.
+- **Data Storage:** As a team, we discussed if there was a need for our game to store essential data. Due to Take Aim being a web-based game, users wont need to install the game as the browser automatically downloads the necessary content from the game's website (GitHub Page). However, this means that users will not be able to save and return to previous game's states.
+- **System Architecture:** Before we began implementing code, it was important for us to touch on Take Aim system architecture design in order to visually represnt a blueprint for the game's system and components. So we created Class and Behavioural Diagrams to meet this. 
+
+### Class Diagrams
+
+A **Class Diagram** provided a systematic view of Take Aim as a System. This allowed us to structurally plan ahead the relationship between objects and help with visually identify where certain functions and variables should be located/implemented, which would contribute to good Object-Oriented Design (OOD) principles within our code. Each class has attributes and methods appropriate t their function within the game. For example, *GameController* directly communicates with *Player* and *AIPlayer* to control game progression, while *MapManager* provides the environment in which players interact. 
+
+#### Game Mechanics
+1. **Setup:** Initialises the whole game, loading neccessary resources like sprites, sounds, and setting up the game canvas.
+2. **Game Controller:** Manages game states such as starting, pausing, and ending the game. It interacts with Player, AIPlayer, and manages game rounds.
+3. **Player:** Represents both human and AI players, handling actions like moving, jumping, and shooting. Player is extended by AIPlayer.
+4. **AIPlayer:** Inherits from Player, adding AI behaviours such as finding weapons, hiding, and pathfinding to power-ups and weapons.
+5. **Items:** Manages in-game huds like health icons, weapons icons. It is responsible for displaying and updating these items.
+6. **Power-Ups:** Handles power-ups within the game, including their effects and updates during the game.
+7. **Sound Manager:** Manages all sound effects and music, controlling their playback based on game events.
+8. **Sprite Manager:** Loads and manages all sprites used in the game, providing sprites based on player index and direction.
+9. **Map Manager:** Manages the game maps, including their creation, rendering, and animation based on predefined tiles and background imges.
+
+.<div align="center">
+  **Figure #** <br>
+  *Class Diagram Generated Week 10* <br>
+  <img width="1000" alt="OnionModelProposal" src="https://github.com/user-attachments/assets/3bdb9bd7-2f8c-4ff3-ad36-c39195270269" /> 
+</div>
+<br>
+
+### Behavioural Diagrams
 
 # 5. Implementation
 
