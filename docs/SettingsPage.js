@@ -85,7 +85,6 @@ class SettingsPanel {
       soundManager.playSound('buttonClick');
     });
     select('#returnHome-btn').mouseReleased(() => {
-      soundManager.initMuteSound();
       soundManager.playSound('buttonClick');
       inGame = false;
       homePage.show();
