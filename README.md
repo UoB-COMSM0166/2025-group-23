@@ -203,7 +203,7 @@ We considered the following factors during the design process:
 
 ### Class Diagrams
 
-A **Class Diagram** provided a systematic view of Take Aim as a System. This allowed us to structurally plan ahead the relationship between objects and help with visually identify where certain functions and variables should be located/implemented, which would contribute to good Object-Oriented Design (OOD) principles within our code. Each class has attributes and methods appropriate t their function within the game. For example, *GameController* directly communicates with *Player* and *AIPlayer* to control game progression, while *MapManager* provides the environment in which players interact. 
+A **Class Diagram** provided a systematic view of Take Aim as a System. This allowed us to structurally plan ahead the relationship between objects and help with visually identify where certain functions and variables should be located/implemented, which would contribute to good Object-Oriented Design (OOD) principles within our code. Each class has attributes and methods appropriate to their function within the game. For example, *GameController* directly communicates with *Player* and *AIPlayer* to control game progression, while *MapManager* provides the environment in which players interact. 
 
 #### Game Mechanics
 1. **Setup:** Initialises the whole game, loading neccessary resources like sprites, sounds, and setting up the game canvas.
@@ -224,6 +224,28 @@ A **Class Diagram** provided a systematic view of Take Aim as a System. This all
 <br>
 
 ### Behavioural Diagrams
+
+Following the Class Diagram, we wanted to effectively visualise the behaviour of Take Aim as a whole program so we formed a **Sequence Diagram**. This offered a clear visual representation of how various game components interacted over time, which we found was a powerful tool for both our team's planning and communication. By mapping out player actions, AI logic, and system responses, our team were able to quickly identify design flaws which improved collaboration. 
+
+In order to meet the requirement specification, we ensured to develop a system architecture that starts with a user-interface menu. Take Aim begins with the *Setup* component initiating the game mode setup via the *Game Controller*, which further initialises the maps, generates the player(s), weapons, and power-ups through respective components such as *Map Manager*, *Player*, *Weapon*, and *Power-Ups*. 
+
+The core gameplay loop involves continuous player updates (movements and interactions), weapon pickups, bullet generation and usage, player damage handling, and power-up consumption. An AI player is also generated in single-player mode, and continuously updates its movement behaviour depending on the player and game states. *Sprite Manager* serves images upon request, supporting visual elements of the game.
+
+.<div align="center">
+  **Figure #** <br>
+  *Sequence Diagram of Take Aim* <br>
+  <img width="1000" alt="OnionModelProposal" src="https://github.com/user-attachments/assets/36a1b8d3-9b42-4b20-965f-410786b736db" /> 
+</div>
+<br>
+
+### Agile Methodology
+
+We incorporated agile methods when designing Take Aim which required fequent updates to our system architecture. So by having an updated class and sequence diagrams to show during sprints cycles, our developers, testers, designers, and stakeholders maintained a unified understanding of the system, a key Agile value. 
+
+However, due to rapid iteration cycles, some diagrams quickly became outdated which required extra workload to update and hindered our teams agility efficiency on a few occasions. One way we overcame this issue is by creating multiple different github branches of our game repository that handles the implementation of predefined features, as well as a *currentWorkingBranch* where we implemented final versions of features into one working program.
+
+Overall, agile's iterative nature required constant testing, debugging, and refactoring. Our behavioural diagrams simplified these processes by quickly identifying where interactions broke down or misalign with expected behaviour, improving responsiveness to change. 
+
 
 # 5. Implementation
 
