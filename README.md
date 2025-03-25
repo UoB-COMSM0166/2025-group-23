@@ -273,13 +273,13 @@ Overall, agile's iterative nature required constant testing, debugging, and refa
 
 - Evidence of the impact of your game across the environment and two of the other areas: (Social, Technical, Individual, Economic). 
 
-# 8. Conclusion
+# 9. Conclusion
 
 - 10% ~500 words
 
 - Reflect on project as a whole. Lessons learned. Reflect on challenges. Future work.
 
-# 9. References  
+# 10. References  
 
 ### Contribution Statement
 
