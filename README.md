@@ -267,7 +267,11 @@ Overall, agile's iterative nature required constant testing, debugging, and refa
 
 - 15% ~750 words
 
-- Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together. 
+- Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together.
+
+# 8. Sustainability, Ethics and Accessibility 
+
+- Evidence of the impact of your game across the environment and two of the other areas: (Social, Technical, Individual, Economic). 
 
 # 8. Conclusion
 
