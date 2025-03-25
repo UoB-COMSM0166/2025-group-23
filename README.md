@@ -126,7 +126,7 @@ As some members in our team have had previous game development experience before
 .<div align="center">
   **Figure #** <br>
   *Screenshot of Game Prototype During Early Development* <br>
-  <img width="700" alt="Week2-gamePrototype" src="https://github.com/user-attachments/assets/3efac460-0b85-4783-9029-8a2509931435" />
+  <img width="1000" alt="Week2-gamePrototype" src="https://github.com/user-attachments/assets/3efac460-0b85-4783-9029-8a2509931435" />
 </div>
 
 For frontend design, our group shared a common interest in the style of "Crossy Road" for the character look and in-game theme. We love the idea of players being able to choose their characters, as well as varying maps and environments where the game is set similar to "Crossy Road", while manipulating the platform style genre similar to "Mario".
@@ -138,7 +138,7 @@ It was important to us that we are develop a game that incorporates varying play
 .<div align="center">
   **Figure #** <br>
   *Onion Model of Take Aim Game* <br>
-  <img width="600" alt="OnionModelProposal" src="https://github.com/user-attachments/assets/b7c13991-3ac6-4f11-b79d-5ce0e990b8d3" /> 
+  <img width="1000" alt="OnionModelProposal" src="https://github.com/user-attachments/assets/b7c13991-3ac6-4f11-b79d-5ce0e990b8d3" /> 
 </div>
 
 1. **The Product or Service:** Take Aim Game
