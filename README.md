@@ -198,7 +198,7 @@ After reviewing our potential stakeholders and analysing a diverse range of User
 
 We considered the following factors during the design process: 
 - **Teck Stack:** As our game is a web-based game, we decided to use a JavaScript library called P5.js to build our Take Aim game. P5.js is a well known library for building creative animations therefore it is a perfect tool to develop a dynamic and fluid shooting game.
-- **Data Storage:** As a team, we discussed if there was a need for our game to store essential data. Due to Take Aim being a web-based game, users wont need to install the game as the browser automatically downloads the necessary content from the game's website (GitHub Page). However, this means that users will not be able to save and return to previous game's states.
+- **Data Storage & Collection:** As a team, we discussed if there was a need for our game to store essential data. To match the requirements, the players have the option to input a nickname to be displayed during the game. However, due to Take Aim being a web-based game, users wont need to install the game as the browser automatically downloads the necessary content from the game's website (GitHub Page). This means that users information will not be collected and game state's will not be saved.
 - **System Architecture:** Before we began implementing code, it was important for us to touch on Take Aim system architecture design in order to visually represnt a blueprint for the game's system and components. So we created Class and Behavioural Diagrams to meet this. 
 
 ### Class Diagrams
