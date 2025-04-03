@@ -1,4 +1,10 @@
 class WinScreen{
+
+  static starsIcon = [];
+  static boxScore;
+  static ribon1;
+  static ribon2;
+
     constructor() {
         this.rectW = 700;
         this.rectH = 400;
@@ -10,52 +16,123 @@ class WinScreen{
         for (let i = 0; i < 80; i++) {
           this.createConfettiParticle();
         }
-        //click listener for rematch 
-        this.setupClickListener();
+
+        const css = `
+        @font-face {
+          font-family: pixel;
+          src: url("assets/fonts/pixel.ttf");
+        }
+        #win-screen {
+          font-family: pixel;
+          font-size: 32px;
+          margin-bottom: 20px;
+          text-align: center;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 20px
+        }
+        #win-screen button {
+          font-family: pixel;
+          margin: 10px;
+        }
+        `;
+        createElement('style', css);
+
+        this.panel = createDiv(`
+          <div id="win-screen">
+            <button id="rematch-btn" type="button" style="cursor: pointer; margin: 10px;">Rematch</button>
+            <button id="return-home-btn" type="button" style="cursor: pointer; margin: 10px;">Home</button>
+          </div>
+          `);
+        this.panel.id('win-screen');
+        this.panel.position(width/2, height * 0.85, 'absolute');
+        this.panel.style('transform', 'translate(-50%, -50%)');
+        this.panel.style('display', 'none');
+        this.panel.style('padding', '120px');
+        this.panel.style('z-index', '10');
+        this.panel.style('position', 'absolute');
+        this.setupButtons();
       }
-      setupClickListener() {
-        canvas.addEventListener('click', (e) => {
-          // Make sure the game is still over (prevent multiple clicks)
-          if (!gameOver){
-            return;
-          }
-          
-          let buttonX = this.rectX + (this.rectW/2) - 100;
-          let buttonY = this.rectY + this.rectH - 70;
-          let buttonWidth = 200;
-          let buttonHeight = 50;
-          
-          if (mouseX >= buttonX && mouseX <= buttonX + buttonWidth &&
-              mouseY >= buttonY && mouseY <= buttonY + buttonHeight) {
-            
-            // Reset game state for a rematch
-            gameOver = false;
-            player1Score = 0;
-            player2Score = 0;
-            roundNum = 1;
-            
-            for (let player of players) {
-              player.health = 100;
-              player.weapon = null;
-              player.exitStage = 0;
-            }
-            players[0].x = 150;
-            players[0].y = 200;
-            players[1].x = 1075;
-            players[1].y = 200;
-            
-            bullets = [];
-            weapons = [];
-            roundOver = false;
-            
-            soundManager.playSound('gamestart');
-            
-            
-            loop();
-            
-            canvas.removeEventListener('click', this.clickHandler);
-          }
+
+      static preloadWinIcons() {
+        this.boxScore = loadImage(`assets/winscreen/boxStat.png`);
+        this.ribon1 = loadImage(`assets/winscreen/RibonTitle1.png`);
+        this.ribon2 = loadImage(`assets/winscreen/RibonTitle2.png`);
+
+        for (let i = 0; i <= 3; i++) {
+          this.starsIcon.push(loadImage(`assets/winscreen/${i}Star.png`));
+        }
+    
+      }
+
+      setupButtons() {
+        select('#rematch-btn').mouseReleased(() => {
+          soundManager.playSound('buttonClick');
+          this.initRematch();
+          this.hide();
+
         });
+        select('#return-home-btn').mouseReleased(() => {
+          soundManager.playSound('buttonClick');
+          this.initReturnHome();
+          this.hide();
+          soundManager.playMusic('gameMusic');
+          
+        });
+      }
+
+      show() {
+        this.panel.style('display', 'block');
+        soundManager.stopMusic('gameMusic');
+      }
+
+      hide() {
+        this.panel.style('display', 'none');
+      }
+
+      initRematch() {
+        if (!gameOver){
+          return;
+        }
+        
+        gameOver = false;
+        player1Score = 0;
+        player2Score = 0;
+        roundNum = 1;
+        for (let player of players) {
+          player.health = 100;
+          player.weapon = null;
+          player.exitStage = 0;
+        }
+        players[0].x = 150;
+        players[0].y = 200;
+        players[1].x = 1075;
+        players[1].y = 200;
+        
+        bullets = [];
+        weapons = [];
+        roundOver = false;
+        soundManager.playSound('gamestart');
+        loop();
+      }
+
+      initReturnHome() {
+        homePage.show();
+        roundNum = 0;
+        map = maps[roundNum];
+        player1Score = 0;
+        player2Score = 0;
+        players = [];
+        weapons = [];
+        bullets = [];
+        gamePaused = false;
+        gameStarted = false;
+        gameOver = false;
+        gameInitalised = false;
+        countdownActive = false;
+        noLoop();
       }
       
       createConfettiParticle() {
@@ -91,11 +168,11 @@ class WinScreen{
           
           // Draw the confetti
           push();
-          translate(p.x, p.y);
-          rotate(p.angle);
-          fill(p.color);
-          noStroke();
-          rect(-p.width/2, -p.height/2, p.width, p.height);
+            translate(p.x, p.y);
+            rotate(p.angle);
+            fill(p.color);
+            noStroke();
+            rect(-p.width/2, -p.height/2, p.width, p.height);
           pop();
           
           // Remove old confetti or off-screen particles
@@ -114,54 +191,49 @@ class WinScreen{
         for (let i = 0; i < maxScore; i++) {
           let crownX = x + (i * (crownSize + spacing));
           push();
-          translate(crownX, y);
-        
-          if (i < score) {
-            fill(color);
-            stroke('white');
-          } else {
-            noFill();
-            stroke(color);
-          }
-          strokeWeight(2);
-          
-         
-          beginShape();
-          vertex(-crownSize/2, -crownSize/3);
-          vertex(-crownSize/4, -crownSize/2);
-          vertex(0, -crownSize/3);
-          vertex(crownSize/4, -crownSize/2);
-          vertex(crownSize/2, -crownSize/3);
-          vertex(crownSize/2, crownSize/3);
-          vertex(-crownSize/2, crownSize/3);
-          endShape(CLOSE);
-          
+            translate(crownX, y);
+            if (i < score) {
+              fill(color);
+              stroke('white');
+            } else {
+              noFill();
+              stroke(color);
+            }
+            strokeWeight(2);
+            beginShape();
+            vertex(-crownSize/2, -crownSize/3);
+            vertex(-crownSize/4, -crownSize/2);
+            vertex(0, -crownSize/3);
+            vertex(crownSize/4, -crownSize/2);
+            vertex(crownSize/2, -crownSize/3);
+            vertex(crownSize/2, crownSize/3);
+            vertex(-crownSize/2, crownSize/3);
+            endShape(CLOSE);
           pop();
         }
       }
       
       drawTrophy(x, y) {
         push();
-        translate(x, y);
-        rotate(this.trophyAngle); // Rotate the trophy
-        
-        // Trophy cup
-        fill('#FFD700'); // Gold color
-        stroke('#DAA520');
-        strokeWeight(2);
-        ellipse(0, -30, 60, 20);
-        beginShape();
-        vertex(-30, -30);
-        vertex(-20, 0);
-        vertex(-10, 20);
-        vertex(10, 20);
-        vertex(20, 0);
-        vertex(30, -30);
-        endShape();
-        fill('#FFD700');
-        rect(-15, 20, 30, 10);
-        rect(-25, 30, 50, 5);
-        
+          translate(x, y);
+          rotate(this.trophyAngle); // Rotate the trophy
+          
+          // Trophy cup
+          fill('#FFD700'); // Gold color
+          stroke('#DAA520');
+          strokeWeight(2);
+          ellipse(0, -30, 60, 20);
+          beginShape();
+          vertex(-30, -30);
+          vertex(-20, 0);
+          vertex(-10, 20);
+          vertex(10, 20);
+          vertex(20, 0);
+          vertex(30, -30);
+          endShape();
+          fill('#FFD700');
+          rect(-15, 20, 30, 10);
+          rect(-25, 30, 50, 5);
         pop();
         
         // Update trophy angle for next frame
@@ -170,62 +242,76 @@ class WinScreen{
       
       display() {
         this.updateConfetti();
-        
-        
-        push();
-        fill(0, 0, 0, 180);
-        rect(0, 0, width, height);
-        
-        // Draw game over window
-        translate(this.rectX, this.rectY);
-        stroke('white');
-        strokeWeight(3);
-        fill(0, 100, 200);  
-        rect(0, 0, this.rectW, this.rectH, 20);  
-        
-        
-        fill(30, 70, 150);  
-        rect(0, 0, this.rectW, 70, 20, 20, 0, 0);
-        
+
+        let boxScoreImg = WinScreen.boxScore;
+        if (boxScoreImg) {
+          let posX = width/2 - boxScoreImg.width/2;
+          let posY = height/2 - boxScoreImg.height/2;
+          image(boxScoreImg, posX, posY);
+        }
+
+        let winnerName, loserName;
+        let winnerStar, loserStar;
+        if (player1Score >= player2Score) {
+          winnerName = players[0].name;
+          winnerStar = WinScreen.starsIcon[player1Score];
+          loserName = players[1].name;
+          loserStar = WinScreen.starsIcon[player2Score];
+        } else {
+          winnerName = players[1].name;
+          winnerStar = WinScreen.starsIcon[player2Score];
+          loserName = players[0].name;
+          loserStar = WinScreen.starsIcon[player1Score];
+        }
+
+        let player1ribon = WinScreen.ribon1;
+        if (player1ribon) {
+          let posX = width/2 - player1ribon.width/2;
+          let posY = 300 - player1ribon.height/2;
+          image(player1ribon, posX, posY);
+
+          let starPosX = width / 2 - winnerStar.width / 2;
+          let starPosY = posY - winnerStar.height - 5; // 10px offset above the ribbon
+          image(winnerStar, starPosX, starPosY);
+          
+          textFont(pixelFont);
+          textSize(45);
+          fill('white');
+          textAlign(CENTER, CENTER);
+          let namePosY = posY + player1ribon.height / 2;
+          text(winnerName, width / 2, namePosY - 10);
+        }
+
+        let player2ribon = WinScreen.ribon2;
+        if (player2ribon) {
+          let posX = width/2 - player2ribon.width/2;
+          let posY = 600 - player2ribon.height/2;
+          image(player2ribon, posX, posY);
+
+          let starPosX = width / 2 - loserStar.width / 2;
+          let starPosY = posY - loserStar.height - 5;
+          image(loserStar, starPosX, starPosY);
+
+          textFont(pixelFont);
+          textSize(45);
+          fill('white');
+          textAlign(CENTER, CENTER);
+          let namePosY = posY + player2ribon.height / 2;
+          text(loserName, width / 2, namePosY - 10);
+        }
+
+      push();
+        textSize(80);
+        fill('white');
+        textAlign(CENTER, CENTER);
+        text(" WINNER!", width/2, 110);
+      pop();
+
+      push();
         textSize(40);
         fill('white');
         textAlign(CENTER, CENTER);
-        let winningPlayer = (player1Score >= finalScore) ? "PLAYER 1" : "PLAYER 2";
-        text(winningPlayer + " WINS!", this.rectW / 2, 35);
-        
-        let player1Color = (player1Score >= finalScore) ? '#4CAF50' : '#FF5252'; // Green if winner, red if loser
-        let player2Color = (player2Score >= finalScore) ? '#4CAF50' : '#FF5252'; // Green if winner, red if loser
-        
-        // Player 1 label
-        textSize(28);
-        fill(player1Color);
-        textAlign(LEFT, CENTER);
-        text("PLAYER 1:", 50, 120);
-        
-        // Player 1 crowns - moved more to the right
-        this.drawCrowns(250, 120, player1Score, finalScore, player1Color);
-        
-        // Player 2 label
-        fill(player2Color);
-        text("PLAYER 2:", 50, 170);
-        
-        // Player 2 crowns - moved more to the right
-        this.drawCrowns(250, 170, player2Score, finalScore, player2Color);
-        
-        // Draw rotating trophy
-        this.drawTrophy(this.rectW / 2, 260);
-        
-        // Rematch button
-        fill('#2196F3');
-        rect(this.rectW/2 - 100, this.rectH - 85, 200, 50, 10);
-        fill('white');
-        textAlign(CENTER, CENTER);
-        textSize(24);
-        text("REMATCH", this.rectW/2, this.rectH - 60);
-        
-        textSize(16);
-        text("Click anywhere to play again", this.rectW/2, this.rectH - 15);
-        
-        pop();
+        text("vs", width/2, height * 0.46);
+      pop();
       }
     }

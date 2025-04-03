@@ -1,4 +1,4 @@
-class Map {
+class GameMap {
   static tileBlockImages = {};
   static backgroundImages = {};
   static backgroundObjects = {};
@@ -88,7 +88,7 @@ class Map {
 
   updateBackgroundObjects() {
       for (let obj of this.backgroundObjects) {
-          let img = Map.backgroundObjects[obj.key]; 
+          let img = GameMap.backgroundObjects[obj.key]; 
           if (!img) continue; 
   
           // For horizontal scrolling maps:
@@ -119,14 +119,14 @@ class Map {
   }
 
   display() {
-      if (Map.backgroundImages[this.backgroundImageKey]) {
-          image(Map.backgroundImages[this.backgroundImageKey], 0, 0, width, height);
+      if (GameMap.backgroundImages[this.backgroundImageKey]) {
+          image(GameMap.backgroundImages[this.backgroundImageKey], 0, 0, width, height);
       } else {
           background(100); // Default fallback
       }
 
       for (let obj of this.backgroundObjects) {
-          let img = Map.backgroundObjects[obj.key];
+          let img = GameMap.backgroundObjects[obj.key];
           if (img && img.width > 0) {
             image(img, obj.x, obj.y, img.width, img.height);
             if (this.scrollDirection === "horizontal") {
@@ -144,11 +144,11 @@ class Map {
               let tileType = this.grid[i][j];
               let tileName = this.tileMapping[tileType]; // Convert number to tile name
               
-              if (tileName === "desert_tile_water" && Map.tileBlockImages["desert_tile_water"]) {
-                  let frame = Map.tileBlockImages["desert_tile_water"][this.animationFrame]; // Get current frame
+              if (tileName === "desert_tile_water" && GameMap.tileBlockImages["desert_tile_water"]) {
+                  let frame = GameMap.tileBlockImages["desert_tile_water"][this.animationFrame]; // Get current frame
                   image(frame, j * this.tileSize, i * this.tileSize, this.tileSize, this.tileSize);
-              } else if (Map.tileBlockImages[tileName]) {
-                  image(Map.tileBlockImages[tileName], j * this.tileSize, i * this.tileSize, this.tileSize, this.tileSize);
+              } else if (GameMap.tileBlockImages[tileName]) {
+                  image(GameMap.tileBlockImages[tileName], j * this.tileSize, i * this.tileSize, this.tileSize, this.tileSize);
               }
           }
       }

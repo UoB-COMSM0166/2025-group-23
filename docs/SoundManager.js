@@ -24,12 +24,12 @@ class SoundManager {
     this.sounds.healthRegen = loadSound('assets/sounds/healthregen2-sound.flac');
     this.sounds.shieldPowerUp = loadSound('assets/sounds/shieldpowerup-sound.mp3');
     this.sounds.playerDeath = loadSound('assets/sounds/playerdeath-sound.wav');
-
+    this.sounds.gamewin = loadSound('assets/sounds/game-win2-sound.wav');
     
   }
 
   preloadMusic() {
-    this.music.gameMusic = loadSound('assets/sounds/game2-music.wav');
+    this.music.gameMusic = loadSound('assets/sounds/game-music.wav');
   }
 
   playSound(name) {

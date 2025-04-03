@@ -10,36 +10,47 @@ function checkStartGame() {
 
 function startGame() {
   roundNum = 1;
+  roundOver = false;
+  roundWinner = null;
   map = maps[roundNum];
   player1Score = 0;
   player2Score = 0;
   weapons = [];
+  bullets = [];
+  PowerUps.activeHealthRegen = [];
+  PowerUps.activeShield = [];
 
   let player1Sprite = parseInt(localStorage.getItem("selectedCharacterIndex0"));
   let player2Sprite = parseInt(localStorage.getItem("selectedCharacterIndex1"));
 
-  players[0] = new Player(0, 200, 200, 65, 68, 87, 32, player1Sprite);  
+  let player1Name = select('#player1-name').value();
+  let player2Name = select('#player2-name').value();
+
+  players[0] = new Player(0, 200, 200, 65, 68, 87, 32, player1Sprite, player1Name);  
 
   if (characterPage.playerCount === 1) {
       players[1] = new AIPlayer(1, width - 210, 200, player2Sprite);
+      players[1].name = player2Name;
   } 
   else if (characterPage.playerCount === 2) {
-      players[1] = new Player(1, width - 210, 200, LEFT_ARROW, RIGHT_ARROW, UP_ARROW, ENTER, player2Sprite);  // Player 2 (Arrow Keys + Enter)
+      players[1] = new Player(1, width - 210, 200, LEFT_ARROW, RIGHT_ARROW, UP_ARROW, ENTER, player2Sprite, player2Name);  // Player 2 (Arrow Keys + Enter)
   }
   
+  winSoundPlayed = false;
   soundManager.playSound('gamestart');
   soundManager.playSound('countdown');
   countdownActive = true;
   countdownStartTime = millis();
 
   hideAllButtons();
+  loop();
   console.log("Starting Game. Player Count: " + characterPage.playerCount);
 }
 
 function initMaps() {
 
   maps = [
-      new Map([
+      new GameMap([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -61,7 +72,7 @@ function initMaps() {
       { 0: null, 1: null, 2: null, 3: null}, 
       null
       ),
-      new Map([
+      new GameMap([
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -92,7 +103,7 @@ function initMaps() {
           { key: "desert_sand_layer2", speed: 1.4, direction: -1, startX: 0, startY: 170},
       ]
       ),
-      new Map([
+      new GameMap([
           [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
           [2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2],
           [2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2],
@@ -120,7 +131,7 @@ function initMaps() {
       ], 
       "vertical"
       ),
-      new Map([
+      new GameMap([
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -147,7 +158,7 @@ function initMaps() {
       { key: "sky_layer4", speed: 1.2, direction: -1, startX: 0, startY: 155},
       ],
     ),
-      new Map([
+      new GameMap([
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -184,7 +195,7 @@ function drawHealthBar1(player, x, y, barWidth, barHeight) {
 
     let healthRed = 0;
     let healthGreen = 200;
-    let healthWidth = (player.health / 300) * barWidth;
+    let healthWidth = (player.health / 100) * barWidth;
 
     if (healthWidth < 90) {
         healthRed = 255;
@@ -201,9 +212,9 @@ function drawHealthBar1(player, x, y, barWidth, barHeight) {
 
     textSize(30);
     fill(255);
-    text("PLAYER 1", x + 50, y - 30)
+    text(player.name || "PLAYER 1", x + 50, y - 30)
     textSize(20);
-    text(players[0].health, x + 40, y + 9);
+    text(int(players[0].health), x + 40, y + 9);
 
 }
 
@@ -214,7 +225,7 @@ function drawHealthBar2(player, x, y, barWidth, barHeight) {
 
     let healthRed = 0;
     let healthGreen = 200;
-    let healthWidth = (player.health / 300) * barWidth;
+    let healthWidth = (player.health / 100) * barWidth;
 
     if (healthWidth < 90) {
         healthRed = 255;
@@ -231,9 +242,9 @@ function drawHealthBar2(player, x, y, barWidth, barHeight) {
 
     textSize(30);
     fill(255);
-    text("PLAYER 2", x + 250, y - 30)
+    text(player.name || "PLAYER 2", x + 250, y - 30)
     textSize(20);
-    text(players[1].health, x + 260, y + 9);
+    text(int(players[1].health), x + 260, y + 9);
 }
 
 function drawScore(playerScore, alignment, x , y) {
@@ -266,7 +277,6 @@ function keyPressed() {
       } else {
           unpauseGame();
       }
-      return;
   }
 
   if (!gamePaused) {
@@ -339,7 +349,7 @@ function setWinner(winner) {
 function resetRound() {
   //reset all players to max health and original position, increment score. start loop again. 
   for (let player of players) {
-      player.health = 300;
+      player.health = 100;
       player.weapon = null;
       player.exitStage = 0;
   }
@@ -358,38 +368,44 @@ function resetRound() {
 function checkRoundOver() {
   //check if health is 0 then set round as over. 
   let alivePlayers = players.filter(p => p.health > 0);
-  if (alivePlayers.length === 1) {
-      let winner = alivePlayers[0];
-      if (winner.index === undefined) {
-          console.error("Error: playerIndex is undefined for winner:", winner);
-          return null;
-      }
-      let playerNum = winner.index + 1;
-      push();
-        textSize(32);
-        fill(255);
-        textAlign(CENTER);
-        text(`Player ${playerNum} Wins Round ${roundNum}!`, width / 2, height / 2); // Display winner's sprite name
-      pop();
-      return winner;
-  }
+    if (alivePlayers.length === 1) {
+        let winner = alivePlayers[0];
+        if (winner.index === undefined) {
+            console.error("Error: playerIndex is undefined for winner:", winner);
+            return null;
+        }
+        let playerNum = winner.index + 1;
+        if (!gameOver || (gameOver && (millis() - gameOverTime < 2000))) {
+            push();
+                textSize(45);
+                fill(255);
+                textAlign(CENTER);
+                text(`Player ${playerNum} Wins Round ${roundNum}!`, width / 2, height / 2); // Display winner's sprite name
+            pop();
+        }
+        return winner;
+    }
   return null;
 }
 
 function checkGameOver() {
   // when player reach final score, show end game screen. 
-  let rectW = 700;
-  let rectH = 400;
-  let rectX = width/2 - (rectW/2);
-  let rectY = height/2 - (rectH/2);
   
   if (player1Score >= finalScore || player2Score >= finalScore) {
-      if(!gameOver){
-        gamveOver=true;
-        winScreen = new WinScreen();
+    if (!gameOver) {
+        gameOver = true;
+        gameOverTime = millis();
         loop();
-      }
-      winScreen.display();
+    }
+
+    if (millis() - gameOverTime >= 2000) {
+        winScreen.display();
+        winScreen.show();
+        if (!winSoundPlayed) {
+            soundManager.playSound('gamewin');
+            winSoundPlayed = true; 
+        }
+    }
   }
 }
 
@@ -523,6 +539,7 @@ class Bullet {
       this.vx = vx;
       this.vy = vy;
       this.shooter = shooter;
+      this.damage = 7;
       this.bulletType = shooter.weapon ? shooter.weapon.weaponType : "pistol;"
 
       this.exploding = false;
@@ -585,7 +602,7 @@ class Bullet {
                 if (!this.damageApplied) {
                     if (!roundOver) {
                         soundManager.playSound('hit');
-                        player.takeDamage(10);
+                        player.takeDamage(this.damage);
                     }
                     this.damageApplied = true;
                 }

@@ -1,4 +1,4 @@
-let homePage, settingsPanel, instructionsPanel, characterPage;
+let homePage, settingsPanel, instructionsPanel, characterPage, winScreen;
 let pixelFont, mainBackground;;
 let soundManager, spriteManager;
 let selectedMap = '';
@@ -20,6 +20,8 @@ let gamePaused = false;
 let countdownActive = false;
 let countdownStartTime = 0;
 let startGameTimeout;
+let gameOverTime;
+let winSoundPlayed = false;
 
 function preload() {
   spriteManager = new SpriteManager();
@@ -29,9 +31,9 @@ function preload() {
   soundManager.preloadSounds();
   soundManager.preloadMusic();
 
-  Map.preLoadTiles();
-  Map.preLoadBackgroundImages();
-  Map.preLoadBackgroundObjects();
+  GameMap.preLoadTiles();
+  GameMap.preLoadBackgroundImages();
+  GameMap.preLoadBackgroundObjects();
 
   Weapon.preloadWeapons();
   Bullet.preloadCollisionFX();
@@ -41,14 +43,18 @@ function preload() {
   Items.preloadWeaponIcon();
   Items.preloadAmmoImage();
   Items.preloadAmmoIcon();
+  Items.preloadPlayerStars();
   PowerUps.preloadHealthRegenPU();
   PowerUps.preloadShieldPU();
+
+  WinScreen.preloadWinIcons();
 
   mainBackground = loadImage('assets/mainMenu/main-background2.png');
   pixelFont = loadFont('assets/fonts/pixel.ttf');
 }
 
 function setup() {
+  
   createCanvas(1215, 860);
   background(150);
   initMaps();
@@ -59,6 +65,7 @@ function setup() {
   }
   characterPage = new CharacterPage();
   settingsPanel = new SettingsPanel();
+  winScreen = new WinScreen();
 }
 
 function draw() {
@@ -177,9 +184,11 @@ function draw() {
 
   let healthBarPaddingY = Items.gameBar.height - 55;
   let healthBarPaddingX = 70;
+  let playerStarPaddingX = 52;
 
   if (players[0]) {
     drawHealthBar1(players[0], healthBarPaddingX, height - healthBarPaddingY, 300, 20);
+    Items.displayPlayer1Stars(width/2 - 125, height - playerStarPaddingX);
     Items.displayHealthIcon(healthBarPaddingX, height - healthBarPaddingY +8);
     if (players[0].weapon) {
       Items.displayWeaponIcon(players[0].weapon.weaponType, map.tileSize / 2, map.tileSize / 2);
@@ -190,6 +199,7 @@ function draw() {
 
   if (players[1]) {
     drawHealthBar2(players[1], width - healthBarPaddingX - 300, height - healthBarPaddingY, 300, 20);
+    Items.displayPlayer2Stars(width/2 + 125, height - playerStarPaddingX);
     Items.displayHealthIcon(width - healthBarPaddingX, height - healthBarPaddingY +8);
     if (players[1].weapon) {
       Items.displayWeaponIcon(players[1].weapon.weaponType, (width - map.tileSize) - (50/ 2), map.tileSize / 2);

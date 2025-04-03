@@ -129,9 +129,9 @@ class PowerUps {
   static processHealthRegenEffects() {
     for (let i = this.activeHealthRegenEffects.length - 1; i >= 0; i--) {
       let effect = this.activeHealthRegenEffects[i];
-      if (effect.player.health < 300) {
-        effect.player.health += 1;
-        if (effect.player.health > 300) effect.player.health = 300;
+      if (effect.player.health < 100) {
+        effect.player.health += 0.6;
+        if (effect.player.health > 100) effect.player.health = 100;
       }
       if (millis() - effect.startTime > 1500) {
         this.activeHealthRegenEffects.splice(i, 1);
@@ -250,6 +250,10 @@ class PowerUps {
   }
 
   static displayPowerUps() {
+    if (!gameStarted || gameOver) {
+      return;
+    }
+    
     let angle = radians((millis() / 10) % 360);
     for (let healthPU of this.activeHealthRegen) {
       push();

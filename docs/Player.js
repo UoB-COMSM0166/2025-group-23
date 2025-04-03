@@ -1,10 +1,10 @@
 class Player {
-  constructor(index, x, y, leftKey, rightKey, jumpKey, shootKey, spriteIndex) {
+  constructor(index, x, y, leftKey, rightKey, jumpKey, shootKey, spriteIndex, name) {
       this.index = index; //new feature 
       this.x = x;
       this.y = y;
       this.speed = 5;
-      this.health = 300;
+      this.health = 100;
       this.vy = 0;
       this.gravity = 0.8;
       this.isJumping = true;
@@ -21,6 +21,7 @@ class Player {
       this.rotationAngle = 0;
       this.lastShotDirection = null;
       this.lastShotTime = 0;
+      this.name = name && name.trim() !== "" ? name : `Player ${index + 1}`;
 
       //new feature
       let sprite = spriteManager.getSprite(this.spriteIndex, this.direction, this.frameIndex);
@@ -31,11 +32,9 @@ class Player {
           this.width = 50;
           this.height = 80;
       }
-  
   }
 
   update() {
-
       if (roundOver && this != roundWinner) {
           if (this.exitStage === 0) {
               this.exitStage = 1;
@@ -314,7 +313,7 @@ class Player {
           fill(255);
           textAlign(CENTER, CENTER);
           textSize(12);
-          text(this.health + "%", this.x + this.width/2, this.y - 10);
+          text(int(this.health) + "%", this.x + this.width/2, this.y - 10);
       }
       else {
           fill(this.index === 0 ? 'red' : 'blue');

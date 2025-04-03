@@ -24,6 +24,7 @@ class SettingsPanel {
       <button id="instruction-btn" type="button" style="cursor: pointer; margin: 10px;">Instruction</button>
       <button id="muteMusic-btn" type="button" style="cursor: pointer; margin: 10px;">Mute Music</button>
       <button id="muteSound-btn" type="button" style="cursor: pointer; margin: 10px;">Mute Sound</button>
+      <button id="mainMenu-btn" type="button" style="cursor: pointer; margin: 10px;">Main Menu</button>
       `);
     this.panel.id('settings');
     this.panel.position(windowWidth/2, windowHeight/2, 'absolute');
@@ -60,10 +61,20 @@ class SettingsPanel {
       soundManager.playSound('buttonClick');
       
     });
+    select('#mainMenu-btn').mouseReleased(() => {
+      soundManager.playSound('buttonClick');
+      winScreen.initReturnHome();
+      this.hide();
+    });
   }
  
   show() {
     this.panel.style('display', 'block');
+    if (gameStarted) {
+      select('#mainMenu-btn').style('display', 'block');
+    } else {
+      select('#mainMenu-btn').style('display', 'none');
+    }
   }
  
   hide() {
