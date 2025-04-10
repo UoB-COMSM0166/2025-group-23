@@ -62,7 +62,7 @@ class WinScreen{
         this.ribon2 = loadImage(`assets/winscreen/RibonTitle2.png`);
 
         for (let i = 0; i <= 3; i++) {
-          this.starsIcon.push(loadImage(`assets/winscreen/${i}Star.png`));
+          this.starsIcon.push(loadImage(`assets/winscreen/${i}star.png`));
         }
     
       }
