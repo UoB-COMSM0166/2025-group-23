@@ -29,8 +29,15 @@ function startGame() {
   players[0] = new Player(0, 200, 200, 65, 68, 87, 32, player1Sprite, player1Name);  
 
   if (characterPage.playerCount === 1) {
-      players[1] = new AIPlayer(1, width - 210, 200, player2Sprite);
-      players[1].name = player2Name;
+    if (window.selectedDifficulty === 'hard') {
+        // AIPlayerHard is the hard mode AI version.
+        players[1] = new AIPlayerHard(1, width - 210, 200, player2Sprite);
+        players[1].name = player2Name;
+      } else {
+        // Default to easy if selectedDifficulty is 'easy' (or not set to 'hard')
+        players[1] = new AIPlayer(1, width - 210, 200, player2Sprite);
+        players[1].name = player2Name;
+      }
   } 
   else if (characterPage.playerCount === 2) {
       players[1] = new Player(1, width - 210, 200, LEFT_ARROW, RIGHT_ARROW, UP_ARROW, ENTER, player2Sprite, player2Name);  // Player 2 (Arrow Keys + Enter)

@@ -18,7 +18,19 @@ class HomePage {
     this.titleImage.style('display', 'block');
     this.titleImage.style('margin', '20px auto 0 auto');
 
+    this.difficultyPanelElement = createDiv('');
+    this.difficultyPanelElement.id('difficulty-panel');
+    this.difficultyPanelElement.position(width / 2 - 130, height / 2); 
+    this.difficultyPanelElement.style('width', '220px');
+    this.difficultyPanelElement.style('height', '150px');
+    this.difficultyPanelElement.style('background', '#fff');
+    this.difficultyPanelElement.style('border', '2px solid #000');
+    this.difficultyPanelElement.style('display', 'none');
+    this.difficultyPanelElement.style('padding', '20px');
+    this.difficultyPanelElement.style('z-index', '100');
+
     this.setupButtons();
+    this.setupDifficultyButtons();
   }
 
   setupButtons() {
@@ -61,6 +73,7 @@ class HomePage {
     this.settingsButton.style('transform', 'translateX(-50%)');
     this.settingsButton.mouseReleased(() => {
       soundManager.playSound('buttonClick');
+      this.hideDifficultyPanel();
       this.showSettings();
     });
 
@@ -71,7 +84,13 @@ class HomePage {
     this.player1button.position(width / 2, height / 2 + 130);
     this.player1button.style('transform', 'translateX(-50%)');
     this.player1button.mouseReleased(() => {
-      this.startGame(1);
+      //this.startGame(1);
+      if (this.difficultyPanelElement.elt.style.display === 'none' ||
+        this.difficultyPanelElement.elt.style.display === '') {
+        this.showDifficultyPanel();
+      } else {
+        this.hideDifficultyPanel();
+      }
       soundManager.playSound('buttonClick');
   });
 
@@ -83,6 +102,7 @@ class HomePage {
     this.player2button.style('transform', 'translateX(-50%)');
     this.player2button.mouseReleased(() => {
       this.startGame(2);
+      this.hideDifficultyPanel();
       soundManager.playSound('buttonClick');
   });
 
@@ -91,11 +111,62 @@ class HomePage {
     this.player2button.parent(this.page);
   }
 
+  showDifficultyPanel() {
+    this.difficultyPanelElement.style('display', 'block');
+  }
+  
+  hideDifficultyPanel() {
+    this.difficultyPanelElement.style('display', 'none');
+  }
+
+  setupDifficultyButtons() {
+    this.difficultyText = createP("Select Difficulty");
+    this.difficultyText.id("difficulty-text");
+    this.difficultyText.parent(this.difficultyPanelElement);
+    this.difficultyText.style('text-align', 'center');
+    this.difficultyText.style('font-family', 'pixel');
+    this.difficultyText.style('font-size', '18px');
+    this.difficultyText.style('margin', '0 0 20px 0');
+    this.difficultyText.style('color', '#000');
+
+    this.easyButton = createButton("Easy");
+    this.easyButton.id("difficulty-easy-button");
+    this.easyButton.style('cursor', 'pointer');
+    // Center the button inside the difficulty panel.
+    this.easyButton.style('display', 'block');
+    this.easyButton.style('margin', '10px auto');
+    this.easyButton.mouseReleased(() => {
+      soundManager.playSound('buttonClick');
+      console.log('Easy difficulty selected');
+      // Set a global (or accessible) difficulty flag:
+      window.selectedDifficulty = 'easy';
+      this.hideDifficultyPanel();
+      // Start game in 1-player mode (the passed parameter indicates player count).
+      this.startGame(1);
+    });
+
+    this.hardButton = createButton("Hard");
+    this.hardButton.id("difficulty-hard-button");
+    this.hardButton.style('cursor', 'pointer');
+    this.hardButton.style('display', 'block');
+    this.hardButton.style('margin', '10px auto');
+    this.hardButton.mouseReleased(() => {
+      soundManager.playSound('buttonClick');
+      console.log('Hard difficulty selected');
+      // Set the difficulty flag to 'hard'
+      window.selectedDifficulty = 'hard';
+      this.hideDifficultyPanel();
+      this.startGame(1);
+    });
+
+    this.easyButton.parent(this.difficultyPanelElement);
+    this.hardButton.parent(this.difficultyPanelElement);
+  }
  
   showSettings() {
     settingsPanel.show();
   }
- 
+
   startGame(playerCount) {
     if (playerCount === 1) {
       console.log('1 Player mode selected');

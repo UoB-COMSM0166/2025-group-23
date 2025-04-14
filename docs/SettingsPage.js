@@ -70,6 +70,7 @@ class SettingsPanel {
  
   show() {
     this.panel.style('display', 'block');
+    homePage.hideDifficultyPanel();
     if (gameStarted) {
       select('#mainMenu-btn').style('display', 'block');
     } else {
