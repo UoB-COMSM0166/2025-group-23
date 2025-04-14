@@ -106,8 +106,13 @@ Players must carefully time their shot to optimize both angle and power for maxi
 
 # 2. Introduction
 
-- 5% ~250 words 
-- Describe your game, what is based on, what makes it novel? 
+Welcome to the development documentation for **Take Aim**, an innovative 2D action shooter designed to reinvent platform arena-style combat with a blend of fast-paced gameplay and intelligent AI opponents. This documentation serves as a comprehensive guide through the entire development and design process of the game, serving as a resource for developers, evaluators, and game enthusiasts interested in the intricaies of modern game development, while highlighting key elements such as team roles, requirements and use cases, implementation challenges, evaluations testing, and sustainability considerations.
+
+### About Take Aim
+Based on contemporary gaming trends and bolstered by the felxibility of p5.js, **Take Aim** features both single-player and multiplayer modes with two difficulty settings - each affecting the behaviour and resilience of the computer-controlled adversary. The easy mode pits you against an AI that takes standard damage, while the hard mode introduces a tougher opponent which is designed to require even more precise timing and strategy. Key aspects that set **Take Aim** apart include: responsive and immersive UI, advanced AI mechanics, diverse and thematic game environments - like desert, underground, sky, - and innovative gameplay mechanics such as health tracking, power-ups and dynamic weapon-drops. 
+
+### Development and Design
+The project is driven by a collaborative team, with each member contributing unique skills across clear distribution of responsibilities ensuring an efficient workflow and robust software design. The documentation details the requirements that shaped **Take Aim**, specifically outlining key use cases which focus on different player interactions, ensuring that both single-player and multiplayer experiences are engaging and intuitive. Additionally, this documentation discusses some challenges we faced during the development process and how these challenges were addressed through iterative prototyping, rigorous testing, and performance evaluations. Detailed quantitvate and qualitative performance evaluations have been integral to the project, and such evaluations are documented to provide insight into how the game meets its design goals. Lastly, this document intends to share how our team recognisesd the importance of long-term maintainability and scalability - emphasising clean, modular code, comprehensive documentation, and a sustainable development process. 
 
 # 3. Requirements 
 
