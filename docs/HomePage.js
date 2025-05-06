@@ -23,7 +23,7 @@ class HomePage {
     this.difficultyPanelElement.position(width / 2 - 130, height / 2); 
     this.difficultyPanelElement.style('width', '220px');
     this.difficultyPanelElement.style('height', '150px');
-    this.difficultyPanelElement.style('background-color', 'rgba(184, 224, 200, 0.9)');
+    this.difficultyPanelElement.style('background-color', 'rgba(255, 255, 255, 0.9)');
     this.difficultyPanelElement.style('border-radius', '25px')
     //this.difficultyPanelElement.style('background', '#fff');
     //this.difficultyPanelElement.style('border', '2px solid #000');

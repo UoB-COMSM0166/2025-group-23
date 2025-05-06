@@ -45,19 +45,14 @@ class SettingsPanel {
       <button id="mainMenu-btn" type="button" style="cursor: pointer; margin: 10px;">Main Menu</button>
       `);
     this.panel.id('settings');
-    this.panel.position(windowWidth/2, windowHeight/2, 'absolute');
-    this.panel.style('position', 'fixed');
-this.panel.style('top', '50%');
-this.panel.style('left', '50%');
-this.panel.style('transform', 'translate(-50%, -50%)');
-
+    this.panel.position(width/2, height/2, 'absolute');
     this.panel.style('transform', 'translate(-50%, -50%)');
     this.panel.style('display', 'none');
-    this.panel.style('background-color', 'white');
-    this.panel.style('border', '1px solid black');
+    this.panel.style('background-color', 'rgba(255, 255, 255, 0.9)');
+    this.panel.style('border-radius', '25px')
     this.panel.style('padding', '120px');
     this.panel.style('z-index', '40');
-    //this.panel.style('position', 'absolute');
+    this.panel.style('position', 'absolute');
  
     this.setupButtons();
     this.instructionsPanel = new InstructionsPanel();
