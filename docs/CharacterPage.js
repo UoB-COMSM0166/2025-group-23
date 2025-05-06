@@ -183,12 +183,18 @@ class CharacterPage {
     select('#player2-name').elt.addEventListener('input', function() {
       this.value = this.value.toUpperCase();
     });
-   this.exitButton = createButton("X");
-   this.exitButton.id("exit-button");
-   this.exitButton.style('cursor', 'pointer');
-   this.exitButton.style('position', 'absolute');
-   this.exitButton.position(width - 120, 20);
-   this.exitButton.style('transform', 'translateX(-50%)');
+    this.exitButton = createButton("X");
+    this.exitButton.id("exit-button");
+    this.exitButton.style('cursor', 'pointer');
+    this.exitButton.style('position', 'absolute');
+    this.exitButton.position(width - 50, 20);
+    this.exitButton.style('transform', 'translateX(-50%)');
+    this.exitButton.style('width', '45px');
+    this.exitButton.style('height', '45px');
+    this.exitButton.style('line-height', '45px');
+    this.exitButton.style('padding', '0');
+    this.exitButton.style('box-sizing', 'border-box');
+    this.exitButton.style('text-align', 'center');
    this.exitButton.mouseReleased(() => {
      soundManager.playSound('buttonClick');
      this.hide();
