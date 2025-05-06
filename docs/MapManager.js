@@ -46,6 +46,19 @@ class GameMap {
       this.tileBlockImages["sky_platform2"] = loadImage('assets/maps/sky_map/sky_platforms/cloud_platform2.png');
 
       this.tileBlockImages["ocean_platform1"] = loadImage('assets/maps/ocean_map/ocean_platforms/ocean_platform1.png');
+
+      this.tileBlockImages["space_platform_top_left"] = loadImage('assets/maps/space_map/space_platform/space-tile-left-corner.png');
+      this.tileBlockImages["space_platform_top"] = loadImage('assets/maps/space_map/space_platform/space-tile-top.png');
+      this.tileBlockImages["space_platform_top_right"] = loadImage('assets/maps/space_map/space_platform/space-tile-right-corner.png');
+      this.tileBlockImages["space_platform_right"] = loadImage('assets/maps/space_map/space_platform/space-tile-right.png');
+      this.tileBlockImages["space_platform_left"] = loadImage('assets/maps/space_map/space_platform/space-tile-left.png');
+      this.tileBlockImages["space_platform_bot_left"] = loadImage('assets/maps/space_map/space_platform/space-tile-bot-left.png');
+      this.tileBlockImages["space_platform_bot_right"] = loadImage('assets/maps/space_map/space_platform/space-tile-bot-right.png');
+      this.tileBlockImages["space_platform_bot_left_corner"] = loadImage('assets/maps/space_map/space_platform/space-tile-bot-left-corner.png');
+      this.tileBlockImages["space_platform_bot_right_corner"] = loadImage('assets/maps/space_map/space_platform/space-tile-bot-right-corner.png');
+      this.tileBlockImages["space_platform_bot_mid"] = loadImage('assets/maps/space_map/space_platform/space-tile-bot.png');
+      this.tileBlockImages["space_platform_fill"] = loadImage('assets/maps/space_map/space_platform/space-tile-fill.png');
+
   }
 
   static preLoadBackgroundImages() {
@@ -53,6 +66,7 @@ class GameMap {
       this.backgroundImages["underground"] = loadImage('assets/maps/underground_map/underground_background.png');
       this.backgroundImages["sky"] = loadImage('assets/maps/sky_map/sky_background.png');
       this.backgroundImages["ocean"] = loadImage('assets/maps/ocean_map/ocean_background.png');
+      this.backgroundImages["space"] = loadImage('assets/maps/space_map/space_background.png');
       
   }
 
@@ -78,6 +92,8 @@ class GameMap {
       this.backgroundObjects["ocean_layer2"] = loadImage('assets/maps/ocean_map/ocean_layer2.png');
       this.backgroundObjects["ocean_layer3"] = loadImage('assets/maps/ocean_map/ocean_layer3.png');
       this.backgroundObjects["ocean_layer4"] = loadImage('assets/maps/ocean_map/ocean_layer4.png');
+
+      this.backgroundObjects["space_layer1"] = loadImage('assets/maps/space_map/space_layer1.png');
   }
 
   updateAnimation() {
@@ -95,7 +111,6 @@ class GameMap {
           if (this.scrollDirection === "horizontal") {
               if (obj.speed !== 0) {
                   obj.x += obj.speed * obj.direction;
-                  // When the object completely moves off the left or right, loop it:
                   if (obj.direction === -1 && obj.x <= -img.width) {
                       obj.x += img.width * 2;
                   } else if (obj.direction === 1 && obj.x >= width) {
@@ -107,7 +122,6 @@ class GameMap {
           else if (this.scrollDirection === "vertical") {
               if (obj.ySpeed !== 0) {
                   obj.y += obj.ySpeed * obj.yDirection;
-                  // Instead of using canvas height, use the image's natural height for looping.
                   if (obj.yDirection === -1 && obj.y <= -img.height) {
                       obj.y += img.height;
                   } else if (obj.yDirection === 1 && obj.y >= img.height) {
