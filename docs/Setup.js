@@ -66,6 +66,7 @@ function setup() {
   characterPage = new CharacterPage();
   settingsPanel = new SettingsPanel();
   winScreen = new WinScreen();
+  instructionsPanel = new InstructionsPanel();
 }
 
 function draw() {
@@ -217,7 +218,7 @@ function hideAllButtons() {
   //player1Button.hide();
   //player2Button.hide();
   settingsPanel.hide();
-  //instructionsPanel.hide();
+  instructionsPanel.hide();
   //mapPage.hide();
   characterPage.hide();
   homePage.hide();
