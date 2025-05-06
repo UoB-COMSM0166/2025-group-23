@@ -256,31 +256,37 @@ Overall, agile's iterative nature required constant testing, debugging, and refa
 
 - Describe implementation of your game, in particular highlighting the three areas of challenge in developing your game.
 
-After reviewing our development process, we have encountered a number of interesting and pivotal challenges. The challenges focuses around: the game UI/UX design demands, the auto-aim feature, and the data structure algorithm for ai(hard-mode) pathfinder. Including other minor prerequisite implementations that took multiple iterations and rigorous testing to complete such as map-collision handler and player controls.
+After reviewing our development process, we have encountered a number of interesting and pivotal challenges. The challenges focuses around: the game UI/UX design demands, the auto-aim feature, and the data structure algorithm for AI (hard-mode) pathfinder. Including other minor prerequisite implementations that took multiple iterations and rigorous testing to complete, such as the map-collision handler and player controls.
 
-Prior to implementing any the behavioural challenges such as the auto-aim and AI Player, it was a prerequisite to create two basic platformers representing: **Player 1** and **Player 2**. Although not one of our main developmental challenge, we found that programming the players movement was a initially difficult. For example, our initial approach to applying gravity to the player's ability to jump would cause both of the platformers to move infinitly upwards and outside the canvas. To overcome this, we realised that each players will need two set of different keys so passing the respected key buttons(shoot, left, right, and jump) in the parameters is the best way to instantiate the players and their respected controls. Next, in order for these platformers to have an environment they can interfact with, we created a 2D array of tiles at a predefined size and populated the canvas with it. Initially, we expected to include the map collision check as one of our main challenges however, this turned out to be a quick implementation due to previous project experience in this. Our approach used the predefined width and height of the tiles with conditional checks such as **isOnPlatform** method.
+Prior to implementing any of the challenges, it was a prerequisite to create two basic platformers representing: **Player 1** and **Player 2**. Although not one of our main developmental challenges, we found that programming the players movement was initially difficult. For example, our initial approach to applying gravity to the player's ability to jump would cause both of the platformers to move infinitly upwards and outside the canvas. To overcome this, we realised that each players will need two sets of different keys, so passing the respected key buttons (shoot, left, right, and jump) in the parameters is the best way to instantiate the players and their respected controls. Next, in order for these platformers to have an environment they can interfact with, we created a 2D array of tiles with a predefined size and populated the canvas with it. Initially, we expected to include the map collision check as one of our main challenges however, this turned out to be a quick implementation due to previous project experience in this concept. Our approach used the predefined *width* and *height* of the tiles with conditional checks such as **isOnPlatform** method.
 
 ### Challenges
 **1. Auto-Aim Feature**
 
 One of the most technically nuanced features we developed was the auto-aim shooting mechanic, implemented inside the *Player.shoot()* method. The purpose of this mechanic was to simplify player input by automatically targeting the opponent whenever the shoot key is pressed, simulating a form of assisted targeting. Although this may sound straightforward in theory, implementing this functionality presented several unexpected challenges. 
 
+.<div align="center">
+  **Figure #** <br>
+  *Auto-Aim GIF of Two-Player Mode* <br>
+  <img width="900" alt="AutoAim_GIF" src="https://github.com/user-attachments/assets/a7827bbe-f749-4312-943e-7ebf17dd530f" /> 
+</div>
+
 Our initial difficulty stemmed from determining the most accurate and fair way to calculate the direction a bullet should travel. We knew the shooting player would need to "auto-aim" towards the opponent, but due to dynamic positions, gravity, jumping states, and horizontal movement, achieving consistent targeting without unfair advantage was tricky. Early iterations would cause bullets to fire in unnatural directions - especially when players were close together or overlapping vertically - resulting in missed shots or self-inflicted misfires. 
 
-To resolve this, we implememented a solution that calculates the center of both the shooting player and the target player using x/y positions and sprite dimensions. We then used the *atan2()* function to determine the exact angle between trigonometry *(dx / distance, dy / distance)*. Normalising the direction vector by dividing by the computed distance ensured bullets always traveled consistently at the desired speed regardless of the distance between players. 
+To resolve this, we implememented a solution that calculates the center of both the shooting player and the target player using x/y positions and sprite dimensions. We then used the *atan2()* function to determine the exact angle between them, which was used to rotate the weapon sprite and to calculate the bullet velocity vector using basic trigonometry *(dx / distance, dy / distance)*. Normalising the direction vector by dividing by the computed distance ensured bullets always traveled consistently at the desired speed regardless of the distance between players. 
 
 **2. AI Pathfinder(Hard Mode)**
 
-A particularly complex implementation during our development was designing the AI player's pathfinding system, especially in hard mode. This challenge involved creating a non-trivial decision-making process for navigating a dynamic platformer map while selecting weapons, avoiding bullets, and positioning for tactical attacks. In contrast to this, the first iteration of AI player invloved a hard coded reactive baheviour thats allows the AI to behave a pre-defined way based on the other player which we felt could be the easy version of the game.
+A particularly complex implementation during our development was designing the AI player's pathfinding system, especially in hard mode. This challenge involved creating a non-trivial decision-making process for navigating a dynamic platformer map while selecting weapons, avoiding bullets, and positioning for tactical attacks. In contrast to this, the first iteration of AI player involved a hard coded reactive behaviour that allows the AI to behave in a pre-defined way based on the other player which we felt could be the easy version of the game.
 
-The central issue was buidling a robust AI that understands the environment and react to both static platforms and dynamic game elements like power-ups and bullets. Our early versions of this AI would either get stuck in infinite loops when navigating vertically or behave unrealistically - either walking off edges or trying to jump at walls. Since the game is a 2D platformer, vertical navigation added additional complexity. 
+The central issue was building a robust AI that understands the environment and reacts to both static platforms and dynamic game elements like power-ups and bullets. Our early versions of this AI would either get stuck in infinite loops when navigating vertically or behave unrealistically - either walking off edges or trying to jump at walls. Since the game is a 2D platformer, vertical navigation added additional complexity. 
 
-To tackle this, we created a graph-based node system representing the top of platforms in *NodeNetwork.js* (as shown in Figure #). Nodes are connected horizontally and vertically (with safety checks to prevent excessive vertical chaining, using a max chain constrait in A*). This map graph is initialised each round using *buildPlatformNetwork()*, allowing the AI to perform *A pathfinding* based on valid movement contrainst. 
+To tackle this, we created a graph-based node system representing the top of platforms in *NodeNetwork.js* (as shown in Figure #). Nodes are connected horizontally and vertically (with safety checks to prevent excessive vertical chaining, using a max chain constrait in A*). This map graph is initialised each round using *buildPlatformNetwork()*, allowing the AI to perform *A\* pathfinding* based on valid movement constrainst. 
 
 .<div align="center">
   **Figure #** <br>
   *AI Pathfinder Nodes* <br>
-  <img width="1000" alt="node_AIPathfinder" src="https://github.com/user-attachments/assets/a77c3b36-1e26-4ddc-8739-9dee7c74eed1" /> 
+  <img width="900" alt="node_AIPathfinder_GIF" src="https://github.com/user-attachments/assets/095f715b-fdf0-405a-8f7b-25e39249ff49" /> 
 </div>
 
 We extended the *AIPlayer* class from the base *Player* class and gave it states like *seekingWeapon*, *shooting*, and *seekingPowerUp*. Each AI update checks for nearby bullets (to dodge), finds the nearest desirable item (weapon or power-up), and navigates to it using a custom A* implementation that avoids paths with excessive vertical climbs. 
@@ -288,19 +294,19 @@ We extended the *AIPlayer* class from the base *Player* class and gave it states
 One of the hardest bugs we fixed was the AI getting stuck vertically. It turned out that nodes were being linked without accounting for unreachable vertical chains. We added a "vertical chain constraint" that limited consecutive vertical transitions to five, which stabilised movement logic dramatically. 
 
 #### Key enhancement incuded: 
-- Prioritised shortest oaths with the fewest jumps.
+- Prioritised shortest paths with the fewest jumps.
 - Bullet detection with dodging behaviour and cooldown.
 - Fallback strategies if pathfinding failed or AI was blocked. 
 
-The result is a challengingm reactive AI that feels organic to play against - especially when combined with its dicision to engage players only when it has a clear line of sight or access to power-ups. 
+The result is a challenging reactive AI that feels organic to play against - especially when combined with its decision to engage players only when it has a clear line of sight or access to power-ups. 
 
 **3. Game Graphic Design**
 
-Perhaps the most time-consuming and visually demanding part of the development was creatinbg the 3D character models and integrating them into fully interactive Character Selection Page. The goal was to have a seamless and polished selection experience where players could preview rotating 3D versions of character like *Lion, Parrot, Dog, Crab,* and *Chicken* - each built entirely using p5.js's WEBGL system.
+Perhaps the most time-consuming and visually demanding part of the development for the frontend team was creating the 3D character models and integrating them into fully interactive Character Selection Page. The goal was to have a seamless and polished selection experience where players could preview rotating 3D versions of character like *Lion, Parrot, Dog, Crab, Penguin* and *Chicken* - each built entirely using p5.js's WEBGL system.
 
 One of the most persistent challenges was ensuring that each character was accurately constructed and visually distinct while still maintaining a consistent design language. Each model required dozens of individual 3D primitives (box, speheres, etc) layers and transformed in 3D space. We had to iterate through several poses, proportions, and rotations to make sure characters looked engaging from all angles. 
 
-An additional layer of complexity came from having to convert standalone sketches (each character was developed separely for testing) inti a unified, working UI component within the *CharacterPage*. Managing canvas rendering, viewports, and interactively in a multi-character, multi-player selection interface pushed the limits of p5.js's DOM integration. 
+An additional layer of complexity came from having to convert standalone sketches (each character was developed separately for testing) into a unified, working UI component within the *CharacterPage*. Managing canvas rendering, viewports, and interactively in a multi-character, multi-player selection interface pushed the limits of p5.js's DOM integration. 
 
 .<div align="center">
   **Figure #** <br>
@@ -310,7 +316,7 @@ An additional layer of complexity came from having to convert standalone sketche
 </div>
 
 
-We modularised each character sketch into its own function (eg. *parrotSketch, lionSketch*, etc.) and registered them inside a preview map structure. This allowed the *CharacterPage.js* to dynamically generate and attach p5 instances to designated HTML containers based on player input. We also used *p.ortho()* and tranparent backgrounds to make sure each 3D canvas blended with the UI. 
+We modularised each character sketch into its own function (eg. *parrotSketch, lionSketch*, etc.) and registered them inside a preview map structure. This allowed the *CharacterPage.js* to dynamically generate and attach p5.js instances to designated HTML containers based on player input. We also used *p.ortho()* and transparent backgrounds to make sure each 3D canvas blended with the UI. 
 
 To ensure consistency and usability: 
 - All characters were scaled appropriately and centered in the canvas.
@@ -318,7 +324,7 @@ To ensure consistency and usability:
 - Each player preview was isolated to prevent DOM collisions.
 - UI elements were styled with a consistent pixel font and layout to match the game's retro tone.
 
-Although initially frustrating, the final result offered a professional, responsive character selection experience - essential to setting the tone before the gameplaye begins. 
+Although initially frustrating, the final result offered a professional, responsive character selection experience - essential to setting the tone before the gameplay begins. 
 
 # 6. Evaluation
 
