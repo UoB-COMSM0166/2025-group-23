@@ -15,7 +15,8 @@ function draw() {
   rotateY(angleY);
   
   jump = sin(frameCount * 0.1) * 5;
-  drawCrab(0, crabZ + jump);
+  angleY -= PI / 10;
+  drawCrab(0, crabZ + jump + angleY + moveSpeed);
 }
 
 // Set the 2D background (blue sky + clouds)
@@ -141,14 +142,14 @@ function drawCrab(x, y, z) {
 }
 
 // Keyboard controls for crab movement
-function keyPressed() {
-  if (keyCode === UP_ARROW) {
+/*function keyPressed() {
+  /*if (keyCode === UP_ARROW) {
     crabZ -= moveSpeed;
   } else if (keyCode === DOWN_ARROW) {
     crabZ += moveSpeed;
-  } else if (keyCode === LEFT_ARROW) {
+  } else if (keyCode === LEFT_ARROW) {*/
     angleY -= PI / 10;
-  } else if (keyCode === RIGHT_ARROW) {
+  /*} else if (keyCode === RIGHT_ARROW) {
     angleY += PI / 10;
   }
-}
+}*/
