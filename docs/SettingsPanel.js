@@ -36,13 +36,13 @@ class SettingsPanel {
           align-items: center; 
           padding: 0; 
           border: 1px solid black; 
-          font-family: Arial, sans-serif;">
+          font: pixel;">
         X
       </button>
-      <button id="instruction-btn" type="button" style="cursor: pointer; margin: 10px;">Instruction</button>
-      <button id="muteMusic-btn" type="button" style="cursor: pointer; margin: 10px;">Mute Music</button>
-      <button id="muteSound-btn" type="button" style="cursor: pointer; margin: 10px;">Mute Sound</button>
-      <button id="mainMenu-btn" type="button" style="cursor: pointer; margin: 10px;">Main Menu</button>
+      <button id="instruction-btn" type="button" style="cursor: pointer; margin: 50px; back">Instruction</button>
+      <button id="muteMusic-btn" type="button" style="cursor: pointer; margin: 50px; background-color: rgb(150, 150, 150);">Mute Music</button>
+      <button id="muteSound-btn" type="button" style="cursor: pointer; margin: 50px; background-color: rgb(150, 150, 150);">Mute Sound</button>
+      <button id="mainMenu-btn" type="button" style="cursor: pointer; margin: 50px;">Main Menu</button>
       `);
     this.panel.id('settings');
     this.panel.position(width/2, height/2, 'absolute');
@@ -91,7 +91,7 @@ class SettingsPanel {
     this.panel.style('display', 'block');
     homePage.hideDifficultyPanel();
     console.log(`windowWidth: ${windowWidth}, windowHeight: ${windowHeight}`);
-console.log(`Panel position: ${this.panel.style('left')}, ${this.panel.style('top')}`);
+    console.log(`Panel position: ${this.panel.style('left')}, ${this.panel.style('top')}`);
 
     if (gameStarted) {
       select('#mainMenu-btn').style('display', 'block');

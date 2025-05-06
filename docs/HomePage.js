@@ -20,7 +20,8 @@ class HomePage {
 
     this.difficultyPanelElement = createDiv('');
     this.difficultyPanelElement.id('difficulty-panel');
-    this.difficultyPanelElement.position(width / 2 - 130, height / 2); 
+    this.difficultyPanelElement.position(width / 2, height / 2);
+    this.difficultyPanelElement.style('transform', 'translate(-50%, -50%)'); 
     this.difficultyPanelElement.style('width', '220px');
     this.difficultyPanelElement.style('height', '150px');
     this.difficultyPanelElement.style('background-color', 'rgba(255, 255, 255, 0.9)');
@@ -73,6 +74,7 @@ class HomePage {
     this.settingsButton.style('position', 'absolute');
     this.settingsButton.position(width / 2, height / 2 + 310);
     this.settingsButton.style('transform', 'translateX(-50%)');
+    this.settingsButton.style('background-color', 'rgba(150, 150, 150)');
     this.settingsButton.mouseReleased(() => {
       soundManager.playSound('buttonClick');
       this.hideDifficultyPanel();
@@ -115,6 +117,8 @@ class HomePage {
 
   showDifficultyPanel() {
     this.difficultyPanelElement.style('display', 'block');
+    this.difficultyPanelElement.style('width', '400px');
+    this.difficultyPanelElement.style('height', '300px');
   }
   
   hideDifficultyPanel() {
@@ -127,8 +131,8 @@ class HomePage {
     this.difficultyText.parent(this.difficultyPanelElement);
     this.difficultyText.style('text-align', 'center');
     this.difficultyText.style('font-family', 'pixel');
-    this.difficultyText.style('font-size', '18px');
-    this.difficultyText.style('margin', '0 0 20px 0');
+    this.difficultyText.style('font-size', '24px');
+    this.difficultyText.style('font-weight', 'bold');
     this.difficultyText.style('color', '#000');
 
     this.easyButton = createButton("Easy");
@@ -136,7 +140,8 @@ class HomePage {
     this.easyButton.style('cursor', 'pointer');
     // Center the button inside the difficulty panel.
     this.easyButton.style('display', 'block');
-    this.easyButton.style('margin', '10px auto');
+    this.easyButton.style('margin', '50px auto');
+    this.easyButton.style('background-color', 'rgba(78, 167, 46, 0.9)');
     this.easyButton.mouseReleased(() => {
       soundManager.playSound('buttonClick');
       console.log('Easy difficulty selected');
@@ -151,7 +156,8 @@ class HomePage {
     this.hardButton.id("difficulty-hard-button");
     this.hardButton.style('cursor', 'pointer');
     this.hardButton.style('display', 'block');
-    this.hardButton.style('margin', '10px auto');
+    this.hardButton.style('margin', '50px auto');
+    this.hardButton.style('background-color', 'rgba(192, 0, 0, 0.9)');
     this.hardButton.mouseReleased(() => {
       soundManager.playSound('buttonClick');
       console.log('Hard difficulty selected');
