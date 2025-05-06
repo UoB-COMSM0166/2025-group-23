@@ -30,7 +30,7 @@ this.panel.style('transform', 'translate(-50%, -50%)');
 
  
 
-    const img = createImg('assets/mainMenu/instruction.png', () => {
+    const img = createImg('assets/mainMenu/instruction3.png', () => {
 
 
 
