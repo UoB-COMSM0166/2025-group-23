@@ -7,7 +7,7 @@ class HomePage {
     this.page.position(0, 0);
     this.page.style('width', width + 'px');
     this.page.style('height', height + 'px');
-    this.page.style('background-image', 'url(assets/mainMenu/main-background2.png');
+    this.page.style('background-image', 'url(assets/mainMenu/main-background3.png');
     this.page.style('background-size', 'cover');
     this.page.style('background-position', 'center');
     this.page.style('z-index', '10');
@@ -23,8 +23,10 @@ class HomePage {
     this.difficultyPanelElement.position(width / 2 - 130, height / 2); 
     this.difficultyPanelElement.style('width', '220px');
     this.difficultyPanelElement.style('height', '150px');
-    this.difficultyPanelElement.style('background', '#fff');
-    this.difficultyPanelElement.style('border', '2px solid #000');
+    this.difficultyPanelElement.style('background-color', 'rgba(184, 224, 200, 0.9)');
+    this.difficultyPanelElement.style('border-radius', '25px')
+    //this.difficultyPanelElement.style('background', '#fff');
+    //this.difficultyPanelElement.style('border', '2px solid #000');
     this.difficultyPanelElement.style('display', 'none');
     this.difficultyPanelElement.style('padding', '20px');
     this.difficultyPanelElement.style('z-index', '100');

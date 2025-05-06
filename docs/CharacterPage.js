@@ -102,7 +102,10 @@ class CharacterPage {
    this.page.style('display', 'none');
    this.page.style('width', width + 'px');
    this.page.style('height', height + 'px');
-   this.page.style('background-color', 'grey');
+   this.page.style('background-image', 'url(assets/mainMenu/side-background.png');
+   this.page.style('background-size', 'cover');
+   this.page.style('background-position', 'top');
+   //this.page.style('background-color', 'white');
 
    this.setupButtons();
    this.highlightSelection();
