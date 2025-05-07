@@ -421,8 +421,8 @@ To enhance the game’s usability, we made the following improvements: <br>
   Implemented instruction page in both pre-loading and in-game
   <table>
     <tr>
-      <td><img src="assets/readmedoc/instruction_char.png" alt="instruction while pre-load"/></td>
-      <td><img src="assets/readmedoc/instruction_game.png" alt="instruction in game"/></td>
+      <td><img src="assets/readmeDoc/instruction_char.png" alt="instruction while pre-load"/></td>
+      <td><img src="assets/readmeDoc/instruction_game.png" alt="instruction in game"/></td>
     </tr>
   </table>
 </div>
