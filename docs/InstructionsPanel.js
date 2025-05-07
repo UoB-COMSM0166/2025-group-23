@@ -24,7 +24,7 @@ class InstructionsPanel {
     //this.panel.style('padding', '20px');
     //this.panel.style('border', '2px solid #ccc');
 
-    const img = createImg('assets/mainMenu/instruction3.png', () => {
+    const img = createImg('assets/mainMenu/instruction7.png', () => {
       const maxWidth = width * 0.8;
       const maxHeight = height * 0.8;
 
