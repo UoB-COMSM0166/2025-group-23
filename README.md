@@ -355,12 +355,12 @@ To ensure our game delivered a smooth and engaging player experience, we conduct
 <table style="width: 100%;">
   <tr>
     <th style="width: 10%;">Interface</th>
-    <th style="width: 30%;">Issue</th>
+    <th style="width: 50%;">Issue</th>
     <th style="width: 20%;">Heuristic(s)</th>
-    <th style="width: 10%;">Frequency (0-4)</th>
-    <th style="width: 10%;">Impact (0-4)</th>
-    <th style="width: 10%;">Persistence (0-4)</th>
-    <th style="width: 10%;">Severity (F+I+P/3)</th>
+    <th style="width: 5%;">Frequency (0-4)</th>
+    <th style="width: 5%;">Impact (0-4)</th>
+    <th style="width: 5%;">Persistence (0-4)</th>
+    <th style="width: 5%;">Severity (F+I+P/3)</th>
   </tr>
   <tr>
     <td>Main Game</td>
