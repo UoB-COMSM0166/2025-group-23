@@ -333,7 +333,8 @@ This week, we invited other team members to try out the newly released version o
 
 **1. Think Aloud Evaluation:**
 
-![image](https://github.com/user-attachments/assets/7bacbe26-c3b0-47b2-bbdd-20c18cef9ed8)
+![image](https://github.com/user-attachments/assets/322ff173-0963-4bdf-b714-101e3c063620)
+
 
 Participants were encouraged to think aloud as they played, expressing their thoughts and reactions in real-time. We recorded their feedback, paying special attention to moments of confusion and engagement. From these observations, we identified several key themes and categorized the feedback as follows:
 
