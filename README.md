@@ -351,14 +351,58 @@ This feedback gave us a clearer understanding of where players encountered frict
 
 To ensure our game delivered a smooth and engaging player experience, we conducted a heuristic evaluation based on Nielsen’s usability principles. We invited seven observers and experts to assess the main game interface, whose insights helped us identify key usability issues, such as unclear health displays and confusing controls. This process guided our team to implement targeted improvements, significantly enhancing gameplay and player satisfaction. 
 
-| Interface   | Issue                                                                 | Heuristic(s)                          | Frequency (0-4) | Impact (0-4) | Persistence (0-4) | Severity (F+I+P/3) |
-|-------------|----------------------------------------------------------------------|---------------------------------------|-----------------|--------------|-------------------|--------------------|
-| Main Game   | Unclear keyboard controls for character operation                    | Help and documentation                | 3               | 4            | 0                 | 2.3                |
-| Main Game   | Player health display is unclear or hard to see                      | Visibility of system status           | 4               | 3            | 4                 | 3.6                |
-| Main Game   | Different weapons deal the same damage, confusing players             | Match between system and the real world | 3               | 2            | 2                 | 2.3                |
-| Main Game   | Too many powerups make the game too easy                             | Match between system and the real world | 2               | 1            | 2                 | 1.6                |
+
 
 <br>
+
+<table>
+  <tr>
+    <th>Interface</th>
+    <th>Issue</th>
+    <th>Heuristic(s)</th>
+    <th>Frequency (0-4)</th>
+    <th>Impact (0-4)</th>
+    <th>Persistence (0-4)</th>
+    <th>Severity (F+I+P/3)</th>
+  </tr>
+  <tr>
+    <td>Main Game</td>
+    <td>Unclear keyboard controls for character operation</td>
+    <td>Help and documentation</td>
+    <td>3</td>
+    <td>4</td>
+    <td>0</td>
+    <td>2.3</td>
+  </tr>
+  <tr>
+    <td>Main Game</td>
+    <td>Player health display is unclear or hard to see</td>
+    <td>Visibility of system status</td>
+    <td>4</td>
+    <td>3</td>
+    <td>4</td>
+    <td>3.6</td>
+  </tr>
+  <tr>
+    <td>Main Game</td>
+    <td>Different weapons deal the same damage, confusing players</td>
+    <td>Match between system and the real world</td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>2.3</td>
+  </tr>
+  <tr>
+    <td>Main Game</td>
+    <td>Too many powerups make the game too easy</td>
+    <td>Match between system and the real world</td>
+    <td>2</td>
+    <td>1</td>
+    <td>2</td>
+    <td>1.6</td>
+  </tr>
+</table>
+
 The heuristic evaluation of the game highlights a few usability issues with different levels of impact. The biggest problem (severity 3.6) is that players can’t clearly see their remaining health, which pops up often, messes with gameplay, and keeps happening, breaking the "Visibility of system status" rule. 
 Two other issues—unclear keyboard controls for character operation (severity 2.3) and different weapons dealing the same damage, confusing players (severity 2.3) show up fairly often and frustrate players, linked to "Help and documentation" and "Match between system and the real world" heuristics. The least problem (severity 1.6) is too many powerups making the game too easy, which isn’t super common but lingers, also tied to "Match between system and the real world." Fixing the health display and adding better instructions should be top priorities to level up the player experience and gameplay. <br>
  
