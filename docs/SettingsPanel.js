@@ -55,7 +55,6 @@ class SettingsPanel {
     this.panel.style('position', 'absolute');
  
     this.setupButtons();
-    this.instructionsPanel = new InstructionsPanel();
   }
  
   setupButtons() {
@@ -69,7 +68,7 @@ class SettingsPanel {
     });
     select('#instruction-btn').mouseReleased(() => {
       soundManager.playSound('buttonClick');
-      this.instructionsPanel.show()
+      instructionsPanel.show()
     });
     select('#muteMusic-btn').mouseReleased(() => {
       soundManager.initMuteMusic();
@@ -110,8 +109,5 @@ class SettingsPanel {
     this.hide();
     hideAllButtons();
   }
-
-  replay() {}
-  
 }
  

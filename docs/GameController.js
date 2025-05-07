@@ -306,13 +306,16 @@ function drawScore2(playerScore, x, y) {
 }
 
 function keyPressed() {
-  if (keyCode === ESCAPE) {
-      if (!gamePaused) {
-          pauseGame();
-      } else {
-          unpauseGame();
-      }
-  }
+    if (!roundOver) {
+        if (keyCode === ESCAPE) {
+            if (!gamePaused) {
+                pauseGame();
+            } 
+            else {
+                unpauseGame();
+            }
+        }
+    }
 
   if (!gamePaused) {
       for (let player of players) {
