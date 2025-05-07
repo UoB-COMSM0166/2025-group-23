@@ -349,7 +349,7 @@ This feedback gave us a clearer understanding of where players encountered frict
 
 **2. Heuristic Evaluation:**
 
-We invited 7 observers/experts to 
+To ensure our game delivered a smooth and engaging player experience, we conducted a heuristic evaluation based on Nielsen’s usability principles. We invited seven observers and experts to assess the main game interface, whose insights helped us identify key usability issues, such as unclear health displays and confusing controls. This process guided our team to implement targeted improvements, significantly enhancing gameplay and player satisfaction. 
 
 | Interface   | Issue                                                                 | Heuristic(s)                          | Frequency (0-4) | Impact (0-4) | Persistence (0-4) | Severity (F+I+P/3) |
 |-------------|----------------------------------------------------------------------|---------------------------------------|-----------------|--------------|-------------------|--------------------|
