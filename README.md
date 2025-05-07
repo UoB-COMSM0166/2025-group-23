@@ -352,15 +352,15 @@ This feedback gave us a clearer understanding of where players encountered frict
 To ensure our game delivered a smooth and engaging player experience, we conducted a heuristic evaluation based on Nielsen’s usability principles. We invited seven observers and experts to assess the main game interface, whose insights helped us identify key usability issues, such as unclear health displays and confusing controls. This process guided our team to implement targeted improvements, significantly enhancing gameplay and player satisfaction. 
 
 
-<table>
+<table style="width: 100%;">
   <tr>
-    <th>Interface</th>
-    <th>Issue</th>
-    <th>Heuristic(s)</th>
-    <th>Frequency (0-4)</th>
-    <th>Impact (0-4)</th>
-    <th>Persistence (0-4)</th>
-    <th>Severity (F+I+P/3)</th>
+    <th style="width: 10%;">Interface</th>
+    <th style="width: 30%;">Issue</th>
+    <th style="width: 20%;">Heuristic(s)</th>
+    <th style="width: 10%;">Frequency (0-4)</th>
+    <th style="width: 10%;">Impact (0-4)</th>
+    <th style="width: 10%;">Persistence (0-4)</th>
+    <th style="width: 10%;">Severity (F+I+P/3)</th>
   </tr>
   <tr>
     <td>Main Game</td>
