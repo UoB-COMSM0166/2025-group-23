@@ -344,11 +344,13 @@ Although initially frustrating, the final result offered a professional, respons
 
 Sustainability is now central to software engineering and game development. Following the framework introduced in our sustainability lectures, sustainability can be understood across several dimensions, including environmental, social, technical, individual, and economic aspects. Throughout the design and implementation of Take Aim, our team actively embedded sustainability concerns, particularly focusing on environmental, social, and technical dimensions to ensure ethical and accessible gameplay experiences.
 
+
 <strong>Environmental Sustainability</strong>
 
 Although video games are less resource-intensive than other ICT products, they still contribute to global energy usage, particularly through hosting infrastructure, network transmission, and client-side processing. In response, Take Aim was deliberately designed as a lightweight web-based game using P5.js. This decision enabled the delivery of rich gameplay experiences through minimal resource consumption on the client side. By optimising rendering processes and avoiding heavy graphical or computational demands, we reduced the energy footprint on end-user devices.
 
 Furthermore, our deployment strategy reflects careful consideration of sustainability. Hosting the game via GitHub Pages leverages existing infrastructure, eliminating the need for bespoke server solutions that would otherwise increase electricity and cooling demands. This aligns with the principles of substitution and optimisation highlighted in sustainability design — replacing resource-heavy approaches with lightweight alternatives and optimising system operation to minimise energy use.
+
 
 <strong>Social and Ethical Sustainability</strong>
 
@@ -358,6 +360,7 @@ Secondly, the game design supports different social needs and preferences. Multi
 
 Additionally, ethics played a key role in gameplay design. Unlike many mainstream games that rely on monetisation strategies that can exploit players, Take Aim does not include advertisements, in-game purchases, or addictive reward loops. This ethical design choice promotes healthier gameplay patterns and ensures that the game respects users' time and attention.
 
+
 <strong>Technical Sustainability</strong>
 
 Technical sustainability focuses on software maintainability, usability, and long-term viability. Throughout development, we adopted modular design principles and best practices to ensure Take Aim remains adaptable and easy to maintain. Frontend components, such as the character selection screen, health HUD, and game menus, were developed as reusable and independent modules. This approach aligns with good object-oriented design and simplifies future updates, bug fixes, and feature expansion.
@@ -366,7 +369,8 @@ Furthermore, by leveraging P5.js — a widely-supported and actively maintained 
 
 Finally, development processes also reflected technical sustainability values. Features were incrementally developed and tested, avoiding technical debt and ensuring clean, efficient codebases. These practices support not only maintainability but also contribute to reduced resource consumption during ongoing development and deployment phases.
 
-Conclusion
+
+<strong>Conclusion</strong>
 
 Take Aim demonstrates that integrating sustainability into game development is achievable and essential. Through lightweight deployment and optimisation for energy efficiency, the game reduces its environmental footprint. By prioritising accessibility, ethical design, and social inclusiveness, the game offers positive social impacts and ethical responsibility. Finally, through modular architecture and maintainable code, it supports technical sustainability for future growth and adaptability.
 
