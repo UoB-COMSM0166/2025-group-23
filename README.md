@@ -329,6 +329,25 @@ Although initially frustrating, the final result offered a professional, respons
 
 # 6. Evaluation
 
+This week, we invited other team members to try out the newly released version of our game. We received a lot of positive feedback, along with some valuable suggestions and ideas. To collect comprehensive insights, we conducted several evaluation methods, including **Think Aloud Evaluation, Heuristic Evaluation, NASA-TLX for workload assessment, and the System Usability Scale (SUS)**.
+
+**1. Think Aloud Evaluation:**
+
+![image](https://github.com/user-attachments/assets/7bacbe26-c3b0-47b2-bbdd-20c18cef9ed8)
+
+Participants were encouraged to think aloud as they played, expressing their thoughts and reactions in real-time. We recorded their feedback, paying special attention to moments of confusion and engagement. From these observations, we identified several key themes and categorized the feedback as follows:
+
+| Category            | Issue                                                                                                                                  | Solution                                                                                                                                                       |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Player Control**  | 1. It's difficult to distinguish player identity when selecting the same character.<br>2. Health visibility is unclear during gameplay. | 1. Display the player's name above their character.<br>2. Add a health percentage indicator both above the character and at the bottom of the game panel.     |
+| **Game Instructions** | The game lacks an instruction page, making it difficult for players to understand controls, weapons, black hole mechanics, etc.        | - Implement an instruction page accessible by pressing "Esc".<br>- Preload the instructions during loading and require players to read them.                  |
+| **Difficulty**       | The AI opponents feel overly challenging for some players.                                                                             | Introduce difficulty settings. Players can choose a preferred difficulty level (Easy, Hard) before starting the game.                                          |
+
+This feedback gave us a clearer understanding of where players encountered friction or confusion. Based on this, we’ve already started implementing targeted improvements to enhance both usability and gameplay experience.
+
+
+
+
 - 15% ~750 words
 
 - One qualitative evaluation (your choice) 
