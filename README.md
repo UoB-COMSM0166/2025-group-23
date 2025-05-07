@@ -432,8 +432,8 @@ To enhance the game’s usability, we made the following improvements: <br>
   Improved health bar display before and after
   <table>
     <tr>
-      <td><img src="assets/readmedoc/previous_version.png" alt="previous health display"/></td>
-      <td><img src="assets/readmedoc/new_version.png" alt="add health bar display"/></td>
+      <td><img src="assets/readmeDoc/previous_version.png" alt="previous health display"/></td>
+      <td><img src="assets/readmeDoc/new_version.png" alt="add health bar display"/></td>
   </tr>
   </table>
 </div>
