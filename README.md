@@ -352,9 +352,6 @@ This feedback gave us a clearer understanding of where players encountered frict
 To ensure our game delivered a smooth and engaging player experience, we conducted a heuristic evaluation based on Nielsen’s usability principles. We invited seven observers and experts to assess the main game interface, whose insights helped us identify key usability issues, such as unclear health displays and confusing controls. This process guided our team to implement targeted improvements, significantly enhancing gameplay and player satisfaction. 
 
 
-
-<br>
-
 <table>
   <tr>
     <th>Interface</th>
@@ -403,15 +400,43 @@ To ensure our game delivered a smooth and engaging player experience, we conduct
   </tr>
 </table>
 
-The heuristic evaluation of the game highlights a few usability issues with different levels of impact. The biggest problem (severity 3.6) is that players can’t clearly see their remaining health, which pops up often, messes with gameplay, and keeps happening, breaking the "Visibility of system status" rule. 
-Two other issues—unclear keyboard controls for character operation (severity 2.3) and different weapons dealing the same damage, confusing players (severity 2.3) show up fairly often and frustrate players, linked to "Help and documentation" and "Match between system and the real world" heuristics. The least problem (severity 1.6) is too many powerups making the game too easy, which isn’t super common but lingers, also tied to "Match between system and the real world." Fixing the health display and adding better instructions should be top priorities to level up the player experience and gameplay. <br>
+The heuristic evaluation of the game highlights some usability issues with different levels of impact. 
+
+- **Unclear** health display (Severity 3.6): Players can’t clearly see their remaining health, a frequent issue that disrupts gameplay and persists, violating the "Visibility of system status" heuristic.
+- **Unclear** keyboard controls (Severity 2.3): Unclear controls for character operation frustrate players often, tied to the "Help and documentation" heuristic.
+- **Confusing** weapon damage (Severity 2.3): Different weapons dealing the same damage confuses players frequently, linked to the "Match between system and the real world" heuristic.
+- **Excessive** powerups (Severity 1.6): Too many powerups make the game too easy, a less common but persistent issue, also tied to "Match between system and the real world" heuristic.
+
+Fixing the health display and adding better instructions should be top priorities to level up the player experience and gameplay. <br>
  
- <br>
+### Improvements Implemented 
 To enhance the game’s usability, we made the following improvements: <br>
-  • Fixed the unclear health display: Added a clear health bar at the bottom of the game screen with high-contrast colours, making it easy for players to track their status.<br>
-  • Clarified keyboard controls: Introduced a clear instruction page, shown during the pre-game loading screen, ensuring players knew how to operate characters without confusion.<br>
-  • Resolved weapon confusion: Differentiated weapon damage and added varied weapon types to meet player expectations and eliminate confusion.<br>
-  • Balanced powerups: Reduced powerup frequency to keep the game challenging and engaging.
+- **Fixed the unclear health display**: Added a clear health bar at the bottom of the game screen with high-contrast colours, making it easy for players to track their status.<br>
+- **Clarified keyboard controls**: Introduced a clear instruction page, shown during the pre-game loading screen, ensuring players knew how to operate characters without confusion.<br>
+- **Resolved weapon confusion**: Differentiated weapon damage and added varied weapon types to meet player expectations and eliminate confusion.<br>
+- **Balanced powerups**: Reduced powerup frequency to keep the game challenging and engaging.
+
+<div align="center">
+  <strong>Figure #</strong> <br>
+  Implemented instruction page in both pre-loading and in-game
+  <table>
+    <tr>
+      <td><img src="assets/readmedoc/instruction_char.png" alt="instruction while pre-load"/></td>
+      <td><img src="assets/readmedoc/instruction_game.png" alt="instruction in game"/></td>
+    </tr>
+  </table>
+</div>
+
+<div align="center">
+  <strong>Figure #</strong> <br>
+  Improved health bar display before and after
+  <table>
+    <tr>
+      <td><img src="assets/readmedoc/previous_version.png" alt="previous health display"/></td>
+      <td><img src="assets/readmedoc/new_version.png" alt="add health bar display"/></td>
+  </tr>
+  </table>
+</div>
    
 By prioritizing the health bar and control instructions, we’ve significantly improved the player experience and gameplay flow.
 
