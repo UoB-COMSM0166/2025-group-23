@@ -347,6 +347,23 @@ Participants were encouraged to think aloud as they played, expressing their tho
 This feedback gave us a clearer understanding of where players encountered friction or confusion. Based on this, we’ve already started implementing targeted improvements to enhance both usability and gameplay experience.
 
 
+**2. Heuristic Evaluation:**
+
+We invited 7 observers/experts to 
+
+![image](resources/Documentation/Heuristic%20Evaluation.png)
+
+The heuristic evaluation of the game highlights a few usability issues with different levels of impact. The biggest problem (severity 3.6) is that players can’t clearly see their remaining health, which pops up often, messes with gameplay, and keeps happening, breaking the "Visibility of system status" rule. 
+Two other issues—unclear keyboard controls for character operation (severity 2.3) and different weapons dealing the same damage, confusing players (severity 2.3) show up fairly often and frustrate players, linked to "Help and documentation" and "Match between system and the real world" heuristics. The least problem (severity 1.6) is too many powerups making the game too easy, which isn’t super common but lingers, also tied to "Match between system and the real world." Fixing the health display and adding better instructions should be top priorities to level up the player experience and gameplay. 
+ 
+ 
+To enhance the game’s usability, we made the following improvements: <br>
+  • Fixed the unclear health display: Added a clear health bar at the bottom of the game screen with high-contrast colours, making it easy for players to track their status.<br>
+  • Clarified keyboard controls: Introduced a clear instruction page, shown during the pre-game loading screen, ensuring players knew how to operate characters without confusion.<br>
+  • Resolved weapon confusion: Differentiated weapon damage and added varied weapon types to meet player expectations and eliminate confusion.<br>
+  • Balanced powerups: Reduced powerup frequency to keep the game challenging and engaging.
+   
+By prioritizing the health bar and control instructions, we’ve significantly improved the player experience and gameplay flow.
 
 
 - 15% ~750 words
