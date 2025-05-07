@@ -352,13 +352,54 @@ This feedback gave us a clearer understanding of where players encountered frict
 To ensure our game delivered a smooth and engaging player experience, we conducted a heuristic evaluation based on Nielsen’s usability principles. We invited seven observers and experts to assess the main game interface, whose insights helped us identify key usability issues, such as unclear health displays and confusing controls. This process guided our team to implement targeted improvements, significantly enhancing gameplay and player satisfaction. 
 
 
-| Interface | Issue                                      | Heuristic(s)               | Frequency (0-4) | Impact (0-4) | Persistence (0-4) | Severity (F+I+P/3) |
-|-----------|--------------------------------------------|-------------------------|-----------------|--------------|-------------------|--------------------|
-| Main Game | Unclear keyboard controls for character... | Help and documentation        | 3               | 4            | 0                 | 2.3                |
-| Main Game | Player health display is unclear or...     | Visibility of status          | 4               | 3            | 4                 | 3.6                |
-| Main Game | Different weapons deal the same...         | Match system & world          | 3               | 2            | 2                 | 2.3                |
-| Main Game | Too many powerups make the game...         | Match system & world          | 2               | 1            | 2                 | 1.6                |
-
+<table style="width: 100%;">
+  <tr>
+    <th style="width: 10%;">Interface</th>
+    <th style="width: 30%;">Issue</th>
+    <th style="width: 20%;">Heuristic(s)</th>
+    <th style="width: 10%;">Freq (0-4)</th>
+    <th style="width: 10%;">Impact (0-4)</th>
+    <th style="width: 10%;">Persist (0-4)</th>
+    <th style="width: 10%;">Severity</th>
+  </tr>
+  <tr>
+    <td>Main Game</td>
+    <td style="white-space: nowrap;">Unclear keyboard controls for character operation</td>
+    <td>Help and documentation</td>
+    <td>3</td>
+    <td>4</td>
+    <td>0</td>
+    <td>2.3</td>
+  </tr>
+  <tr>
+    <td>Main Game</td>
+    <td style="white-space: nowrap;">Player health display is unclear or hard to see</td>
+    <td>Visibility of status</td>
+    <td>4</td>
+    <td>3</td>
+    <td>4</td>
+    <td>3.6</td>
+  </tr>
+  <tr>
+    <td>Main Game</td>
+    <td style="white-space: nowrap;">Different weapons deal the same damage, confusing players</td>
+    <td>Match system & world</td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>2.3</td>
+  </tr>
+  <tr>
+    <td>Main Game</td>
+    <td style="white-space: nowrap;">Too many powerups make the game too easy</td>
+    <td>Match system & world</td>
+    <td>2</td>
+    <td>1</td>
+    <td>2</td>
+    <td>1.6</td>
+  </tr>
+</table>
+<br>
 The heuristic evaluation of the game highlights some usability issues with different levels of impact. 
 
 - **Unclear** health display (Severity 3.6): Players can’t clearly see their remaining health, a frequent issue that disrupts gameplay and persists, violating the "Visibility of system status" heuristic.
