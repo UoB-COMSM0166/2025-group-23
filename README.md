@@ -448,7 +448,6 @@ To assess the perceived workload our users have when playing our game, we conduc
   <tr>
     <td>
 
-
 <strong>Average TLX Scores per Dimension</strong>
 
 <table>
@@ -462,9 +461,8 @@ To assess the perceived workload our users have when playing our game, we conduc
 </table>
 
     </td>
-    <td style="width: 50px;"></td> 
+    <td style="width: 50px;"></td>
     <td>
-
 
 <strong>Total TLX Scores (Per User)</strong>
 
@@ -486,6 +484,7 @@ To assess the perceived workload our users have when playing our game, we conduc
     </td>
   </tr>
 </table>
+
 
 
 
