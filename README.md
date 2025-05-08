@@ -535,6 +535,10 @@ To evaluate the overall usability of our game, we conducted the System Usability
 | **Average** | **74.5** | **64.35**       | **10.15**  |
 
 
+
+![image](https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/SUSperUserScores.png)
+
+
 **Statistical Insight (Wilcoxon Signed-Rank Test)**
 
 To assess whether the differences in workload and usability between the easy and difficult game modes were statistically meaningful, we referred to the Wilcoxon Signed-Rank test. 
@@ -547,7 +551,7 @@ The observed average difference in **NASA-TLX scores** was **18.25**, while the 
 
 
 
-![image](https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/SUSperUserScores.png)
+
 
 
 
