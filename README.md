@@ -96,9 +96,9 @@ Players must carefully time their shot to optimize both angle and power for maxi
 |    1   | Ching-Yueh Lin     | xs24198@bristol.ac.uk | Frontend Developer |
 |    2   | Yu-Hsin Chang      | mh24718@bristol.ac.uk | Frontend Developer |
 |    3   | Gioven Posa        | kw24347@bristol.ac.uk | Backend Developer |
-|    4   | Tzu-Wei Lee        | jj24506@bristol.ac.uk | Backend Developer |
-|    5   | Kotzamanidis Nikos | yy24148@bristol.ac.uk | Product Owner |
-|    6   | Shabarish Menon    | xh24681@bristol.ac.uk | Scrum Master |
+|    4   | Tzu-Wei Lee        | jj24506@bristol.ac.uk | Frontend Developer |
+|    5   | Kotzamanidis Nikos | yy24148@bristol.ac.uk | Product Owner/Frontend Developer |
+|    6   | Shabarish Menon    | xh24681@bristol.ac.uk | Scrum Master/Backend Developer |
 </div>
 
 
@@ -439,6 +439,14 @@ To enhance the game’s usability, we made the following improvements: <br>
 </div>
    
 By prioritizing the health bar and control instructions, we’ve significantly improved the player experience and gameplay flow.
+
+**3. NASA TLX : **
+
+To assess the perceived workload our users have when playing our game, we conducted a NASA-TLX (Task Load Index) survey with ten participants after they experienced both the easy and difficult game modes. The survey measured six dimensions of workload: mental demand, physical demand, temporal demand, performance, effort, and frustration. Results showed a consistent increase in workload across all dimensions in the difficult mode, with the most notable rises in physical demand and frustration. These insights helped us validate the intended challenge progression and informed subtle adjustments to balance difficulty, ensuring a more engaging but manageable player experience.
+
+
+**4 . System Usability survey (SUS) : **
+To evaluate the overall usability of our game, we conducted the System Usability Scale (SUS) with ten participants after gameplay. Users rated both the easy and difficult modes, producing average SUS scores of 74.5 and 64.35 respectively. These results indicate that the easy mode falls within the range of good usability, while the difficult mode revealed usability challenges likely tied to increased game difficulty. This feedback helped us spot moments where players were struggling against the AI and led to tweaks to the AI’s responsiveness and challenge curve to create a fairer and more engaging 1v1 experience.
 
 
 - 15% ~750 words
