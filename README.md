@@ -443,10 +443,20 @@ By prioritizing the health bar and control instructions, we’ve significantly i
 **3. NASA TLX :**
 
 To assess the perceived workload our users have when playing our game, we conducted a NASA-TLX (Task Load Index) survey with ten participants after they experienced both the easy and difficult game modes. The survey measured six dimensions of workload: mental demand, physical demand, temporal demand, performance, effort, and frustration. Results showed a consistent increase in workload across all dimensions in the difficult mode, with the most notable rises in physical demand and frustration. These insights helped us validate the intended challenge progression and informed subtle adjustments to balance difficulty, ensuring a more engaging but manageable player experience.
-<p align="center">
-  <img src="https://github.com/UoB-COMSM0166/2025-group-23/raw/main/assets/readmeDoc/TLXperCat.png" alt="TLX per Category" style="width: 48%; margin-right: 2%;" />
-  <img src="https://github.com/UoB-COMSM0166/2025-group-23/raw/main/assets/readmeDoc/TotalTLXScore10Users.png" alt="Total TLX Score (10 Users)" style="width: 48%;" />
-</p>
+<table align="center">
+  <tr>
+    <td align="center"><strong>Dimension Scores</strong></td>
+    <td align="center"><strong>Total TLX Scores</strong></td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://github.com/UoB-COMSM0166/2025-group-23/raw/main/assets/readmeDoc/TLXperCat.png" alt="Average rating of each subscale" style="width: 95%;" />
+    </td>
+    <td>
+      <img src="https://github.com/UoB-COMSM0166/2025-group-23/raw/main/assets/readmeDoc/TotalTLXScore10Users.png" alt="Total TLX Score " style="width: 95%;" />
+    </td>
+  </tr>
+</table>
 
   
 
