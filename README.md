@@ -442,7 +442,7 @@ By prioritizing the health bar and control instructions, we’ve significantly i
 
 **3. NASA TLX :**
 
-To assess the perceived workload our users have when playing our game, we conducted a NASA-TLX (Task Load Index) survey with ten participants after they experienced both the easy and difficult game modes. The survey measured six dimensions of workload: mental demand, physical demand, temporal demand, performance, effort, and frustration. Results showed a consistent increase in workload across all dimensions in the difficult mode, with the most notable rises in physical demand and frustration. These insights helped us validate the intended challenge progression and informed subtle adjustments to balance difficulty, ensuring a more engaging but manageable player experience.
+To assess the perceived workload our users have when playing our game, we conducted a NASA-TLX (Task Load Index) survey with ten participants after they experienced both the easy and difficult game modes. The survey measured six dimensions of workload: mental demand, physical demand, temporal demand, performance, effort, and frustration. Results showed a consistent increase in workload across all dimensions in the difficult mode, with the most notable rises in mental demand and frustration. These insights helped us validate the intended challenge progression and informed subtle adjustments to balance difficulty, ensuring a more engaging but manageable player experience.
 
 
 <div style="display: flex; justify-content: space-between; gap: 40px;">
@@ -454,10 +454,10 @@ To assess the perceived workload our users have when playing our game, we conduc
 
 <table>
   <tr><th>Category</th><th>Easy Level</th><th>Difficult Level</th></tr>
-  <tr><td>Mental Demand</td><td>35</td><td>51.25</td></tr>
-  <tr><td>Physical Demand</td><td>10</td><td>36.25</td></tr>
+  <tr><td>Mental Demand</td><td>35</td><td>65</td></tr>
+  <tr><td>Physical Demand</td><td>10</td><td>15</td></tr>
   <tr><td>Temporal Demand</td><td>22.5</td><td>38.5</td></tr>
-  <tr><td>Performance</td><td>17.5</td><td>20</td></tr>
+  <tr><td>Performance</td><td>17.5</td><td>28.5</td></tr>
   <tr><td>Effort</td><td>45</td><td>63.75</td></tr>
   <tr><td>Frustration</td><td>35</td><td>63.75</td></tr>
 </table>
@@ -498,7 +498,7 @@ To assess the perceived workload our users have when playing our game, we conduc
   </tr>
   <tr>
     <td>
-      <img src="https://github.com/UoB-COMSM0166/2025-group-23/raw/main/assets/readmeDoc/TLXperCat.png" alt="Average rating of each subscale" style="width: 95%;" />
+      <img src="https://github.com/UoB-COMSM0166/2025-group-23/raw/main/assets/readmeDoc/TLXperCat.png](https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/NasaTLXPerDimension.png" alt="Average rating of each subscale" style="width: 95%;" />
     </td>
     <td>
       <img src="https://github.com/UoB-COMSM0166/2025-group-23/raw/main/assets/readmeDoc/TotalTLXScore10Users.png" alt="Total TLX Score " style="width: 95%;" />
