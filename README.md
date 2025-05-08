@@ -543,7 +543,7 @@ To evaluate the overall usability of our game, we conducted the System Usability
 
 To assess whether the differences in workload and usability between the easy and difficult game modes were statistically meaningful, we referred to the Wilcoxon Signed-Rank test. 
 
-With a sample size of \( n = 10 \) and a significance level of \( \alpha = 0.05 \), the critical value for detecting significance is **8**.
+With a sample size of \( n = 10 \) and a significance level of \( α = 0.05 \), the critical value for detecting significance is **8**.
 
 <img src="https://github.com/UoB-COMSM0166/2025-group-23/raw/main/assets/readmeDoc/wilcox5.png" alt="Wilcoxon Critical Value Table" width="500"/>
 
