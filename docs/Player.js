@@ -314,11 +314,11 @@ class Player {
           textAlign(CENTER, CENTER);
           textSize(12);
           text(int(this.health) + "%", this.x + this.width/2, this.y - 9);
-          fill(this.index === 0 ? 'red' : 'blue');
+          fill(this.index === 0 ? 'blue' : 'red');
           text(this.name, this.x + this.width/2, this.y - 22);
       }
       else {
-          fill(this.index === 0 ? 'red' : 'blue');
+          fill(this.index === 0 ? 'blue' : 'red');
           rect(this.x, this.y, this.width, this.health);
       }
 
