@@ -444,6 +444,50 @@ By prioritizing the health bar and control instructions, we’ve significantly i
 
 To assess the perceived workload our users have when playing our game, we conducted a NASA-TLX (Task Load Index) survey with ten participants after they experienced both the easy and difficult game modes. The survey measured six dimensions of workload: mental demand, physical demand, temporal demand, performance, effort, and frustration. Results showed a consistent increase in workload across all dimensions in the difficult mode, with the most notable rises in physical demand and frustration. These insights helped us validate the intended challenge progression and informed subtle adjustments to balance difficulty, ensuring a more engaging but manageable player experience.
 
+<table>
+  <tr>
+    <td>
+
+
+<strong>Average TLX Scores per Dimension</strong>
+
+<table>
+  <tr><th>Category</th><th>Easy Level</th><th>Difficult Level</th></tr>
+  <tr><td>Mental Demand</td><td>35</td><td>51.25</td></tr>
+  <tr><td>Physical Demand</td><td>10</td><td>36.25</td></tr>
+  <tr><td>Temporal Demand</td><td>22.5</td><td>38.5</td></tr>
+  <tr><td>Performance</td><td>17.5</td><td>20</td></tr>
+  <tr><td>Effort</td><td>45</td><td>63.75</td></tr>
+  <tr><td>Frustration</td><td>35</td><td>63.75</td></tr>
+</table>
+
+    </td>
+    <td style="width: 50px;"></td> 
+    <td>
+
+
+<strong>Total TLX Scores (Per User)</strong>
+
+<table>
+  <tr><th>User ID</th><th>Easy Level</th><th>Difficult Level</th><th>Difference</th></tr>
+  <tr><td>1</td><td>20</td><td>44</td><td></td></tr>
+  <tr><td>2</td><td>27</td><td>36</td><td></td></tr>
+  <tr><td>3</td><td>19</td><td>53</td><td></td></tr>
+  <tr><td>4</td><td>33</td><td>39</td><td></td></tr>
+  <tr><td>5</td><td>26</td><td>55</td><td></td></tr>
+  <tr><td>6</td><td>33</td><td>53</td><td></td></tr>
+  <tr><td>7</td><td>32</td><td>48</td><td></td></tr>
+  <tr><td>8</td><td>19</td><td>38</td><td></td></tr>
+  <tr><td>9</td><td>19</td><td>47</td><td></td></tr>
+  <tr><td>10</td><td>47</td><td>44</td><td></td></tr>
+  <tr><td><strong>Average</strong></td><td><strong>27.5</strong></td><td><strong>45.7</strong></td><td><strong>18.2</strong></td></tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+
+
 
 <table align="center">
   <tr>
