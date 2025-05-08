@@ -498,7 +498,7 @@ To assess the perceived workload our users have when playing our game, we conduc
   </tr>
   <tr>
     <td>
-      <img src="https://github.com/UoB-COMSM0166/2025-group-23/raw/main/assets/readmeDoc/TLXperCat.png](https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/NasaTLXPerDimension.png" alt="Average rating of each subscale" style="width: 95%;" />
+      <img src="https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/NasaTLXPerDimension.png" style="width: 95%;" />
     </td>
     <td>
       <img src="https://github.com/UoB-COMSM0166/2025-group-23/raw/main/assets/readmeDoc/TotalTLXScore10Users.png" alt="Total TLX Score " style="width: 95%;" />
