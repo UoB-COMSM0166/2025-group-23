@@ -481,7 +481,7 @@ To assess the perceived workload our users have when playing our game, we conduc
   <tr><td>8</td><td>19</td><td>38</td><td></td></tr>
   <tr><td>9</td><td>19</td><td>47</td><td></td></tr>
   <tr><td>10</td><td>47</td><td>44</td><td></td></tr>
-  <tr><td><strong>Average</strong></td><td><strong>27.5</strong></td><td><strong>45.7</strong></td><td><strong>18.2</strong></td></tr>
+  <tr><td><strong>Average</strong></td><td><strong>27.5</strong></td><td><strong>45.75</strong></td><td><strong>18.25</strong></td></tr>
 </table>
 
 </div>
@@ -501,7 +501,7 @@ To assess the perceived workload our users have when playing our game, we conduc
       <img src="https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/NasaTLXPerDimension.png" style="width: 95%;" />
     </td>
     <td>
-      <img src="https://github.com/UoB-COMSM0166/2025-group-23/raw/main/assets/readmeDoc/TotalTLXScore10Users.png" alt="Total TLX Score " style="width: 95%;" />
+      <img src="https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/NewTLXtotal.png " style="width: 95%;" />
     </td>
   </tr>
 </table>
