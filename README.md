@@ -409,7 +409,8 @@ The heuristic evaluation of the game highlights some usability issues with diffe
 
 Fixing the health display and adding better instructions should be top priorities to level up the player experience and gameplay. <br>
  
-### Improvements Implemented 
+**Improvements Implemented**
+
 To enhance the game’s usability, we made the following improvements: <br>
 - **Fixed the unclear health display**: Added a clear health bar at the bottom of the game screen with high-contrast colours, making it easy for players to track their status.<br>
 - **Clarified keyboard controls**: Introduced a clear instruction page, shown during the pre-game loading screen, ensuring players knew how to operate characters without confusion.<br>
@@ -534,15 +535,22 @@ To evaluate the overall usability of our game, we conducted the System Usability
 | **Average** | **74.5** | **64.35**       | **10.15**  |
 
 
+**Statistical Insight (Wilcoxon Signed-Rank Test)**
+
+To assess whether the differences in workload and usability between the easy and difficult game modes were statistically meaningful, we referred to the Wilcoxon Signed-Rank test. 
+
+With a sample size of \( n = 10 \) and a significance level of \( \alpha = 0.05 \), the critical value for detecting significance is **8**.
+
+<img src="https://github.com/UoB-COMSM0166/2025-group-23/raw/main/assets/readmeDoc/wilcox5.png" alt="Wilcoxon Critical Value Table" width="500"/>
+
+The observed average difference in **NASA-TLX scores** was **18.25**, while the average difference in **SUS scores** was **10.15**—both well above the critical threshold. This result suggests that users consistently experienced **greater workload** and **reduced usability** in the difficult mode compared to the easy one. The statistical evidence supports our design assumption: increased challenge in the difficult mode leads to a noticeably different user experience, validating the effectiveness of our difficulty scaling.
+
+
 
 ![image](https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/SUSperUserScores.png)
 
 
-- 15% ~750 words
 
-- One qualitative evaluation (your choice) 
-
-- One quantitative evaluation (of your choice) 
 
 - Description of how code was tested. 
 
