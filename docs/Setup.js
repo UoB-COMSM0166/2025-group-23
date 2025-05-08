@@ -20,6 +20,7 @@ let gamePaused = false;
 let countdownActive = false;
 let countdownStartTime = 0;
 let startGameTimeout;
+let loadingScreenTimeout;
 let gameOverTime;
 let winSoundPlayed = false;
 
@@ -69,15 +70,7 @@ function setup() {
   instructionsPanel = new InstructionsPanel();
 }
 
-function draw() {
-  background(100);
-
-  map = maps[roundNum];
-  map.updateBackgroundObjects();
-  map.updateAnimation();
-  map.display();
-  Items.displayGameBarImages();
-
+function startCountDown() {
   if(countdownActive) {
     let elapsed = millis() - countdownStartTime;
     let countdownText = "";
@@ -103,7 +96,17 @@ function draw() {
     text(countdownText, width/2, height/2);
     return;
   }
+}
 
+function draw() {
+  background(100);
+
+  map = maps[roundNum];
+  map.updateBackgroundObjects();
+  map.updateAnimation();
+  map.display();
+  Items.displayGameBarImages();
+  startCountDown();
   Items.update(); 
 
   // check if round is over, start next round after 5 seconds
@@ -134,7 +137,7 @@ function draw() {
   PowerUps.displayPowerUps();
   
   let paddingWeapon = 100;
-  if (gameStarted && !roundOver && frameCount % 400 === 0) {
+  if (gameStarted && !gameOver && !roundOver && frameCount % 400 === 0) {
     console.log("dropping weapons");
     let weaponNum = random();
     dropWeapon(weaponNum, paddingWeapon, width / 2 - paddingWeapon);

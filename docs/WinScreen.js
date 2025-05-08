@@ -96,8 +96,9 @@ class WinScreen{
         if (!gameOver){
           return;
         }
-        
         gameOver = false;
+        bullets = [];
+        weapons = [];
         player1Score = 0;
         player2Score = 0;
         roundNum = 1;
@@ -111,9 +112,8 @@ class WinScreen{
         players[1].x = 1075;
         players[1].y = 200;
         
-        bullets = [];
-        weapons = [];
         roundOver = false;
+        winSoundPlayed = false;
         soundManager.playSound('gamestart');
         loop();
       }

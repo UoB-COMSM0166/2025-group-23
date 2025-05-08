@@ -237,7 +237,9 @@ class CharacterPage {
 
     // Once both players have selected characters, check if the game can start
    if (this.player1Selection && this.player2Selection) {
-     instructionsPanel.show();
+     loadingScreenTimeout = setTimeout(() => {
+      instructionsPanel.show();
+     }, 1000);
      startGameTimeout = setTimeout(() => {
        checkStartGame();  // Call checkStartGame once both players have selected their characters
        instructionsPanel.hide();

@@ -313,13 +313,14 @@ class Player {
           fill(255);
           textAlign(CENTER, CENTER);
           textSize(12);
-          text(int(this.health) + "%", this.x + this.width/2, this.y - 10);
+          text(int(this.health) + "%", this.x + this.width/2, this.y - 9);
+          fill(this.index === 0 ? 'red' : 'blue');
+          text(this.name, this.x + this.width/2, this.y - 22);
       }
       else {
           fill(this.index === 0 ? 'red' : 'blue');
           rect(this.x, this.y, this.width, this.health);
       }
-
 
       if (this.weapon) {
           //WEAPON DIRECTION CHECK

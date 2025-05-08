@@ -190,6 +190,7 @@ class HomePage {
 
   show() {
     this.page.style('display', 'block');
+    soundManager.playMusic('gameMusic');
   }
  
   hide() {
