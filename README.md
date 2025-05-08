@@ -463,9 +463,10 @@ To assess the perceived workload our users have when playing our game, we conduc
 
 
 **4. System Usability survey (SUS) :**
+
 To evaluate the overall usability of our game, we conducted the System Usability Scale (SUS) with ten participants after gameplay. Users rated both the easy and difficult modes, producing average SUS scores of 74.5 and 64.35 respectively. These results indicate that the easy mode falls within the range of good usability, while the difficult mode revealed usability challenges likely tied to increased game difficulty. This feedback helped us spot moments where players were struggling against the AI and led to tweaks to the AI’s responsiveness and challenge curve to create a fairer and more engaging 1v1 experience. Below is the table which represents the total score for both levels and shows the average difference between the collected data.
 
-## SUS Scores
+**SUS Scores per user**
 
 | User ID | Easy Level | Difficult Level | Difference |
 |---------|------------|------------------|------------|
