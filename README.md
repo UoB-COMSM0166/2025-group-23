@@ -621,7 +621,7 @@ Initially, we experimented with Figma for UI and character design but found it c
 
 To maximise efficiency, we assigned team roles based on individual skills, experiences, and interests, established early through team discussions. 
 
-- <strong>Backend Developer: </strong>Focused on game logic and AI systems, including map collision, player controls, and implementing two AI modes (heuristic-based and A*). 
+- <strong>Backend Developer: </strong>Focused on game logic and AI systems, including map collision, player controls, and implementing two AI modes. 
 
 - <strong>Frontend Developer: </strong>Developed 3D character models and custom visuals using P5.js, designed the user interface, and added smooth animations for an enhanced user experience. 
 
