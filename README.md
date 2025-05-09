@@ -564,6 +564,95 @@ The observed average difference in **NASA-TLX scores** was **18.25**, while the 
 
 - Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together.
 
+
+### Teamwork
+
+Throughout our game development, we adopted a structured yet flexible approach guided by Agile principles. By integrating collaborative techniques, we ensured smooth and efficient teamwork. We were enthusiastic about immersing ourselves in the development process, embracing diverse ideas and solutions. Through structured planning and adaptive collaboration, we leveraged each team member’s unique strengths to support our game's success. We followed Scrum to guide iterative development, fostering a responsive, self-organising team and continuous improvement through regular feedback. 
+
+  
+
+### Approach and Collaboration 
+
+We followed Agile values: frequent communication, iterative planning, and collective decision-making. Operating under a flat team structure, every member had equal opportunities to contribute, which helped us with a range of ideas and abilities. 
+
+At the beginning of the project, each member proposed two game ideas. We selected our final concept through majority voting, ensuring it aligned with our shared interests and project goals. Weekly in-person meetings on Tuesday helped us to track progress, delegate tasks, and resolve issues. A Game Jam during reading week boosted development, creativity, and team bonding. Once the course ended, we shifted to remote collaboration using Microsoft Teams and WhatsApp to accommodate members living further apart. 
+
+WhatsApp supported daily communication, updates, and file sharing. Major decisions—such as AI implementation and visual design choices—were made through consensus during team meetings. To prioritise user stories, we used planning poker, helping us balance project goals and workload. A shared Microsoft Word document was used for brainstorming and documentation sharing. 
+
+While scheduling conflicts occasionally delayed decisions, we set clear deadlines and used asynchronous updates to stay on track. Agile’s iterative sprints and retrospectives helped us refine our process, maintain steady progress, and adapt to new challenges. 
+
+  
+
+### Tools and Technologies 
+
+To support Agile’s focus on communication, transparency, and iteration, we used a suite of collaboration and development tools: 
+
+<strong>Communication & Collaboration: </strong>
+
+- Microsoft Teams: Hosted remote meetings. 
+
+- WhatsApp: Enabled fast communication and file sharing. 
+
+- Microsoft Word: Used for collaborative documentation and brainstorming. 
+
+- Microsoft PowerPoint: Created and presented visual concepts. 
+
+- Jira: Managed tasks and visualised progress using a Kanban board. 
+
+<strong>Development: </strong>
+
+- Geny.lovo: Generated AI voiceovers for our project video. 
+
+- Logic Pro: Assisted in sound design and audio editing. 
+
+- Figma: Initially used for mockups and UI/character design. 
+
+- Eraser.io: Helped create class diagrams and UMLs. 
+
+- CraftPix.net: Provided inspiration and assets for visuals. 
+
+- Pixel Studio & MediBang: Used for pixel art and other graphic assets. 
+
+Initially, we experimented with Figma for UI and character design but found it challenging for some team members. We pivoted to PowerPoint, which was more accessible and familiar. This flexibility reflected Agile’s adaptability—choosing tools that best suited our team’s needs. Jira’s Kanban board was particularly valuable for maintaining task visibility and accountability. 
+
+  
+
+### Roles and Responsibilities 
+
+To maximise efficiency, we assigned team roles based on individual skills, experiences, and interests, established early through team discussions. 
+
+<strong>Backend Developer: </strong>Focused on game logic and AI systems, including map collision, player controls, and implementing two AI modes (heuristic-based and A*). 
+
+<strong>Frontend Developer: </strong>Developed 3D character models and custom visuals using P5.js, designed the user interface, and added smooth animations for an enhanced user experience. 
+
+<strong>Scrum Master: </strong>Facilitated sprint planning and kept the team aligned by writing clear user stories. 
+
+<strong>Product Owner: </strong>Prioritised tasks and ensured the development stayed consistent with our vision.\ 
+
+  
+
+Although roles were defined, our team remained flexible and collaborative. For example, when we introduced a new AI feature, one member supported from scrum master to backend to develop implementation. This adaptability improved collaboration and knowledge-sharing. 
+
+  
+
+During the Game Jam, we used pair programming to streamline development, promote real-time code review, and share skills. This Agile-aligned practice fostered shared ownership of the codebase and enhanced team cohesion. 
+
+  
+
+### Reflection
+
+Our teamwork experience was highly effective, supported by Agile practices. Regular meetings and tools like Jira and WhatsApp kept us aligned and accountable. A flat team structure and shared decision-making empowered us to work collectively, supported by techniques such as planning poker and regular feedback further supported efficient collaboration. 
+
+We created an inclusive and communicative team culture that encouraged idea-sharing and continuous feedback. Agile’s focus on flexibility and iteration helped us adapt to change and minimise unnecessary work. These practices improved our problem-solving and communication skills—preparing us for real-world software development environments. 
+
+This project demonstrated how Agile’s focus on collaboration, flexibility, and iterative feedback cycles can lead to effective and satisfying teamwork. 
+
+  
+
+### Conclusion 
+
+By applying Agile principles, we were able to build a functional and engaging game. Using tools such as Jira, Microsoft Teams, WhatsApp, and PowerPoint, assigning tailored roles, and embracing Scrum’s structure, we overcame challenges and met our objectives. This experience reinforced the importance of iterative planning, proactive communication, and collaborative problem-solving in software development. 
+
 # 8. Sustainability, Ethics and Accessibility 
 
 Sustainability is now central to software engineering and game development. Following the framework introduced in our sustainability lectures, sustainability can be understood across several dimensions, including environmental, social, technical, individual, and economic aspects. Throughout the design and implementation of Take Aim, our team actively embedded sustainability concerns, particularly focusing on environmental, social, and technical dimensions to ensure ethical and accessible gameplay experiences.
