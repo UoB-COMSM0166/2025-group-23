@@ -549,14 +549,8 @@ With a sample size of \( n = 10 \) and a significance level of \( α = 0.05 \), 
 
 The observed average difference in **NASA-TLX scores** was **18.25**, while the average difference in **SUS scores** was **10.15**—both well above the critical threshold. This result suggests that users consistently experienced **greater workload** and **reduced usability** in the difficult mode compared to the easy one. The statistical evidence supports our design assumption: increased challenge in the difficult mode leads to a noticeably different user experience, validating the effectiveness of our difficulty scaling.
 
-
-
-
-
-
-
-
-- Description of how code was tested. 
+### Importance of Testing Our Code
+Throughout the Take Aim project, the team relied exclusively on manual testing and fuzz testing of inputs by actively playing the game to verify each new feature. After implementing a feature – whether it was basic movement controls, the shooting mechanism, the health system, or enemy AI – developers would immediately test it in‑game to ensure it behaved as intended. This informal approach meant that most team members were continuously involved in quality assurance during and after their implementations. Each developer would not only test their own code but also join others in play sessions, ensuring a second pair of eyes on new features. This iterative “play as you develop” process was built into every sprint, aligning with our agile workflow by catching issues early in the same sprint they arose. As a result, testing was a constant, ongoing activity rather than a one‑time phase, growing in scope alongside the game’s functionality.
 
 # 7. Process 
 
