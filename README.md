@@ -96,7 +96,7 @@ Players must carefully time their shot to optimize both angle and power for maxi
 |    1   | Ching-Yueh Lin     | xs24198@bristol.ac.uk | Frontend Developer |
 |    2   | Yu-Hsin Chang      | mh24718@bristol.ac.uk | Frontend Developer |
 |    3   | Gioven Posa        | kw24347@bristol.ac.uk | Backend Developer |
-|    4   | Tzu-Wei Lee        | jj24506@bristol.ac.uk | Frontend Developer |
+|    4   | Tzu Wei Lee        | jj24506@bristol.ac.uk | Frontend Developer |
 |    5   | Kotzamanidis Nikos | yy24148@bristol.ac.uk | Product Owner/Frontend Developer |
 |    6   | Shabarish Menon    | xh24681@bristol.ac.uk | Scrum Master/Backend Developer |
 </div>
@@ -591,7 +591,7 @@ To support Agile’s focus on communication, transparency, and iteration, we use
 
 - Microsoft Teams: Hosted remote meetings. 
 
-- WhatsApp: Enabled fast communication and file sharing. 
+- WhatsApp: Enabled real-time communication and file sharing. 
 
 - Microsoft Word: Used for collaborative documentation and brainstorming. 
 
@@ -621,13 +621,13 @@ Initially, we experimented with Figma for UI and character design but found it c
 
 To maximise efficiency, we assigned team roles based on individual skills, experiences, and interests, established early through team discussions. 
 
-<strong>Backend Developer: </strong>Focused on game logic and AI systems, including map collision, player controls, and implementing two AI modes (heuristic-based and A*). 
+- <strong>Backend Developer: </strong>Focused on game logic and AI systems, including map collision, player controls, and implementing two AI modes (heuristic-based and A*). 
 
-<strong>Frontend Developer: </strong>Developed 3D character models and custom visuals using P5.js, designed the user interface, and added smooth animations for an enhanced user experience. 
+- <strong>Frontend Developer: </strong>Developed 3D character models and custom visuals using P5.js, designed the user interface, and added smooth animations for an enhanced user experience. 
 
-<strong>Scrum Master: </strong>Facilitated sprint planning and kept the team aligned by writing clear user stories. 
+- <strong>Scrum Master: </strong>Facilitated sprint planning and kept the team aligned by writing clear user stories. 
 
-<strong>Product Owner: </strong>Prioritised tasks and ensured the development stayed consistent with our vision.\ 
+- <strong>Product Owner: </strong>Prioritised tasks and ensured the development stayed consistent with our vision.
 
   
 
