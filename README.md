@@ -561,12 +561,7 @@ Throughout the Take Aim project, the team relied exclusively on manual testing
 
 # 7. Process 
 
-- 15% ~750 words
-
-- Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together.
-
-
-### Teamwork
+- ### Teamwork
 
 Throughout our game development, we adopted a structured yet flexible approach guided by Agile principles. By integrating collaborative techniques, we ensured smooth and efficient teamwork. We were enthusiastic about immersing ourselves in the development process, embracing diverse ideas and solutions. Through structured planning and adaptive collaboration, we leveraged each team member’s unique strengths to support our game's success. We followed Scrum to guide iterative development, fostering a responsive, self-organising team and continuous improvement through regular feedback. 
 
@@ -577,7 +572,7 @@ Throughout our game development, we adopted a structured yet flexible approach g
 </div>
   
 
-### Approach and Collaboration 
+- ### Approach and Collaboration 
 
 We followed Agile values: frequent communication, iterative planning, and collective decision-making. Operating under a flat team structure, every member had equal opportunities to contribute, which helped us with a range of ideas and abilities. 
 
@@ -596,7 +591,7 @@ While scheduling conflicts occasionally delayed decisions, we set clear deadline
 
   
 
-### Tools and Technologies 
+- ### Tools and Technologies 
 
 To support Agile’s focus on communication, transparency, and iteration, we used a suite of collaboration and development tools: 
 
@@ -634,7 +629,7 @@ Initially, we experimented with Figma for UI and character design but found it c
     <img src="assets/readmeDoc/GroupMeeting.gif" alt="Group online meeting"/>
 </div>
 
-### Roles and Responsibilities 
+- ### Roles and Responsibilities 
 
 To maximise efficiency, we assigned team roles based on individual skills, experiences, and interests, established early through team discussions. 
 
@@ -656,7 +651,7 @@ During the Game Jam, we used pair programming to streamline development, promote
 
   
 
-### Reflection
+- ### Reflection
 
 Our teamwork experience was highly effective, supported by Agile practices. Regular meetings and tools like Jira and WhatsApp kept us aligned and accountable. A flat team structure and shared decision-making empowered us to work collectively, supported by techniques such as planning poker and regular feedback further supported efficient collaboration. 
 
@@ -666,7 +661,7 @@ This project demonstrated how Agile’s focus on collaboration, flexibility, and
 
   
 
-### Conclusion 
+- ### Conclusion 
 
 By applying Agile principles, we were able to build a functional and engaging game. Using tools such as Jira, Microsoft Teams, WhatsApp, and PowerPoint, assigning tailored roles, and embracing Scrum’s structure, we overcame challenges and met our objectives. This experience reinforced the importance of iterative planning, proactive communication, and collaborative problem-solving in software development. 
 
