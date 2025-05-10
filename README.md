@@ -336,6 +336,7 @@ This week, we invited other team members to try out the newly released version o
   <p>Observers playing/ecaluating our game</p>
   <img src="assets/readmeDoc/Evaluating.jpeg" alt="Observers playing/ecaluating" style="width: 50%" />
 </div><br>
+<br>
 
 
 **1. Think Aloud Evaluation:**
@@ -452,68 +453,68 @@ By prioritizing the health bar and control instructions, we’ve significantly i
 
 To assess the perceived workload our users have when playing our game, we conducted a NASA-TLX (Task Load Index) survey with ten participants after they experienced both the easy and difficult game modes. The survey measured six dimensions of workload: mental demand, physical demand, temporal demand, performance, effort, and frustration. Results showed a consistent increase in workload across all dimensions in the difficult mode, with the most notable rises in mental demand and frustration. These insights helped us validate the intended challenge progression and informed subtle adjustments to balance difficulty, ensuring a more engaging but manageable player experience.
 
+<div align="center">
+  <div style="display: flex; justify-content: space-between; gap: 40px;">
 
-<div style="display: flex; justify-content: space-between; gap: 40px;">
+  <!-- Left Table -->
+  <div>
 
-<!-- Left Table -->
-<div>
+  <strong>Average TLX Scores per Dimension</strong>
 
-<strong>Average TLX Scores per Dimension</strong>
+  <table>
+    <tr><th>Category</th><th>Easy Level</th><th>Difficult Level</th></tr>
+    <tr><td>Mental Demand</td><td>35</td><td>65</td></tr>
+    <tr><td>Physical Demand</td><td>10</td><td>15</td></tr>
+    <tr><td>Temporal Demand</td><td>22.5</td><td>38.5</td></tr>
+    <tr><td>Performance</td><td>17.5</td><td>28.5</td></tr>
+    <tr><td>Effort</td><td>45</td><td>63.75</td></tr>
+    <tr><td>Frustration</td><td>35</td><td>63.75</td></tr>
+  </table>
 
-<table>
-  <tr><th>Category</th><th>Easy Level</th><th>Difficult Level</th></tr>
-  <tr><td>Mental Demand</td><td>35</td><td>65</td></tr>
-  <tr><td>Physical Demand</td><td>10</td><td>15</td></tr>
-  <tr><td>Temporal Demand</td><td>22.5</td><td>38.5</td></tr>
-  <tr><td>Performance</td><td>17.5</td><td>28.5</td></tr>
-  <tr><td>Effort</td><td>45</td><td>63.75</td></tr>
-  <tr><td>Frustration</td><td>35</td><td>63.75</td></tr>
-</table>
+  </div>
 
+  <!-- Right Table -->
+  <div>
+
+  <strong>Total TLX Scores (Per User)</strong>
+
+  <table>
+    <tr><th>User ID</th><th>Easy Level</th><th>Difficult Level</th><th>Difference</th></tr>
+    <tr><td>1</td><td>20</td><td>44</td><td></td></tr>
+    <tr><td>2</td><td>27</td><td>36</td><td></td></tr>
+    <tr><td>3</td><td>19</td><td>53</td><td></td></tr>
+    <tr><td>4</td><td>33</td><td>39</td><td></td></tr>
+    <tr><td>5</td><td>26</td><td>55</td><td></td></tr>
+    <tr><td>6</td><td>33</td><td>53</td><td></td></tr>
+    <tr><td>7</td><td>32</td><td>48</td><td></td></tr>
+    <tr><td>8</td><td>19</td><td>38</td><td></td></tr>
+    <tr><td>9</td><td>19</td><td>47</td><td></td></tr>
+    <tr><td>10</td><td>47</td><td>44</td><td></td></tr>
+    <tr><td><strong>Average</strong></td><td><strong>27.5</strong></td><td><strong>45.75</strong></td><td><strong>18.25</strong></td></tr>
+  </table>
+
+  </div>
+
+  </div>
+
+
+
+
+  <table align="center">
+    <tr>
+      <td align="center"><strong>Average rating of each subscale</strong></td>
+      <td align="center"><strong>Total TLX Scores per user</strong></td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/NasaTLXPerDimension.png" style="width: 95%;" />
+      </td>
+      <td>
+        <img src="https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/NewTLXtotal.png " style="width: 95%;" />
+      </td>
+    </tr>
+  </table>
 </div>
-
-<!-- Right Table -->
-<div>
-
-<strong>Total TLX Scores (Per User)</strong>
-
-<table>
-  <tr><th>User ID</th><th>Easy Level</th><th>Difficult Level</th><th>Difference</th></tr>
-  <tr><td>1</td><td>20</td><td>44</td><td></td></tr>
-  <tr><td>2</td><td>27</td><td>36</td><td></td></tr>
-  <tr><td>3</td><td>19</td><td>53</td><td></td></tr>
-  <tr><td>4</td><td>33</td><td>39</td><td></td></tr>
-  <tr><td>5</td><td>26</td><td>55</td><td></td></tr>
-  <tr><td>6</td><td>33</td><td>53</td><td></td></tr>
-  <tr><td>7</td><td>32</td><td>48</td><td></td></tr>
-  <tr><td>8</td><td>19</td><td>38</td><td></td></tr>
-  <tr><td>9</td><td>19</td><td>47</td><td></td></tr>
-  <tr><td>10</td><td>47</td><td>44</td><td></td></tr>
-  <tr><td><strong>Average</strong></td><td><strong>27.5</strong></td><td><strong>45.75</strong></td><td><strong>18.25</strong></td></tr>
-</table>
-
-</div>
-
-</div>
-
-
-
-
-<table align="center">
-  <tr>
-    <td align="center"><strong>Average rating of each subscale</strong></td>
-    <td align="center"><strong>Total TLX Scores per user</strong></td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/NasaTLXPerDimension.png" style="width: 95%;" />
-    </td>
-    <td>
-      <img src="https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/NewTLXtotal.png " style="width: 95%;" />
-    </td>
-  </tr>
-</table>
-
 
   
 
@@ -524,27 +525,28 @@ To assess the perceived workload our users have when playing our game, we conduc
 To evaluate the overall usability of our game, we conducted the System Usability Scale (SUS) with ten participants after gameplay. Users rated both the easy and difficult modes, producing average SUS scores of 74.5 and 64.35 respectively. These results indicate that the easy mode falls within the range of good usability, while the difficult mode revealed usability challenges likely tied to increased game difficulty. This feedback helped us spot moments where players were struggling against the AI and led to tweaks to the AI’s responsiveness and challenge curve to create a fairer and more engaging 1v1 experience. Below is the table which represents the total score for both levels and shows the average difference between the collected data.
 
 
-**SUS Scores per user**
+<div align="center">
+  **SUS Scores per user**
 
 
-| User ID | Easy Level | Difficult Level | Difference |
-|---------|------------|------------------|------------|
-| 1       | 87.5       | 75.0             |            |
-| 2       | 55.5       | 50.0             |            |
-| 3       | 77.5       | 62.5             |            |
-| 4       | 82.5       | 67.5             |            |
-| 5       | 75.0       | 55.0             |            |
-| 6       | 72.5       | 67.5             |            |
-| 7       | 80.0       | 72.5             |            |
-| 8       | 85.0       | 80.5             |            |
-| 9       | 50.0       | 40.5             |            |
-| 10      | 80.0       | 72.5             |            |
-| **Average** | **74.5** | **64.35**       | **10.15**  |
+  | User ID | Easy Level | Difficult Level | Difference |
+  |---------|------------|------------------|------------|
+  | 1       | 87.5       | 75.0             |            |
+  | 2       | 55.5       | 50.0             |            |
+  | 3       | 77.5       | 62.5             |            |
+  | 4       | 82.5       | 67.5             |            |
+  | 5       | 75.0       | 55.0             |            |
+  | 6       | 72.5       | 67.5             |            |
+  | 7       | 80.0       | 72.5             |            |
+  | 8       | 85.0       | 80.5             |            |
+  | 9       | 50.0       | 40.5             |            |
+  | 10      | 80.0       | 72.5             |            |
+  | **Average** | **74.5** | **64.35**       | **10.15**  |
 
 
 
-![image](https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/SUSperUserScores.png)
-
+  ![image](https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/SUSperUserScores.png)
+</div>
 
 **Statistical Insight (Wilcoxon Signed-Rank Test)**
 
@@ -552,7 +554,9 @@ To assess whether the differences in workload and usability between the easy and
 
 With a sample size of \( n = 10 \) and a significance level of \( α = 0.05 \), the critical value for detecting significance is **8**.
 
+<div align="center">
 <img src="https://github.com/UoB-COMSM0166/2025-group-23/raw/main/assets/readmeDoc/wilcox5.png" alt="Wilcoxon Critical Value Table" width="500"/>
+</div>
 
 The observed average difference in **NASA-TLX scores** was **18.25**, while the average difference in **SUS scores** was **10.15**—both well above the critical threshold. This result suggests that users consistently experienced **greater workload** and **reduced usability** in the difficult mode compared to the easy one. The statistical evidence supports our design assumption: increased challenge in the difficult mode leads to a noticeably different user experience, validating the effectiveness of our difficulty scaling.
 
@@ -567,10 +571,9 @@ Throughout our game development, we adopted a structured yet flexible approach g
 
 <div align="center">
   <strong>Figure #</strong> <br>
-  Team meeting
-    <img src="assets/readmeDoc/GroupMeeting.jpeg" alt="Team meeting"/>
-</div>
-  
+  <p>Team meeting</p>
+    <img src="assets/readmeDoc/GroupMeeting.jpeg" alt="Team meeting" style="width: 50%"/>
+</div><br>
 
 - ### Approach and Collaboration 
 
@@ -580,9 +583,9 @@ At the beginning of the project, each member proposed two game ideas. We selecte
 
 <div align="center">
   <strong>Figure #</strong> <br>
-  Idea selection meeting
-    <img src="assets/readmeDoc/GameSelection.JPG" alt="Idea selection meeting"/>
-</div>
+  <p>Idea selection meeting</p>
+    <img src="assets/readmeDoc/GameSelection.JPG" alt="Idea selection meeting" style="width: 50%"/>
+</div><br>
 
 
 WhatsApp supported daily communication, updates, and file sharing. Major decisions—such as AI implementation and visual design choices—were made through consensus during team meetings. To prioritise user stories, we used planning poker, helping us balance project goals and workload. A shared Microsoft Word document was used for brainstorming and documentation sharing. 
@@ -625,7 +628,7 @@ Initially, we experimented with Figma for UI and character design but found it c
 
 <div align="center">
   <strong>Figure #</strong> <br>
-  Group online meeting
+  <p>Group online meeting</p>
     <img src="assets/readmeDoc/GroupMeeting.gif" alt="Group online meeting"/>
 </div>
 
