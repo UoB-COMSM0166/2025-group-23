@@ -312,8 +312,8 @@ An additional layer of complexity came from having to convert standalone sketche
 .<div align="center">
   **Figure #** <br>
   *Crab and Pengiun p5.js Sketches* <br>
-  <img width="200" alt="crab_p5.js_sketch" src="https://github.com/user-attachments/assets/7377632a-ebec-418b-8571-0f866b1dfbb5" /> 
-  <img width="200" alt="penguin_p5.js_sketch" src="https://github.com/user-attachments/assets/73d78b66-9122-4045-8493-4a89f3c25bee" /> 
+  <img src="assets/readmeDoc/Crab.gif" alt="crab_p5.js_sketch" width="200" />
+  <img src="assets/readmeDoc/Penguin.gif" alt="penguin_p5.js_sketch" width="200" />
 </div>
 
 
