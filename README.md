@@ -331,6 +331,13 @@ Although initially frustrating, the final result offered a professional, respons
 
 This week, we invited other team members to try out the newly released version of our game. We received a lot of positive feedback, along with some valuable suggestions and ideas. To collect comprehensive insights, we conducted several evaluation methods, including **Think Aloud Evaluation, Heuristic Evaluation, NASA-TLX for workload assessment, and the System Usability Scale (SUS)**.
 
+<div align="center">
+  <strong>Figure #</strong> <br>
+  Observers playing/ecaluating our game
+  <img src="assets/readmeDoc/Evaluating.jpeg" alt="Observers playing/ecaluating" style="width: 90%" />
+</div>
+
+
 **1. Think Aloud Evaluation:**
 
 ![image](https://github.com/user-attachments/assets/322ff173-0963-4bdf-b714-101e3c063620)
@@ -563,6 +570,11 @@ Throughout the Take Aim project, the team relied exclusively on manual testing
 
 Throughout our game development, we adopted a structured yet flexible approach guided by Agile principles. By integrating collaborative techniques, we ensured smooth and efficient teamwork. We were enthusiastic about immersing ourselves in the development process, embracing diverse ideas and solutions. Through structured planning and adaptive collaboration, we leveraged each team member’s unique strengths to support our game's success. We followed Scrum to guide iterative development, fostering a responsive, self-organising team and continuous improvement through regular feedback. 
 
+<div align="center">
+  <strong>Figure #</strong> <br>
+  Team meeting
+    <img src="assets/readmeDoc/GroupMeeting.jpeg" alt="Team meeting"/>
+</div>
   
 
 ### Approach and Collaboration 
@@ -570,6 +582,13 @@ Throughout our game development, we adopted a structured yet flexible approach g
 We followed Agile values: frequent communication, iterative planning, and collective decision-making. Operating under a flat team structure, every member had equal opportunities to contribute, which helped us with a range of ideas and abilities. 
 
 At the beginning of the project, each member proposed two game ideas. We selected our final concept through majority voting, ensuring it aligned with our shared interests and project goals. Weekly in-person meetings on Tuesday helped us to track progress, delegate tasks, and resolve issues. A Game Jam during reading week boosted development, creativity, and team bonding. Once the course ended, we shifted to remote collaboration using Microsoft Teams and WhatsApp to accommodate members living further apart. 
+
+<div align="center">
+  <strong>Figure #</strong> <br>
+  Idea selection meeting
+    <img src="assets/readmeDoc/GameSelection.JPG" alt="Idea selection meeting"/>
+</div>
+
 
 WhatsApp supported daily communication, updates, and file sharing. Major decisions—such as AI implementation and visual design choices—were made through consensus during team meetings. To prioritise user stories, we used planning poker, helping us balance project goals and workload. A shared Microsoft Word document was used for brainstorming and documentation sharing. 
 
@@ -593,23 +612,27 @@ To support Agile’s focus on communication, transparency, and iteration, we use
 
 - Jira: Managed tasks and visualised progress using a Kanban board. 
 
-<strong>Development: </strong>
+Development: 
 
-- Geny.lovo: Generated AI voiceovers for our project video. 
+Geny.lovo: Generated AI voiceovers for our project video. 
 
-- Logic Pro: Assisted in sound design and audio editing. 
+Logic Pro: Assisted in sound design and audio editing. 
 
-- Figma: Initially used for mockups and UI/character design. 
+Figma: Initially used for mockups and UI/character design. 
 
-- Eraser.io: Helped create class diagrams and UMLs. 
+Eraser.io: Helped create class diagrams and UMLs. 
 
-- CraftPix.net: Provided inspiration and assets for visuals. 
+CraftPix.net: Provided inspiration and assets for visuals. 
 
-- Pixel Studio & MediBang: Used for pixel art and other graphic assets. 
+Pixel Studio & MediBang: Used for pixel art and other graphic assets. 
 
 Initially, we experimented with Figma for UI and character design but found it challenging for some team members. We pivoted to PowerPoint, which was more accessible and familiar. This flexibility reflected Agile’s adaptability—choosing tools that best suited our team’s needs. Jira’s Kanban board was particularly valuable for maintaining task visibility and accountability. 
 
-  
+<div align="center">
+  <strong>Figure #</strong> <br>
+  Group online meeting
+    <img src="assets/readmeDoc/GroupMeeting.gif" alt="Group online meeting"/>
+</div>
 
 ### Roles and Responsibilities 
 
