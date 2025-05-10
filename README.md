@@ -334,7 +334,7 @@ This week, we invited other team members to try out the newly released version o
 <div align="center">
   <strong>Figure #</strong> <br>
   Observers playing/ecaluating our game
-  <img src="assets/readmeDoc/Evaluating.jpeg" alt="Observers playing/ecaluating" style="width: 90%" />
+  <img src="assets/readmeDoc/Evaluating.jpeg" alt="Observers playing/ecaluating" style="width: 70%" />
 </div>
 
 
