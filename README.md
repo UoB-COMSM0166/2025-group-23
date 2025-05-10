@@ -333,9 +333,9 @@ This week, we invited other team members to try out the newly released version o
 
 <div align="center">
   <strong>Figure #</strong> <br>
-  Observers playing/ecaluating our game
+  <p>Observers playing/ecaluating our game</p>
   <img src="assets/readmeDoc/Evaluating.jpeg" alt="Observers playing/ecaluating" style="width: 50%" />
-</div>
+</div><br>
 
 
 **1. Think Aloud Evaluation:**
