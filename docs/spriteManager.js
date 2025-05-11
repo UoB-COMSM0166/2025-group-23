@@ -54,6 +54,42 @@ class SpriteManager {
       'assets/characters/dog/dog_right3.png'
     ]);
 
+    this.loadSpriteFrames(3, 'front', ['assets/characters/lion/lion_front.png']);
+    this.loadSpriteFrames(3, 'left', [
+      'assets/characters/lion/lion_left1.png',
+      'assets/characters/lion/lion_left2.png',
+      'assets/characters/lion/lion_left3.png'
+    ]);
+    this.loadSpriteFrames(3, 'right', [
+      'assets/characters/lion/lion_right1.png',
+      'assets/characters/lion/lion_right2.png',
+      'assets/characters/lion/lion_right3.png'
+    ]);
+
+    this.loadSpriteFrames(4, 'front', ['assets/characters/parrot/parrot_front.png']);
+    this.loadSpriteFrames(4, 'left', [
+      'assets/characters/parrot/parrot_left1.png',
+      'assets/characters/parrot/parrot_left2.png',
+      'assets/characters/parrot/parrot_left3.png'
+    ]);
+    this.loadSpriteFrames(4, 'right', [
+      'assets/characters/parrot/parrot_right1.png',
+      'assets/characters/parrot/parrot_right2.png',
+      'assets/characters/parrot/parrot_right3.png'
+    ]);
+
+    this.loadSpriteFrames(5, 'front', ['assets/characters/penguin/penguin_front.png']);
+    this.loadSpriteFrames(5, 'left', [
+      'assets/characters/penguin/penguin_left1.png',
+      'assets/characters/penguin/penguin_left2.png',
+      'assets/characters/penguin/penguin_left3.png'
+    ]);
+    this.loadSpriteFrames(5, 'right', [
+      'assets/characters/penguin/penguin_right1.png',
+      'assets/characters/penguin/penguin_right2.png',
+      'assets/characters/penguin/penguin_right3.png'
+    ]);
+
   }
 
   getSprite(playerIndex, direction, frameIndex = 0) {
@@ -63,8 +99,3 @@ class SpriteManager {
 
 }
 
-let spriteManager = new SpriteManager();
-
-function preload() {
-  spriteManager.preloadSprites();
-}

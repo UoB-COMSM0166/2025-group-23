@@ -1,264 +1,377 @@
 class AIPlayer extends Player {
-    constructor(index, x, y, spriteIndex) {
-        super(index, x, y, null, null, null, null, spriteIndex);
-        this.shootCooldown = 60; // Frames between shots
-        this.framesSinceLastShot = 0;
-        this.safeDistance = 400; // Safe distance from the player
-        this.targetWeapon = null;
-        this.previousY = this.y;
-        this.speed = 5; // Ensure speed is defined
-    }
+  constructor(index, x, y, spriteIndex, name) {
+    super(index, x, y, null, null, null, null, spriteIndex, name);
+    this.safeDistance = 400;
+    this.aiDx = undefined;
+    this.targetWeapon = null;
+    this.targetPU = null;
+    this.maxJumpHeight = 50;
+    this.hitTimestamps = [];
+    this.lastShotTime = 0;
+    this.shootInterval = 150;
+  }
 
-    update() {
-        // Call the original update method
+  update() {
+    if (roundOver && this !== roundWinner) {
         super.update();
+        return;
+    }
 
-        // Calculate the target once per update cycle
-        const target = this.findTarget();
+    this.updateDefensiveState();
+    this.aiDodge();
 
-        // Use the same target for movement, jumping and shooting
-        if (target) {
-            this.aiMove(target);
-            this.aiJump(target);
-            if (target instanceof Player) {
-                this.aiShoot(target);
+    if (!this.weapon) {
+        this.pathFindToWeapon();
+        if (dist(this.x, this.y, players[0].x, players[0].y) < 400) {
+            this.aiHide();
+        }
+    }
+    else if (dist(this.x, this.y, players[0].x, players[0].y) < 400) {
+        this.aiHide();
+    }
+
+    if (this.weapon && this.hasClearShot(players[0])) {
+        if (millis() - this.lastShotTime >= this.shootInterval) {
+            this.shoot();
+            this.lastShotTime = millis();
+        }
+    }
+
+    if(players[1].health < 100) {
+      this.pathFindToPowerUps();
+      if (dist(this.x, this.y, players[0].x, players[0].y) < 400) {
+        this.aiHide();
+      }
+    } else if (dist(this.x, this.y, players[0].x, players[0].y) < 400) {
+      this.aiHide();
+    }
+    
+    super.update();
+  }
+
+  hasClearShot(target) {
+    const aiCenterX = this.x + this.width / 2;
+    const aiCenterY = this.y + this.height / 2;
+    const targetCenterX = target.x + target.width / 2;
+    const targetCenterY = target.y + target.height + 2;
+
+    let dx = targetCenterX - aiCenterX;
+    let dy = targetCenterY - aiCenterY;
+    let steps = Math.max(abs(dx), abs(dy));
+
+    for (let i = 0; i <= steps; i++) {
+
+        let t = i / steps;
+        let sampleX = lerp(aiCenterX, targetCenterX, t);
+        let sampleY = lerp(aiCenterY, targetCenterY, t);
+
+        let sampleRect = { x: sampleX, y: sampleY, width: 1, height: 1};
+
+        for (let row = 0; row < map.grid.length; row++) {
+            for (let col = 0; col < map.grid[row].length; col++) {
+                let tileNum = map.grid[row][col];
+                if (tileNum > 0 &&
+                    map.tileMapping[tileNum] !== "desert_tile_water" &&
+                    map.tileMapping[tileNum] !== "underground_wall1") { // solid tile
+                    let tile = {
+                        x: col * map.tileSize,
+                        y: row * map.tileSize,
+                        width: map.tileSize,
+                        height: map.tileSize
+                    };
+                    if (checkCollision(sampleRect, tile)) {
+                       return false;
+                    }
+                }
             }
         }
-
-        // Increment the frame counter for shooting
-        this.framesSinceLastShot++;
     }
+    return true;
+  }
 
-    aiMove(target) {
-        if (target instanceof Player) {
-            this.moveToPlayer(target);
-        } else {
-            this.moveToWeapon(target);
-        }
+  takeDamage(amount) {
+    super.takeDamage(amount);
+    this.hitTimestamps.push(millis());
+  }
+
+  updateDefensiveState() {
+    const currentTime = millis();
+    this.hitTimestamps = this.hitTimestamps.filter(time => (currentTime - time) <= 1000);
+    if (this.hitTimestamps.length > 0) {
+        let otherPlayer = players[0];
+        this.aiDx = (otherPlayer.x < this.x) ? this.speed : -this.speed;
+        this.updateAnimation(this.aiDx);
     }
+  }
 
-    moveToPlayer(target) {
-        let distance = dist(this.x, this.y, target.x, target.y);
+  pathFindToWeapon() {
+    let target = this.findClosestWeapon();
+    if (target) {
+        this.targetWeapon = target;
+
         let dx = 0;
-
-        // Maintain a safe distance from the player
-        if (distance < this.safeDistance) {
-            dx = (target.x < this.x) ? this.speed : -this.speed;
-        } else {
-            dx = (target.x < this.x) ? -this.speed : this.speed;
+        if (target.x < this.x) {
+            dx = -this.speed;
+        } else if (target.x > this.x) {
+            dx = this.speed;
         }
+        this.aiDx = dx;
+        this.updateAnimation(dx);
 
-        // Adjust if obstacles block clear shot
-        if (!this.hasClearShot(target)) {
-            dx = (target.x < this.x) ? -this.speed : this.speed;
-        }
-
-        this.x += dx;
-        this.updateSprite(dx);
-
-        // Horizontal collisions with solid tiles
-        this.collideHorizontally(dx);
-    }
-
-    moveToWeapon(target) {
-        // Calculate differences on each axis
-        let diffX = target.x - this.x;
-        let diffY = target.y - this.y;
-
-        // Compute dx, dy proportionally (avoid overshooting)
-        let dx = Math.abs(diffX) > this.speed ? this.speed * Math.sign(diffX) : diffX;
-        let dy = Math.abs(diffY) > this.speed ? this.speed * Math.sign(diffY) : diffY;
-
-        // Apply horizontal movement and collisions
-        this.x += dx;
-        this.updateSprite(dx);
-        this.collideHorizontally(dx);
-
-        // Apply vertical movement and collisions
-        this.y += dy;
-        this.collideVertically(dy);
-
-        // If the target is above and AI is not jumping, try to jump
-        if (target.y < this.y && !this.isJumping) {
-            this.jump();
-        }
-
-        // Platform fallback: if vertical progress is minimal (using a small threshold)
-        const deltaY = Math.abs(this.y - this.previousY);
-        if (deltaY < 1) {
-            let platform = this.findNearbyPlatform();
-            if (platform) {
-                this.moveToPlatform(platform);
-            }
-        }
-        this.previousY = this.y;
-    }
-
-    updateSprite(dx) {
-        if (dx < 0) {
-            this.direction = 'left';
-            if (frameCount % 5 === 0) this.frameIndex++;
-        } else if (dx > 0) {
-            this.direction = 'right';
-            if (frameCount % 5 === 0) this.frameIndex++;
-        } else {
-            this.direction = 'front';
-            this.frameIndex = 0; // Reset animation when idle
-        }
-        this.frameIndex = this.frameIndex % 3;
-    }
-
-    collideHorizontally(dx) {
-        for (let row = 0; row < map.grid.length; row++) {
-            for (let col = 0; col < map.grid[row].length; col++) {
-                if (map.grid[row][col] > 0) { // solid tile
-                    let tile = {
-                        x: col * map.tileSize,
-                        y: row * map.tileSize,
-                        width: map.tileSize,
-                        height: map.tileSize
-                    };
-                    if (checkCollision(this, tile)) {
-                        if (dx > 0) this.x = tile.x - this.width;
-                        else if (dx < 0) this.x = tile.x + tile.width;
-                    }
+        if (abs(target.y - this.y) > 50) {
+           
+            if (target.y < this.y) {
+                if ((this.y - target.y) > this.maxJumpHeight) {
+                    let otherPlayer = players[0];
+                    this.aiDx = (otherPlayer.x < this.x) ? this.speed : -this.speed;
                 }
-            }
-        }
-    }
-
-    collideVertically(dy) {
-        for (let row = 0; row < map.grid.length; row++) {
-            for (let col = 0; col < map.grid[row].length; col++) {
-                if (map.grid[row][col] > 0) { // solid tile
-                    let tile = {
-                        x: col * map.tileSize,
-                        y: row * map.tileSize,
-                        width: map.tileSize,
-                        height: map.tileSize
-                    };
-                    if (checkCollision(this, tile)) {
-                        if (dy > 0) this.y = tile.y - this.height;
-                        else if (dy < 0) this.y = tile.y + tile.height;
-                    }
-                }
-            }
-        }
-    }
-
-    findNearbyPlatform() {
-        for (let row = 0; row < map.grid.length; row++) {
-            for (let col = 0; col < map.grid[row].length; col++) {
-                if (map.grid[row][col] === 1) { // solid tile
-                    let tile = {
-                        x: col * map.tileSize,
-                        y: row * map.tileSize,
-                        width: map.tileSize,
-                        height: map.tileSize
-                    };
-                    if (dist(this.x, this.y, tile.x, tile.y) < this.safeDistance) {
-                        return tile;
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    moveToPlatform(platform) {
-        let diffX = platform.x - this.x;
-        let diffY = platform.y - this.y;
-        let dx = Math.abs(diffX) > this.speed ? this.speed * Math.sign(diffX) : diffX;
-        let dy = Math.abs(diffY) > this.speed ? this.speed * Math.sign(diffY) : diffY;
-
-        this.x += dx;
-        this.updateSprite(dx);
-        this.collideHorizontally(dx);
-        this.y += dy;
-        this.collideVertically(dy);
-
-        if (platform.y < this.y && !this.isJumping) {
-            this.jump();
-        }
-    }
-
-    aiJump(target) {
-        // If the target is above and AI is not already jumping, then jump.
-        if (target && target.y < this.y && !this.isJumping) {
-            this.jump();
-        }
-    }
-
-    aiShoot(target) {
-        if (this.framesSinceLastShot >= this.shootCooldown) {
-            let distance = dist(this.x, this.y, target.x, target.y);
-            if (distance < 500 && this.hasClearShot(target)) {
-                this.shoot();
-                this.framesSinceLastShot = 0;
-            }
-        }
-    }
-
-    findTarget() {
-        // If armed and with ammo, target the player; otherwise target the nearest weapon.
-        if (this.weapon && this.weapon.bulletsFired < this.weapon.bulletLimit) {
-            return players[0];
-        } else {
-            let nearestWeapon = null;
-            let minDistance = Infinity;
-            for (let weapon of weapons) {
-                let d = dist(this.x, this.y, weapon.x, weapon.y);
-                if (d < minDistance) {
-                    minDistance = d;
-                    nearestWeapon = weapon;
-                }
-            }
-            return nearestWeapon;
-        }
-    }
-
-    hasClearShot(target) {
-        let steps = 10;
-        let dx = (target.x - this.x) / steps;
-        let dy = (target.y - this.y) / steps;
-        for (let i = 1; i <= steps; i++) {
-            let checkX = this.x + dx * i;
-            let checkY = this.y + dy * i;
-            for (let row = 0; row < map.grid.length; row++) {
-                for (let col = 0; col < map.grid[row].length; col++) {
-                    if (map.grid[row][col] === 1) {
-                        let tile = {
-                            x: col * map.tileSize,
-                            y: row * map.tileSize,
-                            width: map.tileSize,
-                            height: map.tileSize
-                        };
-                        if (checkCollision({ x: checkX, y: checkY, width: 1, height: 1 }, tile)) {
-                            return false;
+                else if (this.isBlockedAbove()) {
+                    let clearY = this.findClearPathAbove();
+                    if (clearY !== null && (this.y - clearY) <= this.maxJumpHeight) {
+                        if (!this.isJumping) {
+                            this.jump();
                         }
+                    } else {
+                        let otherPlayer = players[0];
+                        this.aiDx = (otherPlayer.x < this.x) ? this.speed : -this.speed;
                     }
+                }
+                else if (!this.isJumping) { 
+                    this.jump();
                 }
             }
         }
-        return true;
     }
+  }
 
-    pickupWeapon(weapon) {
-        super.pickupWeapon(weapon);
-        this.framesSinceLastShot = 0;
-    }
+  pathFindToPowerUps() {
+    let target = this.findPowerUps();
+    if (target) {
+        this.targetPU = target;
 
-    display() {
-        let sprite = spriteManager.getSprite(this.spriteIndex, this.direction, this.frameIndex);
-        if (sprite) {
-            image(sprite, this.x, this.y, this.width, this.height);
-            fill(255);
-            textAlign(CENTER, CENTER);
-            textSize(12);
-            text(this.health + "%", this.x + this.width / 2, this.y - 10);
-        } else {
-            fill(this.index === 0 ? 'red' : 'blue');
-            rect(this.x, this.y, this.width, this.health);
+        let dx = 0;
+        if (target.x < this.x) {
+            dx = -this.speed;
+        } else if (target.x > this.x) {
+            dx = this.speed;
+        }
+        this.aiDx = dx;
+        this.updateAnimation(dx);
+
+        if (abs(target.y - this.y) > 50) {
+           
+            if (target.y < this.y) {
+                if ((this.y - target.y) > this.maxJumpHeight) {
+                    let otherPlayer = players[0];
+                    this.aiDx = (otherPlayer.x < this.x) ? this.speed : -this.speed;
+                }
+                else if (this.isBlockedAbove()) {
+                    let clearY = this.findClearPathAbove();
+                    if (clearY !== null && (this.y - clearY) <= this.maxJumpHeight) {
+                        if (!this.isJumping) {
+                            this.jump();
+                        }
+                    } else {
+                        let otherPlayer = players[0];
+                        this.aiDx = (otherPlayer.x < this.x) ? this.speed : -this.speed;
+                    }
+                }
+                else if (!this.isJumping) { 
+                    this.jump();
+                }
+            }
         }
     }
+  }
+
+  findClearPathAbove() {
+    for (let offset = 5; offset <= this.maxJumpHeight; offset += 5) {
+        let checkRect = {
+            x: this.x - 2,
+            y: this.y - offset, 
+            width: this.width + 4,
+            height: 20,
+        };
+        let blocked = false;
+        for (let row = 0; row < map.grid.length; row++) {
+            for (let col = 0; col < map.grid[row].length; col++) {
+                let tileNum = map.grid[row][col];
+                if (tileNum > 0 && map.tileMapping[tileNum] !== "desert_tile_water" && map.tileMapping[tileNum] !== "underground_wall1") { // solid tile
+                    let tile = {
+                        x: col * map.tileSize,
+                        y: row * map.tileSize,
+                        width: map.tileSize,
+                        height: map.tileSize
+                    };
+                    if (checkCollision(checkRect, tile)) {
+                        blocked = true;
+                        break;
+                    }
+                }
+            }
+            if (blocked) {
+                break;
+            }
+        }
+        if (!blocked) {
+            return this.y - offset;
+        }
+    }
+    return null;
+  }
+
+  isBlockedAbove() {
+    let checkRect = {
+        x: this.x,
+        y: this.y - 5, 
+        width: this.width,
+        height: 5,
+    };
+    
+    for (let row = 0; row < map.grid.length; row++) {
+        for (let col = 0; col < map.grid[row].length; col++) {
+            let tileNum = map.grid[row][col];
+            if (tileNum > 0 && map.tileMapping[tileNum] !== "desert_tile_water" && map.tileMapping[tileNum] !== "underground_wall1") { // solid tile
+                let tile = {
+                    x: col * map.tileSize,
+                    y: row * map.tileSize,
+                    width: map.tileSize,
+                    height: map.tileSize
+                };
+                if (checkCollision(checkRect, tile)) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+  }
+
+  findClosestWeapon() {
+    let closest = null;
+    let minDistance = Infinity;
+
+    for (let weapon of weapons) {
+        if (!weapon.pickedUp) {
+            let distance = dist(this.x, this.y, weapon.x, weapon.y);
+            if (distance < minDistance) {
+                minDistance = distance;
+                closest = weapon;
+            }
+        }
+    }
+    return closest;
+  }
+
+  findPowerUps() {
+    let closest = null;
+    let minDistance = Infinity;
+
+    for (let powerup of PowerUps.activeHealthRegen) {
+          let distance = dist(this.x, this.y, powerup.x, powerup.y);
+          if (distance < minDistance) {
+              minDistance = distance;
+              closest = powerup;
+          }
+    }
+    return closest;
+  }
+
+  aiHide() {
+    let player = players[0];
+    let dx = 0;
+
+    if (player.x < this.x) {
+        dx = this.speed;
+    } else {
+        dx = -this.speed;
+    }
+
+    this.aiDx = dx;
+    this.updateAnimation(dx);
+
+    let playerDistance = dist(this.x, this.y, players[0].x, players[0].y);
+    if (playerDistance < 240) {
+        if (!this.isJumping) {
+          this.jump();
+          soundManager.playSound('jump');
+        }
+    }
+  }
+
+  aiDodge() {
+    this.dodgeHorizontalBullets();
+    this.dodgeVerticalBullets();
+  }
+
+  dodgeHorizontalBullets() {
+    for (let bullet of bullets) {
+      if (bullets.shooter !== this) {
+        let bulletDistance = dist(this.x, this.y, bullet.x, bullet.y);
+        if (bulletDistance < 150 && abs(bullet.vx) > abs(bullet.vy)) {
+          if (!this.isJumping) {
+            if (!this.isBlockedAbove()) {
+                this.jump();
+                soundManager.playSound('jump');
+                break;
+            }
+            else {
+                let otherPlayer = players[0];
+                this.aiDx = (otherPlayer.x < this.x) ? this.speed : -this.speed;
+                this.updateAnimation(this.aiDx);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  dodgeVerticalBullets() {
+    for (let bullet of bullets) {
+      if (bullets.shooter !== this) {
+        let bulletDistance = dist(this.x, this.y, bullet.x, bullet.y);
+        if (bulletDistance < 200 && abs(bullet.vx) < abs(bullet.vy)) {
+            let dx = 0;
+            if (bullet.x < this.x) {
+                dx = this.speed;
+            } else {
+                dx = -this.speed;
+            }
+            this.aiDx = dx;
+        }
+        else if (bulletDistance < 150 && abs(bullet.vx) > abs(bullet.vy)) {
+          if (!this.isJumping) {
+            this.jump();
+            soundManager.playSound('jump');
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  updateAnimation(dx) {
+    if (dx < 0) {
+      this.direction = "left";
+      if (frameCount % 5 === 0) {
+        this.frameIndex++;
+      } 
+    } 
+    else if (dx > 0) {
+      this.direction = "right";
+      if (frameCount % 5 === 0) {
+        this.frameIndex++;
+      }
+    }
+    else {
+      this.direction = "front";
+      this.frameIndex = 0;
+    }
+    this.frameIndex = this.frameIndex % 3;
+  }
+
+  display() {
+    super.display();
+  }
+
 }
