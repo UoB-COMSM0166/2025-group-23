@@ -109,14 +109,21 @@ At the start of our ideation phase, we initially began with 12 different games. 
 
 Moving into Week2, we have chosen two games to further expand on: Cat vs Dog, and Bounce. Communication between the team became more transparent as we decided to have three members working on each game, to go deeper on the specific in-game dynamics, mechanics, rules, and challenges. This was especially helpful to understand the scope of the entire development process. 
 
-Week3 allowed us to showcase these ideas by creating Paper Prototypes of our initial game ideas. Unfortunately, from the feedback we have recieved from the testers, it was clear to us that both our ideas did not fully satisfy us in-terms of our shared goal of creating a game that is 'classic-throwback', fun, fresh and challenging. We decided to combine the features we loved from Cat vs Dog, and Bounce to create an entire new game concept. We took the face-to-face battle throwing concept of Cat vs Dog, combined with the manuevering of the classic platform game in Bounce, and we have a game that combines tactical game-play and strategic combat (insert Paper Prototype figure). 
-
-### Early Stage Design 
-
-As some members in our team have had previous game development experience before, we decided to create a playable prototype where we were able to perform initial user testing for collision checking, map tile initialisation and player key handling. This was extremely useful as it boosted the backend team's confidence in overcoming the initial developmental challenges we highlighted at the start (collision behaviours and map creation). The initial version of the platformers and the map tiles is shown below (in Figure 2).
+Week3 allowed us to showcase these ideas by creating Paper Prototypes of our initial game ideas. Unfortunately, from the feedback we have recieved from the testers, it was clear to us that both our ideas did not fully satisfy us in-terms of our shared goal of creating a game that is 'classic-throwback', fun, fresh and challenging. We decided to combine the features we loved from Cat vs Dog, and Bounce to create an entire new game concept. We took the face-to-face battle throwing concept of Cat vs Dog, combined with the manuevering of the classic platform game in Bounce, and we have a game that combines tactical game-play and strategic combat. A GIF of our first Take Aim Paper Protoype is shown in Figure 2. 
 
 <div align="center">
   <strong>Figure 2.</strong> <br>
+  <em>Take Aim Paper Prototype GIF</em> <br>
+  <img width="800" alt="PaperPrototype" src="https://github.com/user-attachments/assets/18cbe7c9-251c-4c82-8eec-f2ebe0cc906d" />
+</div>
+<br>
+
+### Early Stage Design 
+
+As some members in our team have had previous game development experience before, we decided to create a playable prototype where we were able to perform initial user testing for collision checking, map tile initialisation and player key handling. This was extremely useful as it boosted the backend team's confidence in overcoming the initial developmental challenges we highlighted at the start (collision behaviours and map creation). The initial version of the platformers and the map tiles is shown below (in Figure 3).
+
+<div align="center">
+  <strong>Figure 3.</strong> <br>
   <em>Screenshot of Game Prototype During Early Development</em> <br>
   <img width="1000" alt="Week2-gamePrototype" src="https://github.com/user-attachments/assets/3efac460-0b85-4783-9029-8a2509931435" />
 </div>
@@ -130,7 +137,7 @@ It was important to us that we are develop a game that incorporates varying play
 ### Importance of Our Key Stakeholders 
 
 <div align="center">
-  <strong>Figure 3.</strong> <br>
+  <strong>Figure 4.</strong> <br>
   <em>Onion Model of Take Aim Game</em> <br>
   <img width="800" alt="OnionModelProposal" src="https://github.com/user-attachments/assets/b7c13991-3ac6-4f11-b79d-5ce0e990b8d3" /> 
 </div>
@@ -141,7 +148,7 @@ It was important to us that we are develop a game that incorporates varying play
 3. **Game Testers:** Testers, Professors, Experts (assessors)
 4. **Users:** "Retro Game/Arcade Game Lovers", Casual Gamers, Competitive Gamers, Interactive Gamers, Gamers with Disability
 
-As we finalised our chosen game, it was clear to us that identifying and understanding key stakeholders is essential to ensuring a well-rounded, engaing, and accesible gaming experience. As shown in Figure 3, our stakeholders include end-users, such as retro game entusiast, both casual and competitive gamers, interactive players, and gamers with disabilities. Each group bring unique expectations and preferences, guiding us with developing the mechanics that cater to various playstyles and accesibility needs. <br> <br>
+As we finalised our chosen game, it was clear to us that identifying and understanding key stakeholders is essential to ensuring a well-rounded, engaing, and accesible gaming experience. As shown in Figure 4, our stakeholders include end-users, such as retro game entusiast, both casual and competitive gamers, interactive players, and gamers with disabilities. Each group bring unique expectations and preferences, guiding us with developing the mechanics that cater to various playstyles and accesibility needs. <br> <br>
 The development team, consisting of frontend and backend developers, quality assurance testers, a Product Owner, and a Scrum Master, is responsible for turning our ideas into a functional and immersive game. The team will also determine the technical feasibility, ensure performance optimisation, and maintain smooth development workflows. Additionally, game testers play a crucial role in validating our concepts, ensuring gameplay balance, and identifying potential issues before launch. <br> <br>
 By actively involving these stakeholders in our ideation process, we can create a game that not only meets industry standards but also resonates with our taget audience. This approcah allows us to refine our vision early on, reducing development risks and fostering a more innovative and player-centric experience. Committing to this stakeholder-driven approach ensures that Take Aim will be both technically sound and highly engaing for its intended audience. <br>
 <br>
@@ -176,15 +183,15 @@ In order to have a better scope of what features we should prioritise, we gather
 ### Use Cases Analysis
 As our user stories includes a wider range of users such as both casual gamers and competitive players, it was vital for us to convert our user-stories into use case diagrams. This way, we can better conceptualise our development processes and mitigate the difficulties when making a game for a large group of costumers. By transforming our user stories into use case diagrams, we are able to visualise the interactions between the end-user, our development team and the game system itself, ensuring a well-organised and efficient development proccess. <br> <br> 
 Each user story represent a real-world scenario that our end-user might experience when playing Take Aim. For example, a competitive gamer suggested that: "As a competitive gamer, I want to play against my friends so that I have bragging rights when I win." <br> <br> 
-From this story, we extract key interactions and translate them into a use case diagram (shown in Figure 4), where the competitive gamer (actor) interacts with the game system through use cases like "Start Game" (shown in Figure 6). <br> <br> 
+From this story, we extract key interactions and translate them into a use case diagram (shown in Figure 5), where the competitive gamer (actor) interacts with the game system through use cases like "Start Game" (shown in Figure 7). <br> <br> 
 By mapping these interactions, we have identitifed primary actors, clarify dependencies between different game functions, and ensure that all user needs are accounted for. This process also assisted our development team by providing a clear structure for implementing features in a user-focused manner. <br> <br> 
 
 <div align="center">
-<strong>Figure 4.</strong> <br>
+<strong>Figure 5.</strong> <br>
 <em>Use Case Diagram 1: Main Menu Navigation</em>
 <img width="904" alt="UseCaseMainMenu" src="https://github.com/user-attachments/assets/ef2263cd-28af-4dc4-9b5a-78170f83cab5" /> <br> <br>
 
-<strong>Figure 5.</strong> <br>
+<strong>Figure 6.</strong> <br>
 <em>Use Case Diagram 2: Gameplay System</em>
 <img width="901" alt="UseCaseGameplay" src="https://github.com/user-attachments/assets/f938e2c4-3c7b-4b80-bb93-c554542851a8" />
 </div>
@@ -193,11 +200,11 @@ By mapping these interactions, we have identitifed primary actors, clarify depen
 This document provides a detailed description of the use cases represented in the "Main Menu Navigation" and "Gameplay System" diagrams. Each use case highlights the interaction between the player(s), AI and the game system. Our Use Case Specification is completed using Eraser.io and a link to the full documentatiion is attached below.
 
 <div align="center">
-<strong>Figure 6.</strong> <br>
+<strong>Figure 7.</strong> <br>
 <em>Screenshot of Use Case 1: Start Game (used as an example above)</em>
 <img width="720" alt="Screenshot 2025-02-07 at 01 02 38" src="https://github.com/user-attachments/assets/dc29668d-ff73-4660-aba2-7dbe0cfd7ae0" /> <br> <br>
 
-<strong>Figure 7.</strong> <br>
+<strong>Figure 8.</strong> <br>
 <em>Screenshot of Use Case 3: Player Shoot</em> <br> 
 <img width="720" alt="Screenshot 2025-02-07 at 01 03 45" src="https://github.com/user-attachments/assets/fcc07896-0c37-4282-ab25-69c883bbb619" /> <br> <br> 
 
@@ -217,7 +224,7 @@ We considered the following factors during the design process:
 
 ### Class Diagrams
 
-A **Class Diagram** provided a systematic view of Take Aim as a System (Figure 8). This allowed us to structurally plan ahead the relationship between objects and help with visually identify where certain functions and variables should be located/implemented, which would contribute to good Object-Oriented Design (OOD) principles within our code. Each class has attributes and methods appropriate to their function within the game. For example, *GameController* directly communicates with *Player* and *AIPlayer* to control game progression, while *MapManager* provides the environment in which players interact. 
+A **Class Diagram** provided a systematic view of Take Aim as a System (Figure 9). This allowed us to structurally plan ahead the relationship between objects and help with visually identify where certain functions and variables should be located/implemented, which would contribute to good Object-Oriented Design (OOD) principles within our code. Each class has attributes and methods appropriate to their function within the game. For example, *GameController* directly communicates with *Player* and *AIPlayer* to control game progression, while *MapManager* provides the environment in which players interact. 
 
 #### Game Mechanics
 1. **Setup:** Initialises the whole game, loading neccessary resources like sprites, sounds, and setting up the game canvas.
@@ -231,7 +238,7 @@ A **Class Diagram** provided a systematic view of Take Aim as a System (Figure 8
 9. **Map Manager:** Manages the game maps, including their creation, rendering, and animation based on predefined tiles and background imges.
 
 <div align="center">
-  <strong>Figure 8.</strong> <br>
+  <strong>Figure 9.</strong> <br>
   <em>Class Diagram Generated Week 10</em> <br>
   <img width="1000" alt="ClassDiagram" src="https://github.com/user-attachments/assets/3bdb9bd7-2f8c-4ff3-ad36-c39195270269" /> 
 </div>
@@ -239,14 +246,14 @@ A **Class Diagram** provided a systematic view of Take Aim as a System (Figure 8
 
 ### Behavioural Diagrams
 
-Following the Class Diagram, we wanted to effectively visualise the behaviour of Take Aim as a whole program so we formed a **Sequence Diagram** (Figure 9). This offered a clear visual representation of how various game components interacted over time, which we found was a powerful tool for both our team's planning and communication. By mapping out player actions, AI logic, and system responses, our team were able to quickly identify design flaws which improved collaboration. 
+Following the Class Diagram, we wanted to effectively visualise the behaviour of Take Aim as a whole program so we formed a **Sequence Diagram** (Figure 10). This offered a clear visual representation of how various game components interacted over time, which we found was a powerful tool for both our team's planning and communication. By mapping out player actions, AI logic, and system responses, our team were able to quickly identify design flaws which improved collaboration. 
 
 In order to meet the requirement specification, we ensured to develop a system architecture that starts with a user-interface menu. Take Aim begins with the *Setup* component initiating the game mode setup via the *Game Controller*, which further initialises the maps, generates the player(s), weapons, and power-ups through respective components such as *Map Manager*, *Player*, *Weapon*, and *Power-Ups*. 
 
 The core gameplay loop involves continuous player updates (movements and interactions), weapon pickups, bullet generation and usage, player damage handling, and power-up consumption. An AI player is also generated in single-player mode, and continuously updates its movement behaviour depending on the player and game states. *Sprite Manager* serves images upon request, supporting visual elements of the game.
 
 <div align="center">
-  <strong>Figure 9.</strong> <br>
+  <strong>Figure 10.</strong> <br>
   <em>Sequence Diagram of Take Aim</em> <br>
   <img width="1000" alt="BehaviourDiagram" src="https://github.com/user-attachments/assets/36a1b8d3-9b42-4b20-965f-410786b736db" /> 
 </div>
@@ -270,10 +277,10 @@ Prior to implementing any of the challenges, it was a prerequisite to create two
 ### Challenges
 **1. Auto-Aim Feature**
 
-One of the most technically nuanced features we developed was the auto-aim shooting mechanic, implemented inside the *Player.shoot()* method. The purpose of this mechanic was to simplify player input by automatically targeting the opponent whenever the shoot key is pressed, simulating a form of assisted targeting as shown in Figure 10. Although this may sound straightforward in theory, implementing this functionality presented several unexpected challenges. 
+One of the most technically nuanced features we developed was the auto-aim shooting mechanic, implemented inside the *Player.shoot()* method. The purpose of this mechanic was to simplify player input by automatically targeting the opponent whenever the shoot key is pressed, simulating a form of assisted targeting as shown in Figure 11. Although this may sound straightforward in theory, implementing this functionality presented several unexpected challenges. 
 
 <div align="center">
-  <strong>Figure 10.</strong> <br>
+  <strong>Figure 11.</strong> <br>
   <em>Auto-Aim GIF of Two-Player Mode</em> <br>
   <img width="900" alt="AutoAim_GIF" src="https://github.com/user-attachments/assets/a7827bbe-f749-4312-943e-7ebf17dd530f" /> 
 </div>
@@ -289,10 +296,10 @@ A particularly complex implementation during our development was designing the A
 
 The central issue was building a robust AI that understands the environment and reacts to both static platforms and dynamic game elements like power-ups and bullets. Our early versions of this AI would either get stuck in infinite loops when navigating vertically or behave unrealistically - either walking off edges or trying to jump at walls. Since the game is a 2D platformer, vertical navigation added additional complexity. 
 
-To tackle this, we created a graph-based node system representing the top of platforms in *NodeNetwork.js* (as shown in Figure 11). Nodes are connected horizontally and vertically (with safety checks to prevent excessive vertical chaining, using a max chain constrait in A*). This map graph is initialised each round using *buildPlatformNetwork()*, allowing the AI to perform *A\* pathfinding* based on valid movement constrainst. 
+To tackle this, we created a graph-based node system representing the top of platforms in *NodeNetwork.js* (as shown in Figure 12). Nodes are connected horizontally and vertically (with safety checks to prevent excessive vertical chaining, using a max chain constrait in A*). This map graph is initialised each round using *buildPlatformNetwork()*, allowing the AI to perform *A\* pathfinding* based on valid movement constrainst. 
 
 <div align="center">
-  <strong>Figure 11.</strong> <br>
+  <strong>Figure 12.</strong> <br>
   <em>AI Pathfinder Nodes</em> <br>
   <img width="900" alt="node_AIPathfinder_GIF" src="https://github.com/user-attachments/assets/095f715b-fdf0-405a-8f7b-25e39249ff49" /> 
 </div>
@@ -313,12 +320,12 @@ The result is a challenging reactive AI that feels organic to play against - esp
 
 Perhaps the most time-consuming and visually demanding part of the development for the frontend team was creating the 3D character models and integrating them into fully interactive Character Selection Page. The goal was to have a seamless and polished selection experience where players could preview rotating 3D versions of character like *Lion, Parrot, Dog, Crab, Penguin* and *Chicken* - each built entirely using p5.js's WEBGL system.
 
-One of the most persistent challenges was ensuring that each character was accurately constructed and visually distinct while still maintaining a consistent design language. Each model required dozens of individual 3D primitives (box, speheres, etc) layers and transformed in 3D space. We had to iterate through several poses, proportions, and rotations to make sure characters looked engaging from all angles. 
+One of the most persistent challenges was ensuring that each character was accurately constructed and visually distinct while still maintaining a consistent design language. Each model required dozens of individual 3D primitives (box, speheres, etc) layers and transformed in 3D space as seen in Figure 13. We had to iterate through several poses, proportions, and rotations to make sure characters looked engaging from all angles. 
 
 An additional layer of complexity came from having to convert standalone sketches (each character was developed separately for testing) into a unified, working UI component within the *CharacterPage*. Managing canvas rendering, viewports, and interactively in a multi-character, multi-player selection interface pushed the limits of p5.js's DOM integration. 
 
 <div align="center">
-  <strong>Figure 12.</strong> <br>
+  <strong>Figure 13.</strong> <br>
   <em>Crab and Pengiun p5.js Sketches</em> <br>
   <img src="assets/readmeDoc/Crab.gif" alt="crab_p5.js_sketch" width="200" />
   <img src="assets/readmeDoc/Penguin.gif" alt="penguin_p5.js_sketch" width="200" />
@@ -338,10 +345,10 @@ Although initially frustrating, the final result offered a professional, respons
 
 # 6. Evaluation
 
-This week, we invited other team members to try out the newly released version of our game (Figure 13). We received a lot of positive feedback, along with some valuable suggestions and ideas. To collect comprehensive insights, we conducted several evaluation methods, including **Think Aloud Evaluation, Heuristic Evaluation, NASA-TLX for workload assessment, and the System Usability Scale (SUS)**.
+This week, we invited other team members to try out the newly released version of our game (Figure 14). We received a lot of positive feedback, along with some valuable suggestions and ideas. To collect comprehensive insights, we conducted several evaluation methods, including **Think Aloud Evaluation, Heuristic Evaluation, NASA-TLX for workload assessment, and the System Usability Scale (SUS)**.
 
 <div align="center">
-  <strong>Figure 13.</strong> <br>
+  <strong>Figure 14.</strong> <br>
   <em>Observers playing/evaluating our game</em> <br>
   <img src="assets/readmeDoc/Evaluating.jpeg" alt="Observers playing/ecaluating" style="width: 50%" />
 </div>
@@ -350,12 +357,12 @@ This week, we invited other team members to try out the newly released version o
 
 **1. Think Aloud Evaluation:**
 <div align="center">
-<strong>Figure 14.</strong> <br>
+<strong>Figure 15.</strong> <br>
 <em>Summary of Think Aloud Evaluation</em> <br>
 <img alt="think-aloud-summary" src="https://github.com/user-attachments/assets/322ff173-0963-4bdf-b714-101e3c063620" />
 </div>
 <br>
-Participants were encouraged to think aloud as they played, expressing their thoughts and reactions in real-time. Using audio recording, we recorded their feedback (summarised in Figure 14), paying special attention to moments of confusion and engagement. From these observations, we identified several key themes and categorized the feedback (in table 3) as follows:
+Participants were encouraged to think aloud as they played, expressing their thoughts and reactions in real-time. Using audio recording, we recorded their feedback (summarised in Figure 15), paying special attention to moments of confusion and engagement. From these observations, we identified several key themes and categorized the feedback (in table 3) as follows:
 <br>
 <br>
 
@@ -445,13 +452,13 @@ Fixing the health display and adding better instructions should be top prioritie
 **Improvements Implemented**
 
 To enhance the game’s usability, we made the following improvements: <br>
-- **Fixed the unclear health display**: Added a clear health bar at the bottom of the game screen with high-contrast colours, making it easy for players to track their status (Figure 16).<br>
-- **Clarified keyboard controls**: Introduced a clear instruction page, shown during the pre-game loading screen, ensuring players knew how to operate characters without confusion (Figure 15).<br>
-- **Resolved weapon confusion**: Differentiated weapon damage and added varied weapon types to meet player expectations and eliminate confusion (Figure 15).<br>
+- **Fixed the unclear health display**: Added a clear health bar at the bottom of the game screen with high-contrast colours, making it easy for players to track their status (Figure 17).<br>
+- **Clarified keyboard controls**: Introduced a clear instruction page, shown during the pre-game loading screen, ensuring players knew how to operate characters without confusion (Figure 16).<br>
+- **Resolved weapon confusion**: Differentiated weapon damage and added varied weapon types to meet player expectations and eliminate confusion (Figure 16).<br>
 - **Balanced powerups**: Reduced powerup frequency to keep the game challenging and engaging.
 
 <div align="center">
-  <strong>Figure 15.</strong> <br>
+  <strong>Figure 16.</strong> <br>
   <em>Implemented instruction page in both pre-loading and in-game</em>
   <table>
     <tr>
@@ -462,7 +469,7 @@ To enhance the game’s usability, we made the following improvements: <br>
 </div>
 
 <div align="center">
-  <strong>Figure 16.</strong> <br>
+  <strong>Figure 17.</strong> <br>
   <em>Improved health bar display before and after</em>
   <table>
     <tr>
@@ -527,7 +534,7 @@ To assess the perceived workload our users have when playing our game, we conduc
 <br>
 
 <div align="center">
-  <strong>Figure 17.</strong> <br>
+  <strong>Figure 18.</strong> <br>
   <em>Comparison of results for NASA TLX Evaluation</em>
 </div>
 
@@ -575,7 +582,7 @@ To evaluate the overall usability of our game, we conducted the System Usability
   | **Average** | **74.5** | **64.35**       | **10.15**  |
 
 
-  <strong>Figure 18.</strong> <br>
+  <strong>Figure 19.</strong> <br>
   <em>Comparison of SUS scores by level</em>
 <img alt="results-SUS" src="https://github.com/UoB-COMSM0166/2025-group-23/blob/main/assets/readmeDoc/SUSperUserScores.png" />
 </div>
@@ -584,10 +591,10 @@ To evaluate the overall usability of our game, we conducted the System Usability
 
 To assess whether the differences in workload and usability between the easy and difficult game modes were statistically meaningful, we referred to the Wilcoxon Signed-Rank test. 
 
-With a sample size of \( n = 10 \) and a significance level of \( α = 0.05 \), the critical value for detecting significance is **8**.
+With a sample size of \( n = 10 \) and a significance level of \( α = 0.05 \), the critical value for detecting significance is **8** (as illustrated in Figure 20).
 
 <div align="center">
-<strong>Figure 19.</strong> <br>
+<strong>Figure 20.</strong> <br>
 <em>Critical Value Scale for Wilcoxon Signed-Rank Test</em> <br>
 <img src="https://github.com/UoB-COMSM0166/2025-group-23/raw/main/assets/readmeDoc/wilcox5.png" alt="Wilcoxon Critical Value Table" width="500"/>
 </div>
@@ -602,10 +609,10 @@ Throughout the Take Aim project, the team relied exclusively on manual testing
 
 - ### Teamwork
 
-Throughout our game development, we adopted a structured yet flexible approach guided by Agile principles. By integrating collaborative techniques such as face to face meetings (as seen in Figure 20), we ensured smooth and efficient teamwork. We were enthusiastic about immersing ourselves in the development process, embracing diverse ideas and solutions. Through structured planning and adaptive collaboration, we leveraged each team member’s unique strengths to support our game's success. We followed Scrum to guide iterative development, fostering a responsive, self-organising team and continuous improvement through regular feedback. 
+Throughout our game development, we adopted a structured yet flexible approach guided by Agile principles. By integrating collaborative techniques such as face to face meetings (as seen in Figure 21), we ensured smooth and efficient teamwork. We were enthusiastic about immersing ourselves in the development process, embracing diverse ideas and solutions. Through structured planning and adaptive collaboration, we leveraged each team member’s unique strengths to support our game's success. We followed Scrum to guide iterative development, fostering a responsive, self-organising team and continuous improvement through regular feedback. 
 
 <div align="center">
-  <strong>Figure 20.</strong> <br>
+  <strong>Figure 21.</strong> <br>
   <em>Team meeting</em> <br>
 <img src="assets/readmeDoc/GroupMeeting.jpeg" alt="Team meeting" style="width: 50%"/>
 </div><br>
@@ -614,10 +621,10 @@ Throughout our game development, we adopted a structured yet flexible approach g
 
 We followed Agile values: frequent communication, iterative planning, and collective decision-making. Operating under a flat team structure, every member had equal opportunities to contribute, which helped us with a range of ideas and abilities. 
 
-At the beginning of the project, each member proposed two game ideas. We selected our final concept through majority voting (as seen in Figure 21), ensuring it aligned with our shared interests and project goals. Weekly in-person meetings on Tuesday helped us to track progress, delegate tasks, and resolve issues. A Game Jam during reading week boosted development, creativity, and team bonding. Once the course ended, we shifted to remote collaboration using Microsoft Teams and WhatsApp to accommodate members living further apart. 
+At the beginning of the project, each member proposed two game ideas. We selected our final concept through majority voting (as seen in Figure 22), ensuring it aligned with our shared interests and project goals. Weekly in-person meetings on Tuesday helped us to track progress, delegate tasks, and resolve issues. A Game Jam during reading week boosted development, creativity, and team bonding. Once the course ended, we shifted to remote collaboration using Microsoft Teams and WhatsApp to accommodate members living further apart. 
 
 <div align="center">
-  <strong>Figure 21.</strong> <br>
+  <strong>Figure 22.</strong> <br>
   <em>Idea selection meeting</em> <br>
 <img src="assets/readmeDoc/GameSelection.JPG" alt="Idea selection meeting" style="width: 50%"/>
 </div><br>
@@ -628,7 +635,7 @@ WhatsApp supported daily communication, updates, and file sharing. Major decisio
 While scheduling conflicts occasionally delayed decisions, we set clear deadlines and used asynchronous updates to stay on track. Agile’s iterative sprints and retrospectives helped us refine our process, maintain steady progress, and adapt to new challenges. 
 
 <div align="center">
-  <strong>Figure 22.</strong> <br>
+  <strong>Figure 23.</strong> <br>
   <em>Monitor game development progress using Jira Gantt</em> <br>
 <img src="assets/readmeDoc/JiraGantt.jpeg" alt="Monitor game development progress using Jira Gantt" />
 </div><br>
@@ -667,7 +674,7 @@ To support Agile’s focus on communication, transparency, and iteration, we use
 Initially, we experimented with Figma for UI and character design but found it challenging for some team members. We pivoted to PowerPoint, which was more accessible and familiar. This flexibility reflected Agile’s adaptability—choosing tools that best suited our team’s needs. Jira’s Kanban board was particularly valuable for maintaining task visibility and accountability. 
 
 <div align="center">
-  <strong>Figure 23.</strong> <br>
+  <strong>Figure 24.</strong> <br>
   <em>Group online meeting</em> <br>
 <img src="assets/readmeDoc/GroupMeeting.gif" alt="Group online meeting"/>
 </div>
