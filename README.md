@@ -8,9 +8,48 @@
 <img width="1000" alt="headerGIF" src="https://github.com/user-attachments/assets/759de450-4125-4784-b0b7-2a7d99abb0c8" />
 <br>
 <br>
-
-
 </div>
+
+## How to Play
+### 🎮 Play Online (Github Pages)
+Take Aim is hosted as a static site on GitHub Pages - no install needed!
+1. Open your browser (chrome for best experience) and go to: `https://github.com/UoB-COMSM0166/2025-group-23/`
+2. The game will load instantly.
+3. Click **One Player** or **Two Player** on the main screen to begin character selection.
+
+> **Why GitHub Pages?**
+> - **Zero setup**: Your browswer downloads only HTML/CSS/JS assets.
+> - **HTTPS by default**: Secure connection for loading audio, font, and sprites.
+> - **Instant updates**: New commits to (`main`) go live immediately.
+
+---
+
+### 🖥️ Run locally (for development or offline play)
+If you'd rather test or tweak the code, serve it locally:
+
+1. **Clone the repo:**
+   ```bash
+   git clone https://https://github.com/UoB-COMSM0166/2025-group-23.git
+   cd 2025-group-23/docs
+   npx http-server -c-1 -p 8000 # initiate local server
+   ```
+2. Open your browser (chrome for best experience).
+3. Navigate to `http://localhost:8000/` and Play!
+
+---
+### 🛠️ Troubleshooting
+**Game won't load / blank screen?**
+* Make sure you're on `https://` or running a local server-file:// routes often get blocked.
+* Check your browser's concole for missing-file errors.
+
+**Audio not playing?**
+* Some browsers require a user gesture before unlocking sound. Click once inside the canvas before playing.
+
+---
+### Enjoy TAKE AIM! 🚀
+[PLAY TAKE AIM](https://uob-comsm0166.github.io/2025-group-23/index.html)
+
+---
 
 # Table of Contents
 * [1. Development Team](#1-development-team)
