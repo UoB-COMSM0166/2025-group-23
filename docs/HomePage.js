@@ -11,7 +11,7 @@ class HomePage {
     this.page.style('overflow', 'hidden');
 
     // —— Video background setup ——
-    this.bgVideo = createVideo(['assets/mainMenu/homepage-background1.mov'], () => {
+    this.bgVideo = createVideo(['assets/mainMenu/homepage-background.mov'], () => {
       this.bgVideo.loop();      // Loop playback
       this.bgVideo.volume(0);    // Mute for autoplay
     });
