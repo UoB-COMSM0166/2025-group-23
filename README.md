@@ -1,6 +1,16 @@
+<div align="center">
+  
 # TAKE AIM 
-2025 COMSM0166 group 23 <br>
-[PLAY TAKE AIM HERE](https://uob-comsm0166.github.io/2025-group-23/index.html)
+### GROUP 23 - 2025 COMSM0166
+
+[PLAY TAKE AIM](https://uob-comsm0166.github.io/2025-group-23/index.html)
+
+<img width="1000" alt="headerGIF" src="https://github.com/user-attachments/assets/759de450-4125-4784-b0b7-2a7d99abb0c8" />
+<br>
+<br>
+
+
+</div>
 
 # Table of Contents
 * [1. Development Team](#1-development-team)
