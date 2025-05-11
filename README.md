@@ -599,19 +599,19 @@ To support Agile’s focus on communication, transparency, and iteration, we use
 
 - Jira: Managed tasks and visualised progress using a Kanban board. 
 
-Development: 
+<strong>Development: </strong>
 
-Geny.lovo: Generated AI voiceovers for our project video. 
+- Geny.lovo: Generated AI voiceovers for our project video. 
 
-Logic Pro: Assisted in sound design and audio editing. 
+- Logic Pro: Assisted in sound design and audio editing. 
 
-Figma: Initially used for mockups and UI/character design. 
+- Figma: Initially used for mockups and UI/character design. 
 
-Eraser.io: Helped create class diagrams and UMLs. 
+- Eraser.io: Helped create class diagrams and UMLs. 
 
-CraftPix.net: Provided inspiration and assets for visuals. 
+- CraftPix.net: Provided inspiration and assets for visuals. 
 
-Pixel Studio & MediBang: Used for pixel art and other graphic assets. 
+- Pixel Studio & MediBang: Used for pixel art and other graphic assets. 
 
 Initially, we experimented with Figma for UI and character design but found it challenging for some team members. We pivoted to PowerPoint, which was more accessible and familiar. This flexibility reflected Agile’s adaptability—choosing tools that best suited our team’s needs. Jira’s Kanban board was particularly valuable for maintaining task visibility and accountability. 
 
