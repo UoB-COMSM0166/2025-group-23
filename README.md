@@ -1,6 +1,4 @@
 <div align="center">
-  
-# 💥TAKE AIM💥<br> GROUP 23 - 2025
 <a href="https://uob-comsm0166.github.io/2025-group-23/index.html" target="_blank" rel="noopener noreferrer"> 
 <img width="1000" alt="headerGIF" src="https://github.com/user-attachments/assets/759de450-4125-4784-b0b7-2a7d99abb0c8" /> 
 </a>
@@ -42,7 +40,15 @@ If you'd rather test or tweak the code, serve it locally:
 **Audio not playing?**
 * Some browsers require a user gesture before unlocking sound. Click once inside the canvas before playing.
 
-# 🔫 TAKE AIM! <br>🚀 FIGHT! <br>🎮 [PLAY!](https://uob-comsm0166.github.io/2025-group-23/index.html)👈
+### 🔫 TAKE AIM! <br>🚀 FIGHT! <br>🎮 [PLAY!](https://uob-comsm0166.github.io/2025-group-23/index.html)👈
+
+<br>
+<br> 
+<div align="center">
+  
+# TAKE AIM REPORT by GROUP 23 - 2025
+
+</div>
 
 # Table of Contents
 * [1. Development Team](#1-development-team)
@@ -93,6 +99,10 @@ The project is driven by a collaborative team, with each member contributing uni
 
 # 3. Requirements 
 
+### Requirement Engineering
+
+Requirements Engineering (RE) serves as a structured communication framework to capture and prioritize client requirements during the initial phases of the Software Development Life Cycle (SDLC) (Rasheed et al., 2021, pp. 1–2). This process is especially critical in game development: a postmortem review by Petrillo (2009, pp. 18–20) reveals that 75% of examined game projects suffered primarily from ambiguous or overly ambitious project scopes and unchecked feature expansion.
+
 ### Ideation Process 
 
 At the start of our ideation phase, we initially began with 12 different games. Our goal was to create a game that called back to classic games in the past but bringing another level of fun, freshness and challenges. Therefore, before finalising a game to develop, it was important for each member in the group to bring together 2 already existing games each, with their added twist to them. In our meeting, we discussed potential development challenges we, as developers, could face during production for each games that we liked. Some of the games we considered include Doodle Jump, Cat vs Dog, Bounce, and Flappy Bird. A summary of our game ideas with their brief description from Week1 are documented using [google docs](https://github.com/user-attachments/files/20144452/Week.1.-.games.briefs.docx).
@@ -139,7 +149,7 @@ It was important to us that we are develop a game that incorporates varying play
 3. **Game Testers:** Testers, Professors, Experts (assessors)
 4. **Users:** "Retro Game/Arcade Game Lovers", Casual Gamers, Competitive Gamers, Interactive Gamers, Gamers with Disability
 
-As we finalised our chosen game, it was clear to us that identifying and understanding key stakeholders is essential to ensuring a well-rounded, engaing, and accesible gaming experience. As shown in Figure 4, our stakeholders include end-users, such as retro game entusiast, both casual and competitive gamers, interactive players, and gamers with disabilities. Each group bring unique expectations and preferences, guiding us with developing the mechanics that cater to various playstyles and accesibility needs. <br> <br>
+As we finalised our chosen game, it was clear to us that identifying and understanding key stakeholders is essential to ensuring a well-rounded, engaing, and accesible gaming experience (Alexander, 2004, p. 227). As shown in Figure 4, our stakeholders include end-users, such as retro game entusiast, both casual and competitive gamers, interactive players, and gamers with disabilities. Each group bring unique expectations and preferences, guiding us with developing the mechanics that cater to various playstyles and accesibility needs. <br> <br>
 The development team, consisting of frontend and backend developers, quality assurance testers, a Product Owner, and a Scrum Master, is responsible for turning our ideas into a functional and immersive game. The team will also determine the technical feasibility, ensure performance optimisation, and maintain smooth development workflows. Additionally, game testers play a crucial role in validating our concepts, ensuring gameplay balance, and identifying potential issues before launch. <br> <br>
 By actively involving these stakeholders in our ideation process, we can create a game that not only meets industry standards but also resonates with our taget audience. This approcah allows us to refine our vision early on, reducing development risks and fostering a more innovative and player-centric experience. Committing to this stakeholder-driven approach ensures that Take Aim will be both technically sound and highly engaing for its intended audience. <br>
 <br>
@@ -353,7 +363,7 @@ This week, we invited other team members to try out the newly released version o
 <img alt="think-aloud-summary" src="https://github.com/user-attachments/assets/322ff173-0963-4bdf-b714-101e3c063620" />
 </div>
 <br>
-Participants were encouraged to think aloud as they played, expressing their thoughts and reactions in real-time. Using audio recording, we recorded their feedback (summarised in Figure 15), paying special attention to moments of confusion and engagement. From these observations, we identified several key themes and categorized the feedback (in table 3) as follows:
+We conducted a qualitite Think Aloud (TA) evalation as it has been shown to be effective in areas of Human Computer Interaction (Nielsen et al., 2002; Joe et al., 2015). Participants were encouraged to think aloud as they played, expressing their thoughts and reactions in real-time. Using audio recording, we recorded their feedback and identified a series of underlying themes utilising techniques found in Thematic Analysis (Braun & Clarke, 2006), paying special attention to moments of confusion and engagement. From these observations, we identified several key themes and categorized the feedback (in table 3) as follows:
 <br>
 <br>
 
@@ -476,7 +486,7 @@ By prioritizing the health bar and control instructions, we’ve significantly i
 
 **3. NASA TLX :**
 
-To assess the perceived workload our users have when playing our game, we conducted a NASA-TLX (Task Load Index) survey with ten participants after they experienced both the easy and difficult game modes. The survey measured six dimensions of workload: mental demand, physical demand, temporal demand, performance, effort, and frustration. Table 5 and 6 results showed a consistent increase in workload for every user across all dimensions in the difficult mode, with the most notable rises in mental demand and frustration. These insights helped us validate the intended challenge progression and informed subtle adjustments to balance difficulty, ensuring a more engaging but manageable player experience.
+To assess the perceived workload our users have when playing our game, we conducted a NASA-TLX (Task Load Index) survey with ten participants after they experienced both the easy and difficult game modes, as NASA-TLX has been shown to be highly reliable in many areas of Human Computer Interaction (HCI) including video game difficulty assessment (Hart & Staveland, 1988; Ramkumar et al., 2016; Seyderhelm & Blackmore, 2023). According to research the NASA TLX has helped improved validity, easy to administer, and measures six dimensions of workload: mental demand, physical demand, temporal demand, performance, effort, and frustration (Said et al., 2020; Virtanen et al., 2021). Table 5 and 6 results showed a consistent increase in workload for every user across all dimensions in the difficult mode, with the most notable rises in mental demand and frustration. These insights helped us validate the intended challenge progression and informed subtle adjustments to balance difficulty, ensuring a more engaging but manageable player experience.
 
 <div align="center">
   <div style="display: flex; justify-content: space-between; gap: 40px;">
@@ -746,6 +756,22 @@ In conclusion, our project reflects the understanding that software developers h
 
 Reflecting on the project as a whole, the team found this to be one of the most engaging and rewarding collaborative experiences.From the very beginning,there was a strong sense of enthusiasm as we began developing a game concept we were genuinely excited to develop. Each team member fully embraced their individual role, and together we worked cohesively to build a shared vision. We were open to experimenting with new ideas, adapting to different approaches, and aligning our efforts around clear design and development goals. One of the key strengths of our team dynamic was our ability to reach decisions through open discussion and mutual respect. We consistently identified and agreed on solutions that balanced creativity with practicality, resulting in a project that truly reflects collective effort.
 
+<div align="center">
+<strong>Table 8.</strong> <br>
+<em>Table to demonstrate team contributions for Game Project.</em>
+
+| Contributer      | Contribution |
+|-----------------|----------------
+| Ching-Yueh Lin     | 16% |
+| Yu-Hsin Chang      | 16% |
+| Tzu Wei Lee        | 16% |
+| Kotzamanidis Nikos | 16% |
+| Shabarish Menon    | 16% |
+| Gioven Posa        | 20% |
+
+</div>
+<br>
+
 In terms of challenges, we encountered relatively few significant roadblocks. While every team naturally faces some degree of coordination or scheduling friction, we managed these moments through ongoing communication and mutual support. Regular meetings and informal check-ins allowed us to stay aligned, redistribute tasks when needed, and provide assistance across roles. These interactions helped maintain a positive and productive working environment throughout the project lifecycle. The absence of major conflicts or breakdowns in collaboration is a testament to the group’s willingness to listen, compromise, and remain focused on shared outcomes.
 
 A key takeaway from this experience was the opportunity to work within an agile development framework. Adopting agile principles helped us maintain clear short-term goals while remaining flexible in the face of evolving ideas and feedback. The use of Jira played a significant role in keeping our workflow organized, transparent, and efficient. It allowed us to track progress, assign tasks, and identify bottlenecks early. Additionally, producing formal documentation—such as user stories, use cases, and class diagrams—deepened our understanding of how structured planning supports effective coding and team communication. These processes not only contributed to the success of this project but also provided valuable insights for future development work.
@@ -754,18 +780,23 @@ Looking ahead, the team has identified several features for future implementatio
 
 # 10. References  
 
+Alexander, I. F., & Beus-Dukic, L. (2009). Discovering Requirements: How to Specify Products and Services. Wiley. https://books.google.co.uk/books?id=KMZYFzgbXSwC
+
+Braun, V., & Clarke, V. (2006). Using thematic analysis in psychology. Qualitative Research in Psychology, 3(2), 77–101. https://doi.org/10.1191/1478088706qp063oa
+
+Hart, S. G., & Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. Advances in Psychology, 139–183. https://doi.org/10.1016/s0166-4115(08)62386-9
+
+Petrillo, F., Pimenta, M., Trindade, F., & Dietrich, C. (2009). What went wrong? A survey of problems in game development. Computers in Entertainment, 7(1), 1–22. https://dl.acm.org/doi/10.1145/1486508.1486521
+
+Ramkumar, A., Stappers, P. J., Niessen, W. J., Adebahr, S., Schimek-Jasch, T., Nestle, U., & Song, Y. (2016). Using GOMS and NASA-TLX to evaluate human–computer interaction process in interactive segmentation. International Journal of Human–Computer Interaction, 33(2), 123–134. https://doi.org/10.1080/10447318.2016.1220729
+
+Nielsen, J., Clemmensen, T., & Yssing, C. (2002). Getting access to what goes on in people’s heads? Proceedings of the Second Nordic Conference on Human-Computer Interaction. https://doi.org/10.1145/572020.572033
+
+Rasheed, A., Zafar, B., Shehryar, T., Aslam, N. A., Sajid, M., Ali, N., Dar, S. H., & Khalid, S. (2021). Requirement Engineering Challenges in Agile Software Development. Mathematical Problems in Engineering, 2021, 1–15. https://onlinelibrary.wiley.com/share/F2YDIFI2KHKFEQFNBW34?target=10.1155/2021/6696695 
+
+Said, S., Gozdzik, M., Roche, T. R., Braun, J., Rössler, J., Kaserer, A., Spahn, D. R., Nöthiger, C. B., & Tscholl, D. W. (2020). Validation of the Raw National Aeronautics and Space Administration Task Load Index (NASA-TLX) questionnaire to assess perceived workload in patient monitoring tasks: Pooled analysis study using mixed models. Journal of Medical Internet Research, 22(9). https://doi.org/10.2196/19472
+
+Seyderhelm, A. J. A., & Blackmore, K. L. (2023). How hard is it really? assessing game-task difficulty through real-time measures of performance and cognitive load. Simulation & Gaming, 104687812311699. https://doi.org/10.1177/10468781231169910
+
 ### Contribution Statement
-
 - Provide a table of everyone's contribution, which may be used to weight individual grades. We expect that the contribution will be split evenly across team-members in most cases. Let us know as soon as possible if there are any issues with teamwork as soon as they are apparent. 
-
-### Additional Marks
-
-You can delete this section in your own repo, it's just here for information. in addition to the marks above, we will be marking you on the following two points:
-
-- **Quality** of report writing, presentation, use of figures and visual material (5%) 
-  - Please write in a clear concise manner suitable for an interested layperson. Write as if this repo was publicly available.
-
-- **Documentation** of code (5%)
-
-  - Is your repo clearly organised? 
-  - Is code well commented throughout?
