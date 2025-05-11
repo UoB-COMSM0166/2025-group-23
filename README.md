@@ -1,13 +1,10 @@
 <div align="center">
   
-# TAKE AIM 
-### GROUP 23 - 2025 COMSM0166
-
-### [PLAY TAKE AIM](https://uob-comsm0166.github.io/2025-group-23/index.html)
-
-<img width="1000" alt="headerGIF" src="https://github.com/user-attachments/assets/759de450-4125-4784-b0b7-2a7d99abb0c8" />
-<br>
-<br>
+# 💥TAKE AIM💥
+# GROUP 23 - 2025 COMSM0166 <br> 🎮 [PLAY TAKE AIM](https://uob-comsm0166.github.io/2025-group-23/index.html) 🎮 <br> 
+<a href="https://uob-comsm0166.github.io/2025-group-23/index.html"> 
+<img width="1000" alt="headerGIF" target="_blank" rel="noopener noreferrer" src="https://github.com/user-attachments/assets/759de450-4125-4784-b0b7-2a7d99abb0c8" /> 
+</a>
 </div>
 
 ## How to Play
@@ -22,7 +19,6 @@ Take Aim is hosted as a static site on GitHub Pages - no install needed!
 > - **HTTPS by default**: Secure connection for loading audio, font, and sprites.
 > - **Instant updates**: New commits to (`main`) go live immediately.
 
----
 
 ### 🖥️ Run locally (for development or offline play)
 If you'd rather test or tweak the code, serve it locally:
@@ -36,7 +32,7 @@ If you'd rather test or tweak the code, serve it locally:
 2. Open your browser (chrome for best experience).
 3. Navigate to `http://localhost:8000/` and Play!
 
----
+
 ### 🛠️ Troubleshooting
 **Game won't load / blank screen?**
 * Make sure you're on `https://` or running a `localserver` (as `file://` routes often get blocked).
@@ -45,13 +41,7 @@ If you'd rather test or tweak the code, serve it locally:
 **Audio not playing?**
 * Some browsers require a user gesture before unlocking sound. Click once inside the canvas before playing.
 
----
-### TAKE AIM! FIGHT! 🚀
-
-### Enjoy! [PLAY TAKE AIM](https://uob-comsm0166.github.io/2025-group-23/index.html)
-
-
----
+# 🔫 TAKE AIM! <br>🚀 FIGHT! <br>🎮 [PLAY](https://uob-comsm0166.github.io/2025-group-23/index.html)
 
 # Table of Contents
 * [1. Development Team](#1-development-team)
