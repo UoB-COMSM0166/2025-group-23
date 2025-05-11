@@ -7,21 +7,10 @@ class HomePage {
     this.page.position(0, 0);
     this.page.style('width', width + 'px');
     this.page.style('height', height + 'px');
+    this.page.style('background-image', 'url(assets/mainMenu/main-background3.png');
+    this.page.style('background-size', 'cover');
+    this.page.style('background-position', 'center');
     this.page.style('z-index', '10');
-    this.page.style('overflow', 'hidden');
-
-    // —— Video background setup ——
-    this.bgVideo = createVideo(['assets/mainMenu/homepage-background.mov'], () => {
-      this.bgVideo.loop();      // Loop playback
-      this.bgVideo.volume(0);    // Mute for autoplay
-    });
-    this.bgVideo.parent(this.page);
-    this.bgVideo.style('position', 'absolute');
-    this.bgVideo.style('top', '0');
-    this.bgVideo.style('left', '0');
-    this.bgVideo.style('width', '100%');
-    this.bgVideo.style('height', '100%');
-    this.bgVideo.style('object-fit', 'cover');
 
     this.titleImage = createImg('assets/mainMenu/Logo2.png');
     this.titleImage.id('title-image');
