@@ -3,7 +3,7 @@
 # TAKE AIM 
 ### GROUP 23 - 2025 COMSM0166
 
-[PLAY TAKE AIM](https://uob-comsm0166.github.io/2025-group-23/index.html)
+### [PLAY TAKE AIM](https://uob-comsm0166.github.io/2025-group-23/index.html)
 
 <img width="1000" alt="headerGIF" src="https://github.com/user-attachments/assets/759de450-4125-4784-b0b7-2a7d99abb0c8" />
 <br>
@@ -46,8 +46,10 @@ If you'd rather test or tweak the code, serve it locally:
 * Some browsers require a user gesture before unlocking sound. Click once inside the canvas before playing.
 
 ---
-### Enjoy TAKE AIM! 🚀
-[PLAY TAKE AIM](https://uob-comsm0166.github.io/2025-group-23/index.html)
+### TAKE AIM! FIGHT! 🚀
+
+### Enjoy! [PLAY TAKE AIM](https://uob-comsm0166.github.io/2025-group-23/index.html)
+
 
 ---
 
