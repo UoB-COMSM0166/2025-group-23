@@ -6,7 +6,7 @@
 ### 🎮☝️[PLAY TAKE AIM](https://uob-comsm0166.github.io/2025-group-23/index.html)👆🎮 <br> 
 </div>
 
-## How to Play
+# How to Play
 ### 🎮 Play Online (Github Pages)
 Take Aim is hosted as a static site on GitHub Pages - no install needed!
 1. Open your browser (chrome for best experience) and go to: `https://uob-comsm0166.github.io/2025-group-23/`
@@ -40,8 +40,19 @@ If you'd rather test or tweak the code, serve it locally:
 **Audio not playing?**
 * Some browsers require a user gesture before unlocking sound. Click once inside the canvas before playing.
 
-### 🔫 TAKE AIM! <br>🚀 FIGHT! <br>🎮 [PLAY!](https://uob-comsm0166.github.io/2025-group-23/index.html)👈
+# Video Demonstration
 
+<div align="center">
+Below you can find the video demonstration of the Take Aim Game, providing a brief overview of the game mechanics, features, and history. This video will not only give you a taste of the fun and exciting journey ahead, it will also introduce to you the creators and the story of how the game has come to life. <br>
+<br>
+<a href="https://youtu.be/3DW2ShxrOcM?si=E-9NtKz-kppa9Lub" target="_blank">
+<img width="800" alt="videoDemoLink" src="https://github.com/user-attachments/assets/bfbf755b-b650-41b5-8303-57a39f072f94" />
+</a>
+
+### TAKE AIM! <br> FIGHT! <br>🎮 [PLAY!](https://uob-comsm0166.github.io/2025-group-23/index.html) 👈
+</div>
+
+---
 <br>
 <br> 
 <div align="center">
