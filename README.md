@@ -39,7 +39,7 @@ If you'd rather test or tweak the code, serve it locally:
 ---
 ### 🛠️ Troubleshooting
 **Game won't load / blank screen?**
-* Make sure you're on `https://` or running a local server-file:// routes often get blocked.
+* Make sure you're on `https://` or running a `localserver` (as `file://` routes often get blocked).
 * Check your browser's concole for missing-file errors.
 
 **Audio not playing?**
