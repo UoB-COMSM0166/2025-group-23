@@ -13,7 +13,7 @@
 ## How to Play
 ### 🎮 Play Online (Github Pages)
 Take Aim is hosted as a static site on GitHub Pages - no install needed!
-1. Open your browser (chrome for best experience) and go to: `https://github.com/UoB-COMSM0166/2025-group-23/`
+1. Open your browser (chrome for best experience) and go to: `https://uob-comsm0166.github.io/2025-group-23/`
 2. The game will load instantly.
 3. Click **One Player** or **Two Player** on the main screen to begin character selection.
 
