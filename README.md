@@ -2,8 +2,8 @@
   
 # 💥TAKE AIM💥
 # GROUP 23 - 2025 COMSM0166 <br> 🎮 [PLAY TAKE AIM](https://uob-comsm0166.github.io/2025-group-23/index.html) 🎮 <br> 
-<a href="https://uob-comsm0166.github.io/2025-group-23/index.html"> 
-<img width="1000" alt="headerGIF" target="_blank" rel="noopener noreferrer" src="https://github.com/user-attachments/assets/759de450-4125-4784-b0b7-2a7d99abb0c8" /> 
+<a href="https://uob-comsm0166.github.io/2025-group-23/index.html" target="_blank" rel="noopener noreferrer"> 
+<img width="1000" alt="headerGIF" src="https://github.com/user-attachments/assets/759de450-4125-4784-b0b7-2a7d99abb0c8" /> 
 </a>
 </div>
 
