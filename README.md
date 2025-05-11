@@ -291,7 +291,7 @@ This week, we invited other team members to try out the newly released version o
 
 <div align="center">
   <strong>Figure 13.</strong> <br>
-  <em>Observers playing/ecaluating our game</em> <br>
+  <em>Observers playing/evaluating our game</em> <br>
   <img src="assets/readmeDoc/Evaluating.jpeg" alt="Observers playing/ecaluating" style="width: 50%" />
 </div>
 <br> 
@@ -576,6 +576,11 @@ WhatsApp supported daily communication, updates, and file sharing. Major decisio
 
 While scheduling conflicts occasionally delayed decisions, we set clear deadlines and used asynchronous updates to stay on track. Agile’s iterative sprints and retrospectives helped us refine our process, maintain steady progress, and adapt to new challenges. 
 
+<div align="center">
+  <strong>Figure 22.</strong> <br>
+  <em>Monitor game development progress using Jira Gantt</em> <br>
+<img src="assets/readmeDoc/JiraGantt.jpeg" alt="Monitor game development progress using Jira Gantt" />
+</div><br>
   
 
 - ### Tools and Technologies 
@@ -611,7 +616,7 @@ Pixel Studio & MediBang: Used for pixel art and other graphic assets.
 Initially, we experimented with Figma for UI and character design but found it challenging for some team members. We pivoted to PowerPoint, which was more accessible and familiar. This flexibility reflected Agile’s adaptability—choosing tools that best suited our team’s needs. Jira’s Kanban board was particularly valuable for maintaining task visibility and accountability. 
 
 <div align="center">
-  <strong>Figure 22.</strong> <br>
+  <strong>Figure 23.</strong> <br>
   <em>Group online meeting</em> <br>
 <img src="assets/readmeDoc/GroupMeeting.gif" alt="Group online meeting"/>
 </div>
