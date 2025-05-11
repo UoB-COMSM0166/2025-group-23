@@ -1,6 +1,6 @@
 class AIPlayer extends Player {
-  constructor(index, x, y, spriteIndex) {
-    super(index, x, y, null, null, null, null, spriteIndex);
+  constructor(index, x, y, spriteIndex, name) {
+    super(index, x, y, null, null, null, null, spriteIndex, name);
     this.safeDistance = 400;
     this.aiDx = undefined;
     this.targetWeapon = null;

@@ -322,6 +322,7 @@ class Player {
           rect(this.x, this.y, this.width, this.health);
       }
 
+
       if (this.weapon) {
           //WEAPON DIRECTION CHECK
           let currentTime = millis();

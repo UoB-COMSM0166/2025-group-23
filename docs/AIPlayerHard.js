@@ -1,6 +1,6 @@
 class AIPlayerHard extends Player {
-  constructor(index, x, y, spriteIndex) {
-    super(index, x, y, null, null, null, null, spriteIndex);
+  constructor(index, x, y, spriteIndex, name) {
+    super(index, x, y, null, null, null, null, spriteIndex, name);
     this.speed = 8;
     this.safeDistance = 420;
     this.aiDx = undefined;
@@ -91,7 +91,7 @@ class AIPlayerHard extends Player {
   }
 
   takeDamage(amount) {
-    const reducedAmount = amount * 0.5;
+    const reducedAmount = amount * 0.8;
     super.takeDamage(reducedAmount);
     this.hitTimestamps.push(millis());
   }

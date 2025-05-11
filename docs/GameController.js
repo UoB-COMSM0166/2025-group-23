@@ -31,18 +31,17 @@ function startGame() {
   if (characterPage.playerCount === 1) {
     if (window.selectedDifficulty === 'hard') {
         // AIPlayerHard is the hard mode AI version.
-        players[1] = new AIPlayerHard(1, width - 210, 200, player2Sprite);
-        players[1].name = player2Name;
+        players[1] = new AIPlayerHard(1, width - 210, 200, player2Sprite, select('#player2-name').value());
       } else {
         // Default to easy if selectedDifficulty is 'easy' (or not set to 'hard')
-        players[1] = new AIPlayer(1, width - 210, 200, player2Sprite);
-        players[1].name = player2Name;
+        players[1] = new AIPlayerHardPF(1, width - 210, 200, player2Sprite, select('#player2-name').value());
       }
   } 
   else if (characterPage.playerCount === 2) {
       players[1] = new Player(1, width - 210, 200, LEFT_ARROW, RIGHT_ARROW, UP_ARROW, ENTER, player2Sprite, player2Name);  // Player 2 (Arrow Keys + Enter)
   }
   
+  mapGraph = buildPlatformNetwork(map);
   winSoundPlayed = false;
   soundManager.playSound('gamestart');
   soundManager.playSound('countdown');
@@ -118,7 +117,7 @@ function initMaps() {
           [2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2],
           [2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2],
           [1, 2, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 1],
-          [3, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 3],
+          [3, 2, 2, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 2, 2, 3],
           [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
           [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 0, 0, 0, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
           [2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 3, 0, 0, 0, 3, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2],
@@ -142,12 +141,12 @@ function initMaps() {
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2],
+          [2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -170,20 +169,20 @@ function initMaps() {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-            [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-            [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-            [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-            [0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0],
-            [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-            [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-            [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-            [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-            [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+            [0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+            [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
+            [0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+            [0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0]
         ],
         { 0: null, 1: "ocean_platform1"}, 
         "ocean", 
@@ -399,6 +398,8 @@ function resetRound() {
   weapons = [];
   roundOver = false;
   roundNum++;
+  map = maps[roundNum];
+  mapGraph = buildPlatformNetwork(map);
   soundManager.playSound('gamestart');
   loop();
 }
@@ -413,12 +414,15 @@ function checkRoundOver() {
             return null;
         }
         let playerNum = winner.index + 1;
+        //pick display name: use player's name (from constructor), else default 
+        let displayName = (winner.name && winner.name.trim() !== "") ? winner.name.trim() : `Player ${playerNum}`;
+
         if (!gameOver || (gameOver && (millis() - gameOverTime < 2000))) {
             push();
                 textSize(45);
                 fill(255);
                 textAlign(CENTER);
-                text(`Player ${playerNum} Wins Round ${roundNum}!`, width / 2, height / 2); // Display winner's sprite name
+                text(`${displayName} Wins Round ${roundNum}!`, width / 2, height / 2); // Display winner's sprite name
             pop();
         }
         return winner;
@@ -463,33 +467,6 @@ function pointInRect(px, py, rect) {
         py >= rect.y &&
         py <= rect.y + rect.height
     );
-}
-
-class MovingWall {
-  constructor(x, y, width, height, speed, direction, range) {
-      this.startX = x;
-      this.startY = y;
-      this.x = x;
-      this.y = y;
-      this.width = width;
-      this.height = height;
-      this.speed = speed;
-      this.direction = direction;
-      this.range = range;
-  }
-
-  update() {
-      this.x += this.speed * this.direction;
-
-      if (abs(this.x - this.startX) > this.range) {
-          this.direction *= -1;
-      }
-  }
-
-  display() {
-      fill(0, 0, 255);
-      rect(this.x, this.y, this.width, this.height);
-  }
 }
 
 class Weapon {
@@ -544,14 +521,70 @@ class Weapon {
                   let tile = {x: col * tileSize, y: row * tileSize, width: tileSize, height: tileSize};
 
                   if (checkCollision(this, tile)) {
-                      //handle floor collsion (landing on top)
-                      this.speed = 0;
-                      this.y = tile.y - this.height;
-                  }
+                    // Handle floor collision (landing on top)
+                    this.y = tile.y - this.height;
+                    this.speed = 0;
+                    this.landed = true;  // Mark as landed
+                    // Instead of snapping to a graph node, snap to the center of the collided tile
+                    const tileSize = map.tileSize;
+                    // 'row' and 'col' are the indices in your nested loops where collision was detected:
+                    this.speed = 0;
+                    this.landed = true;
+
+                    // compute the tile’s top-left
+                    const tileX = col * tileSize;
+                    const tileY = row * tileSize;
+
+                    // center the weapon horizontally on that tile
+                    this.x = tileX + (tileSize - this.width) / 2;
+
+                    // place it flush on top of the tile
+                    this.y = tileY - this.height;
+
+                    console.log(
+                    `Weapon Landed & Snapped to Tile at (row=${row},col=${col}) ` +
+                    `→ centered position (${this.x.toFixed(1)},${this.y.toFixed(1)})`
+                    );
+
+                    // done with update
+                    return;
+
+                }
               }
           }
       }
   }
+
+  hasPlatformBelow(node) {
+    const rowBelow = node.row + 1;
+    if (rowBelow >= map.grid.length) return false;
+    const tileBelow = map.grid[rowBelow][node.col];
+    return tileBelow > 0 && map.tileMapping[tileBelow] !== "underground_wall1";
+  }
+
+  getClosestPlatformNode() {
+    if (!mapGraph || !mapGraph.nodes) {
+        console.error("Error: mapGraph is not initialized!");
+        return null;
+    }
+
+    let closestNode = null;
+    let minDistance = Infinity;
+
+    let weaponCenterX = this.x + this.width / 2;  // Get weapon center
+    let weaponCenterY = this.y + this.height / 2;
+
+    for (let node of mapGraph.nodes) {
+        if (!this.hasPlatformBelow(node)) continue;
+        let distance = dist(weaponCenterX, weaponCenterY, node.x, node.y);
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestNode = node;
+        }
+    }
+
+    return closestNode;
+ }
 
   display() {
       let img = Weapon.weaponImages[this.weaponType][this.direction];

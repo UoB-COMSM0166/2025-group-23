@@ -81,7 +81,6 @@ class SettingsPanel {
     });
     select('#mainMenu-btn').mouseReleased(() => {
       soundManager.playSound('buttonClick');
-      soundManager.stopMusic('gameMusic');
       winScreen.initReturnHome();
       this.hide();
     });

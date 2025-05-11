@@ -19,8 +19,7 @@ let gameOver = false;
 let gamePaused = false;
 let countdownActive = false;
 let countdownStartTime = 0;
-let startGameTimeout;
-let loadingScreenTimeout;
+let startGameTimeout, loadingScreenTimeout;
 let gameOverTime;
 let winSoundPlayed = false;
 
@@ -70,7 +69,15 @@ function setup() {
   instructionsPanel = new InstructionsPanel();
 }
 
-function startCountDown() {
+function draw() {
+  background(100);
+
+  map = maps[roundNum];
+  map.updateBackgroundObjects();
+  map.updateAnimation();
+  map.display();
+  Items.displayGameBarImages();
+
   if(countdownActive) {
     let elapsed = millis() - countdownStartTime;
     let countdownText = "";
@@ -86,7 +93,6 @@ function startCountDown() {
     } else {
       countdownActive = false; 
       gameStarted = true;
-      soundManager.playMusic('gameMusic');
       loop();
     }
     textFont(pixelFont);
@@ -96,18 +102,9 @@ function startCountDown() {
     text(countdownText, width/2, height/2);
     return;
   }
-}
 
-function draw() {
-  background(100);
-
-  map = maps[roundNum];
-  map.updateBackgroundObjects();
-  map.updateAnimation();
-  map.display();
-  Items.displayGameBarImages();
-  startCountDown();
   Items.update(); 
+  soundManager.playMusic('gameMusic');
 
   // check if round is over, start next round after 5 seconds
   let winner = checkRoundOver();
@@ -137,7 +134,7 @@ function draw() {
   PowerUps.displayPowerUps();
   
   let paddingWeapon = 100;
-  if (gameStarted && !gameOver && !roundOver && frameCount % 400 === 0) {
+  if (gameStarted && !roundOver && frameCount % 400 === 0) {
     console.log("dropping weapons");
     let weaponNum = random();
     dropWeapon(weaponNum, paddingWeapon, width / 2 - paddingWeapon);
@@ -178,12 +175,6 @@ function draw() {
     PowerUps.shieldConsume(player);
   }
 
- /*  // draw score board for player 1 and player 2
-  push();
-  drawScore(player1Score, LEFT, map.tileSize, map.tileSize * 2);
-  drawScore(player2Score, RIGHT, width - map.tileSize, map.tileSize * 2);
-  pop(); */
-
   Items.displayGameBarImages();
 
   let healthBarPaddingY = Items.gameBar.height - 55;
@@ -216,13 +207,8 @@ function draw() {
 }
 
 function hideAllButtons() {
-  //controlButton.hide();
-  //mapButton.hide();
-  //player1Button.hide();
-  //player2Button.hide();
   settingsPanel.hide();
   instructionsPanel.hide();
-  //mapPage.hide();
   characterPage.hide();
   homePage.hide();
 }

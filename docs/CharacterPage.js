@@ -237,7 +237,7 @@ class CharacterPage {
 
     // Once both players have selected characters, check if the game can start
    if (this.player1Selection && this.player2Selection) {
-     loadingScreenTimeout = setTimeout(() => {
+    loadingScreenTimeout = setTimeout(() => {
       instructionsPanel.show();
      }, 1000);
      startGameTimeout = setTimeout(() => {
@@ -254,9 +254,9 @@ class CharacterPage {
  highlightSelection() {
    select('#char-selection').html(`Character: ${this.characters[this.currentSelection]}`);
    selectAll('.char-option').forEach(el => {
-    el.style('box-shadow', 'none');
-  });
-  select(`#char-${this.characters[this.currentSelection]}`).style('box-shadow', '0px 0px 10px rgba(0, 0, 0, 0.5)');
+     el.style('border', 'none');
+   });
+   select(`#char-${this.characters[this.currentSelection]}`).style('border', '2px solid red');
  }
 
  show() {
