@@ -10,9 +10,9 @@
 * [5. Implementation](#5-implementation)
 * [6. Evaluation](#6-evaluation)
 * [7. Process](#7-process)
-* [8. Sustainability, Ethics and Accessibility](#8-sustainability) 
-* [9. Conclusion](#8-conclusion)
-* [10. References](#9-references)
+* [8. Sustainability, Ethics and Accessibility](#8-sustainability-ethics-and-accessibility) 
+* [9. Conclusion](#9-conclusion)
+* [10. References](#10-references)
 
 # 1. Development Team
 
@@ -652,7 +652,7 @@ This project demonstrated how Agile’s focus on collaboration, flexibility, and
 
 By applying Agile principles, we were able to build a functional and engaging game. Using tools such as Jira, Microsoft Teams, WhatsApp, and PowerPoint, assigning tailored roles, and embracing Scrum’s structure, we overcame challenges and met our objectives. This experience reinforced the importance of iterative planning, proactive communication, and collaborative problem-solving in software development. 
 
-# 8. Sustainability, Ethics and Accessibility 
+# 8. Sustainability, Ethics and Accessibility
 
 Sustainability is now central to software engineering and game development. Following the framework introduced in our sustainability lectures, sustainability can be understood across several dimensions, including environmental, social, technical, individual, and economic aspects. Throughout the design and implementation of Take Aim, our team actively embedded sustainability concerns, particularly focusing on environmental, social, and technical dimensions to ensure ethical and accessible gameplay experiences.
 
