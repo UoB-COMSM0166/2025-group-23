@@ -579,7 +579,7 @@ While scheduling conflicts occasionally delayed decisions, we set clear deadline
 <div align="center">
   <strong>Figure 22.</strong> <br>
   <em>Monitor game development progress using Jira Gantt</em> <br>
-<img src="assets/readmeDoc/JiraGantt.jpeg" alt="Monitor game development progress using Jira Gantt" style="width: 80%" />
+<img src="assets/readmeDoc/JiraGantt.jpeg" alt="Monitor game development progress using Jira Gantt" />
 </div><br>
   
 
